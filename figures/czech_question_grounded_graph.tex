@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={7.8cm, 3.5cm}, text={7.8cm, 4.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+% \selectcolormodel{gray}
+
+% What is Czech_Republic 's language ?
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+\begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.9cm,row
+sep=0.8cm,font=\scriptsize},
+  entity/.style={draw,thick,rectangle,fill=green!20},
+  word/.style={draw,thick,ellipse,fill=blue!20,},
+  mediator/.style={draw,thick,circle},
+  entityType/.style={draw,thick,rounded corners,fill=yellow!20,inner
+sep=.3cm,font=\sffamily\scriptsize},
+  mathType/.style={draw,thick,diamond,fill=red!20},
+  mediatorToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\tiny},
+  typeToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  wordToEntity/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dotted,blue,sloped,above,font=\sffamily\scriptsize},
+  entityToMath/.style={->,>=stealth',shorten >=1pt,ultra
+thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
+  collapseEdge/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dashed,sloped,above,font=\sffamily\scshape,bend right=20},
+  every node/.style={align=center}]
+
+  % Position the nodes using a matrix layout
+  \matrix{
+    \node[entityType] (tLanguage) {language\\.human\_language}; \& \node[mathType] (mLanguage) {\textsc{target}}; \\
+    
+    \node[entity] (eLanguage) {$x$}; \& \node[mediator] (e1) {$m$}; \& \node[entity] (eCzech)[font=\sc] {Czech\\Republic}; \\
+  };
+ 
+  % mediator to entities
+  \draw [mediatorToEntity] (e1) edge node[below] {location.country\\.official\_language.2}  (eLanguage);
+  \draw [mediatorToEntity] (e1) edge node[below] {location.country\\\hspace{-0.2cm}.official\_language.1} (eCzech);
+  
+  % types to entities
+  \draw [typeToEntity] (tLanguage) edge node {type}  (eLanguage);
+  
+  % math types
+  \draw [entityToMath] (eLanguage) edge node {}  (mLanguage);
+\end{tikzpicture}
+\end{center}
+
+\end{document}

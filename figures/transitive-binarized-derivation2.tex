@@ -1,0 +1,24 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{qtree}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={10.5cm, 7cm}, text={10.5cm, 7cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+% (nsubj (attr is (prep (det capital the) (pobj of Texas))) Austin)
+{\textbf{(l-nsubj (l-dobj directed Titanic) Cameron)}\\ \vspace{0.2cm}$\lambda z. \exists x.\exists y. Titanic(x_n) \wedge Cameron(y_n)$ \\ $\wedge\; directed(z_e)$ 
+$\wedge\; arg1(z_e, x_n) \wedge arg2(z_e, y_n)$} \\
+\vspace{0.2cm}
+\end{center}
+\end{document}

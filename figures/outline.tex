@@ -1,0 +1,67 @@
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={14cm, 8cm}, text={14cm, 8cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{graphicx}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+\begin{tikzpicture}[node distance=2cm,
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.8cm,row
+sep=0.4cm,font=\scriptsize},
+  sent/.style={draw,thick,rectangle,fill=green!20,font=\scriptsize},
+  word/.style={draw,thick,ellipse,fill=blue!20},
+  lf/.style={draw,thick,rectangle,fill=yellow!20,font=\scriptsize},
+  word/.style={draw,thick,ellipse,fill=blue!20},
+  figg/.style={thick,rectangle,fill=white!20,font=\scriptsize},
+  word/.style={draw,thick,ellipse,fill=blue!20},
+  mediator/.style={draw,thick,circle},
+  entityType/.style={draw,thick,rounded corners,fill=yellow!20,inner
+sep=.3cm,font=\scriptsize},
+  model/.style={draw,thick,rounded corners,fill=violet!20,inner
+sep=.3cm,font=\scriptsize},
+  mathType/.style={draw,thick,diamond,fill=red!20,font=\sc\scriptsize},
+  mediatorToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  typeToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  wordToEntity/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dotted,blue,sloped,above,font=\sffamily\scriptsize},
+  entityToMath/.style={->,>=stealth',shorten >=1pt,ultra
+thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
+  ans/.style={draw,thick,rectangle},
+  every node/.style={align=center,distance=2cm}]
+
+   \node (webcorpus) [word, xshift=-2cm] {\small Sentences};
+   \node (sentence) [sent,right of=webcorpus, xshift=2cm,fill=white] {\includegraphics[trim=3.8em 0em 5em 6em,clip=true,scale=0.45]{corenlp}
+   };
+   \node (lf) [lf,right of=sentence, xshift=4cm,font=\tiny] {$\lambda x. \exists yz. \mathrm{name}(x_a) \wedge \mathrm{name(x_e)}$ \\$\mathrm{arg_0}(x_e, x_a) \mathrm{of}(x_e, y_a)$ \\ $\wedge \mathrm{company}(y_a) \wedge \mathrm{acquired}(z_e)$ \\ $ \wedge \mathrm{arg_1}(z_e, y_a) \wedge \mathrm{arg_2}(z_e, Pixar)$};
+   \node (ug) [figg,below of=lf, yshift=-1cm] {\includegraphics[scale=0.5]{transitive_ungrounded_mismatch}};
+   \node (db) [figg,left of=ug,xshift=-2cm,yshift=-1cm] {\includegraphics[scale=0.3]{db}};
+   \node (gg) [figg,left of=ug,xshift=-7cm] {\includegraphics[scale=0.5]{transitive_grounded}};
+   \node (mod) [model,below of=db,yshift=-0.7cm] {Denotation-based \\ Learning Model};
+   \node (quest) [sent,left of=mod,xshift=-2.1cm] {Who acquired Pixar?};
+   \node (ans) [ans,right of=mod,xshift=2cm] {\{Disney\}};
+   
+   \draw [mediatorToEntity] (webcorpus) -- node[magenta] {\scriptsize \hspace{-0.2cm}Dependency \\ Parser} (sentence);
+   \draw [mediatorToEntity] (sentence) -- node[blue] {\large DepLambda} (lf);
+   \draw [mediatorToEntity] (ug) -- node[red] {\Large Graph Transduction}  (gg);
+   \draw [entityToMath] (lf) -- (ug);
+   \draw [mediatorToEntity] (ug) -- (mod);
+   \draw [mediatorToEntity] (gg) -- (mod);
+   \draw [mediatorToEntity] (db) -- (mod);
+   \draw [mediatorToEntity] (quest) -- (mod);
+   \draw [mediatorToEntity] (mod) -- (ans);
+\end{tikzpicture} 
+\end{center}
+
+\end{document}

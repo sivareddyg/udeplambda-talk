@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={15cm, 5cm}, text={15cm, 5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+
+
+\usepackage{mathptmx} % font
+\usepackage{mathtools} % fancy arrows
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}[theme = simple]
+\begin{deptext}[column sep=2em,row sep=0.1em]
+company \& located in CA \\
+%\small{\textsc{nnp}} \& \small{\textsc{vbd}} \& \small{\textsc{nnp}} \\
+%\small $\alpha$ \& \small $\alpha \xrightarrow[]{dobj} (\alpha \xrightarrow[]{nsubj} \beta)$ \& \small $\alpha$ \\
+%\subpos{det} \& \subpos{noun} \& \subpos{noun} \& \subpos{verb} \& \subpos{adv} \& \subpos{det} \& \subpos{noun}\\
+\end{deptext}
+\depedge{1}{2}{{\small partmod}}
+%\deproot{2}{{\small root}}
+\end{dependency}
+\end{document}

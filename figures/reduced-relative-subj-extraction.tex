@@ -1,0 +1,27 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={11cm, 3cm}, text={11cm, 2.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   company \& acquired\_by\_Microsoft \\
+   NN \& VBN  \\
+   \end{deptext}
+   \depedge{1}{2}{partmod}
+\end{dependency} \\
+(l-partmod company acquired\_by\_Microsoft)
+\end{center}
+\end{document}

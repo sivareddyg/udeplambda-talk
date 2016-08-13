@@ -1,0 +1,29 @@
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={8cm, 3cm}, text={8cm, 2.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   Bharat \& hates \& salad \& but \& loves \& pizza \\
+   NNP \& VBZ \& NNP \& CC \& VBZ \& NNP \\
+   \end{deptext}
+   \depedge{2}{1}{nsubj}
+   \depedge{2}{3}{dobj}
+   \depedge{5}{6}{dobj}
+   \depedge{2}{5}{vp-conj}
+   \depedge{2}{4}{cc}
+\end{dependency} \\
+\end{center}
+\end{document}

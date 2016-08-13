@@ -1,0 +1,35 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={7cm, 1.8cm}, text={7cm, 1.7cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   Austin \& is \& the \& capital \& of \& Texas \\
+   \end{deptext}
+   %\deproot{3}{ROOT}
+   \depedge{2}{1}{nsubj }
+   \depedge[edge end x offset=-6pt]{4}{3}{det}
+   
+   % \depedge[edge start x offset=-6pt]{2}{5}{ATT}
+   \depedge[edge start x offset=-6pt]{2}{4}{attr}
+   
+   \depedge[edge start x offset=5pt]{4}{5}{prep}
+   \depedge[edge start x offset=6pt]{5}{6}{pobj}
+   % \depedge[arc angle=50]{7}{6}{ATT}
+\end{dependency}
+\end{center}
+
+\end{document}

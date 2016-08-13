@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage{LandP}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{xcolor}
+
+\usepackage[papersize={20cm,20cm}, text={20cm, 20cm}]{geometry}
+
+\begin{document}
+
+\setlength{\tabcolsep}{0.5em}
+\renewcommand{\arraystretch}{1}
+
+\centering
+%\hspace{-2.5cm}
+%\scriptsize
+% (rcmod (det company a) (BIND (nsubj (dobj acquired h) Google) h))
+\begin{tabular}{ccccccccccccccccc}
+
+... & (\textit{partmod} & company & (\textit{prep} & located & (\textit{pobj} & in & CA) & ))...  \\
+ & $\lambda f  g x. \exists z.$ & $\lambda x. \mathrm{compay}(x_a)$ & $\lambda f  g z.$ &  $\lambda x. \mathrm{located}(x_e)$ &  $\lambda f g z. \exists x.\;  $ & $\lambda x. \mathrm{empty}(x)$ & $\lambda x. \mathrm{CA}(x_a)$ \\
+
+& $f(x) \wedge g(z)\,\wedge$  &  &   $f(z) \wedge g(z)$ & &  $f(z) \wedge g(x)$ \\
+
+& $\mathrm{arg_2}(z_e, x_a)$ & & & &  $\mathrm{arg_{in}}(z_e,x_a)$ \\
+
+& & & & & \uline{3} \\
+& & & & & \mc{3}{$\lambda z.\; \mathrm{arg_{in}}(z_e, x_a) \wedge \mathrm{CA}(x_a)$} \\
+\end{tabular}
+\end{document}

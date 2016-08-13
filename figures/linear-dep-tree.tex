@@ -1,0 +1,28 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{qtree}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={16.5cm, 13.5cm}, text={16.5cm, 13.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+% (nsubj (attr is (prep (det capital the) (pobj of Texas))) Austin)
+
+ \Tree [.{nsubj\\$\lambda f. \lambda g. f(g)$} [.{attr\\$\lambda f. \lambda g. f(g)$} {is\\$\lambda f_1.
+\lambda f_2. \exists x.$\\ $ f_1(x) \wedge f_2(x)$} [.{prep\\$\lambda f. \lambda g. g(f)$} [.{det\\$\lambda f. \lambda g. g(f)$} {capital\\$\lambda x : capital(x)$ } {the\\$\lambda f. \lambda x. f(x) \wedge$\\ $\rm{\textsc{unique}}(x)$} ] [.{pobj\\$\lambda f. \lambda g. f(g)$} {of\\$\lambda f_1. \lambda f_2. \exists x . \exists y .$\\ $f_1(x) \wedge f_2(y)\; \wedge$\\ $capital.of.arg1(e,x)\; \wedge $ \\ $capital.of.arg2(e,y)$} {Texas\\$\lambda y : Texas(y)$ } ] ] ] {Austin\\ $\lambda x : Austin(x)$ } ] 
+\vspace{0.5cm}
+\Large (nsubj (attr is (prep (det capital the) (pobj of Texas))) Austin)
+
+\end{center}
+
+\end{document}

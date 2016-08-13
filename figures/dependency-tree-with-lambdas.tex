@@ -1,0 +1,46 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={15.1cm, 2.6cm}, text={15.3cm, 3.3cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=0.5em]
+   Austin \& is \& the \& capital \& of \& Texas \\
+    \footnotesize $\lambda x : Austin(x)$ \& \footnotesize $\lambda f_1.
+\lambda f_2. \exists x. $ \& \footnotesize $\lambda f.
+\lambda x . f(x)\; \wedge\;$ \& \footnotesize $\lambda x : capital(x)$ \&
+\footnotesize $\lambda f_1. \lambda f_2. \exists x . \exists y . \exists e .
+f_1(x) \wedge f_2(y) \wedge$ \& \footnotesize $\lambda
+y : Texas(y)$ \\ 
+ \& \footnotesize $f_1(x) \wedge f_2(x)$ \& \footnotesize
+$\mathrm{\textsc{unique}}(x)$ \& \& \footnotesize $capital.of.arg1(e, x)\;\wedge
+$ \& \\
+ \& \& \& \& \footnotesize $capital.of.arg2(e, y) $ \& \\
+   \end{deptext}
+   %\deproot{3}{ROOT}
+   \depedge{2}{1}{nsubj : $\lambda f. \lambda g. f(g)$ }
+   \depedge[edge end x offset=-6pt]{4}{3}{det : $\lambda f. \lambda g. g(f)$}
+   
+   % \depedge[edge start x offset=-6pt]{2}{5}{ATT}
+   \depedge[edge start x offset=-6pt]{2}{4}{attr :  $\lambda f. \lambda g. f(g)$
+}
+   
+   \depedge[edge start x offset=5pt]{4}{5}{prep : $\lambda f. \lambda g. g(f)$}
+   \depedge[edge start x offset=6pt]{5}{6}{pobj : $\lambda f. \lambda g. f(g)$}
+   % \depedge[arc angle=50]{7}{6}{ATT}
+\end{dependency}
+\end{center}
+
+\end{document}

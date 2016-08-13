@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={20cm, 10cm}, text={20cm, 10cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+\usepackage{tikz}
+\usetikzlibrary{chains,arrows}
+
+\usepackage{mathptmx} % font
+\usepackage{mathtools} % fancy arrows
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}[theme = simple]
+\begin{deptext}[column sep=1em,row sep=0.1em]
+Disney \& acquired \& Pixar \& in \& 2006 \\
+%\small{\textsc{nnp}} \& \small{\textsc{vbd}} \& \small{\textsc{nnp}} \& \small{\textsc{in}} \& \small{\textsc{cd}} \\
+\small $\alpha$ \& \small $\alpha \xrightarrow[]{dobj} (\alpha \xrightarrow[]{nsubj} \beta)$ \& \small $\alpha$ \& \small $\alpha \xrightarrow[]{pobj}$ \& \small $\alpha$ \\
+\& \& \& \small $((\alpha \xrightarrow[]{nsubj} \beta) \xrightarrow[]{prep'} (\alpha \xrightarrow[]{nsubj} \beta))$  \\
+%\subpos{det} \& \subpos{noun} \& \subpos{noun} \& \subpos{verb} \& \subpos{adv} \& \subpos{det} \& \subpos{noun}\\
+\end{deptext}
+\depedge[arc angle=30]{2}{1}{{\small nsubj}}
+\depedge[arc angle=30]{2}{3}{{\small dobj}}
+\depedge[arc angle=60]{2}{4}{{\small prep}}
+\depedge[arc angle=60]{4}{5}{{\small pobj}}
+\deproot[edge unit distance=2ex]{2}{{\small root}}
+
+\draw [transform canvas={yshift=-1.5cm},thick,->] (\wordref{1}{4}.west)-- node[below] {\small $(\alpha \xrightarrow[]{nsubj} \beta) \xrightarrow[]{prep'} (\alpha \xrightarrow[]{nsubj} \beta)$} (\wordref{1}{5}.east);
+\draw [transform canvas={yshift=-1.5cm},thick,->] (\wordref{1}{2}.west)-- node[below] {\small $(\alpha \xrightarrow[]{nsubj} \beta)$} (\wordref{1}{3}.east);
+\draw [transform canvas={yshift=-2.5cm},thick,->] (\wordref{1}{5}.east)-- node[below] {\small $(\alpha \xrightarrow[]{nsubj} \beta)$} (\wordref{1}{2}.west);
+\draw [transform canvas={yshift=-3.5cm},thick,->] (\wordref{1}{5}.east)-- node[below] {\small $\beta$} (\wordref{1}{1}.west);
+%\path (\wordref{1}{4}) edge [->, link,transform canvas={xshift=-3mm}] node[above,xshift=-1.5mm] {\small test} (\wordref{1}{5});
+%\depedge[edge vertical padding=-2cm,arc angle=180,edge style={blue!60!black,ultra thick},label style={below}]{5}{4}{{\small pobj}}
+\end{dependency}
+
+\end{document}

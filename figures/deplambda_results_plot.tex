@@ -1,0 +1,128 @@
+%\documentclass[a0paper,10pt]{article}
+%\usepackage[utf8]{inputenc}
+
+\documentclass{article}
+\usepackage{filecontents}
+\usepackage{tikz}
+\usepackage{pgfplots,pgfplotstable} 
+\usepackage[papersize={30cm, 40cm}, text={10cm, 40cm}]{geometry}
+
+
+\pgfplotsset{
+    discard if/.style 2 args={
+        x filter/.code={
+            \ifdim\thisrow{#1} pt=#2pt
+                \def\pgfmathresult{inf}
+            \fi
+        }
+    },
+    discard if not/.style 2 args={
+        x filter/.code={
+            \ifdim\thisrow{#1} pt=#2pt
+            \else
+                \def\pgfmathresult{inf}
+            \fi
+        }
+    }
+}
+
+% in the preamble
+\begin{filecontents}{jobs.dat}
+Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
+1   {\rotatebox{90}{\huge \textsc{Yao15}}}    44.3 44.3
+2   {\rotatebox{90}{\huge \textsc{Bast15}}}       49.4 49.4
+3   {\rotatebox{90}{\huge \textsc{Berant15}}}     49.7 49.7
+4   {\rotatebox{90}{\huge \textsc{SimpleGraph}}}   48.5 48.5
+5   {\rotatebox{90}{\huge \textsc{CCGGraph}}}   48.6 48.6
+6   {\rotatebox{90}{\huge \textsc{DepTree}}}   40.4 40.4
+7   {\rotatebox{90}{\huge \textsc{DepLambda}}}   50.3 50.3
+8   {\rotatebox{90}{\huge \textsc{Yih15}}}   52.5 52.5
+\end{filecontents}
+
+\begin{document}
+% in the main text
+\begin{center}
+\hspace*{-6cm}\begin{tikzpicture}
+\begin{axis}[
+    width=1.5\textwidth,
+    bar width=30pt,
+    ybar,
+    xtick={1,...,11},
+    xticklabels from table = {jobs.dat}{PP},
+    xtick align=inside,
+    xlabel={},
+    every axis x label/.style={at={(ticklabel cs:0.5)},anchor=near ticklabel},
+    ylabel={\Huge{Average F$_1$}},
+    every axis y label/.style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel}
+]
+
+\addplot[ybar, bar shift=0pt, fill=gray,
+    discard if={Wert}{11},
+    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
+    every node near coord/.style={
+        font=\Huge,
+        /pgf/number format/precision=100
+    },
+    point meta=explicit] table [
+    x=Wert,
+    y=HaeufigkeitAbs,
+    meta=HaeufigkeitRel
+] {jobs.dat} ;
+
+\addplot[ybar, bar shift=0pt, fill=blue,
+    discard if not={Wert}{4},
+    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
+    every node near coord/.style={
+        font=\Huge,
+        /pgf/number format/precision=100
+    },
+    point meta=explicit] table [
+    x=Wert,
+    y=HaeufigkeitAbs,
+    meta=HaeufigkeitRel
+] {jobs.dat} ;
+
+
+\addplot[ybar, bar shift=0pt, fill=violet,
+    discard if not={Wert}{5},
+    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
+    every node near coord/.style={
+        font=\Huge,
+        /pgf/number format/precision=100
+    },
+    point meta=explicit] table [
+    x=Wert,
+    y=HaeufigkeitAbs,
+    meta=HaeufigkeitRel
+] {jobs.dat} ;
+
+\addplot[ybar, bar shift=0pt, fill=magenta,
+    discard if not={Wert}{6},
+    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
+    every node near coord/.style={
+        font=\Huge,
+        /pgf/number format/precision=100
+    },
+    point meta=explicit] table [
+    x=Wert,
+    y=HaeufigkeitAbs,
+    meta=HaeufigkeitRel
+] {jobs.dat} ;
+
+\addplot[ybar, bar shift=0pt, fill=red,
+    discard if not={Wert}{7},
+    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
+    every node near coord/.style={
+        font=\Huge,
+        /pgf/number format/precision=100
+    },
+    point meta=explicit] table [
+    x=Wert,
+    y=HaeufigkeitAbs,
+    meta=HaeufigkeitRel
+] {jobs.dat} ;
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{document}

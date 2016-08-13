@@ -1,0 +1,50 @@
+\documentclass[11pt]{article}
+\usepackage{LandP}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{xcolor}
+
+\usepackage[papersize={13.5cm,8cm}, text={13cm, 8cm}]{geometry}
+
+\begin{document}
+
+\setlength{\tabcolsep}{0.5em}
+\renewcommand{\arraystretch}{1}
+
+\centering
+%\hspace{-2.5cm}
+%\scriptsize
+% (rcmod (det company a) (BIND (nsubj (dobj acquired h) Google) h))
+\begin{tabular}{ccccccccccccccccc}
+
+  (\textit{nsubj} & (\textit{dobj} & \color{red} acquired & \color{blue} Pixar) & Disney)  \\
+$\lambda f g z.\; \exists x.\; $ & $\lambda f  g z. \exists y.$ & $\lambda z. \mathrm{acquired}(z_e)$ & $\lambda y. \mathrm{Pixar}(y_a)$ & $\lambda x. \mathrm{Disney}(x_a)$ \\
+
+$f(z) \wedge g(x)\,\wedge$ & $f(z) \wedge g(y)\,\wedge$  &  & & \\
+
+$\mathrm{arg_1}(z_e,x_a)$ & $\mathrm{arg_2}(z_e, y_a)$ & & & \\
+
+& \uline{2} \\
+& \mc{2}{$\lambda g z.\; \exists y.\; \mathrm{acquired}(z_e) \wedge g(y)$}  \\
+& \mc{2}{$\wedge\; \mathrm{arg_2}(z_e, y_a)$} \\
+
+
+& \uline{3} \\
+& \mc{3}{$\lambda z.\; \exists y.\; \mathrm{acquired}(z_e) \wedge \mathrm{Pixar}(y_a)$}  \\
+& \mc{3}{$\wedge\; \mathrm{arg_2}(z_e, y_a)$} \\
+
+\uline{4} \\
+\mc{4}{$\lambda g z. \exists x y. \mathrm{acquired}(z_e) \wedge \mathrm{Pixar}(y_a) \wedge \mathrm{arg_2}(z_e, y_a)\,\wedge $}  \\
+\mc{4}{$\mathrm{g}(x) \wedge \mathrm{arg_1}(z_e,x_a)$} \\
+
+
+\uline{5} \\
+\mc{5}{$\lambda z. \exists x y. \mathrm{acquired}(z_e) \wedge \mathrm{Pixar}(y_a) \wedge \mathrm{arg_2}(z_e, y_a)\,\wedge $}  \\
+\mc{5}{$\mathrm{Disney}(x_a) \wedge \mathrm{arg_1}(z_e,x_a)$} \\
+
+\end{tabular}
+\end{document}

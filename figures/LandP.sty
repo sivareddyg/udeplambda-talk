@@ -1,0 +1,391 @@
+\oddsidemargin=.875in
+\evensidemargin=.875in
+\parindent=1.5em
+\parskip=0ex
+\headsep=2.5ex
+\textwidth=4.5in
+\textheight=7.5in
+
+%\sloppy
+\raggedbottom
+\tolerance=1000
+\emergencystretch=1em
+\newcommand{\longpage}{\enlargethispage{\baselineskip}}
+\newcommand{\shortpage}{\enlargethispage{-\baselineskip}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Line Spacing (e.g., \ls{1} for single, \ls{2} for double, even \ls{1.5})
+%%  This macro was borrowed from Jim Kurose
+
+\newcommand{\ls}[1]
+   {\dimen0=\fontdimen6\the\font 
+    \lineskip=#1\dimen0
+    \advance\lineskip.5\fontdimen5\the\font
+    \advance\lineskip-\dimen0
+    \lineskiplimit=.9\lineskip
+    \baselineskip=\lineskip
+    \advance\baselineskip\dimen0
+    \normallineskip\lineskip
+    \normallineskiplimit\lineskiplimit
+    \normalbaselineskip\baselineskip
+    \ignorespaces
+   }
+
+%%** you'll want this if you have anything but single spacing
+%% Fixes the bad spacing in footnotes,  Including the latex
+%% linespacing artefact that arizes from $^{\@thefnmark}$
+
+% the following is specific to 10pt style
+\makeatletter
+%\renewcommand{\footnoterule}{\vspace*{-1pt}\rule{1in}{0.4pt}\vspace*{5pt}}
+\renewcommand{\@makefnmark}{\raisebox{4pt}[0pt][0pt]{\scriptsize\@thefnmark}}
+\renewcommand{\@makefntext}[1]%
+ {\noindent\raisebox{4pt}[0pt][0pt]{\tiny\@thefnmark}\/#1}
+%\renewcommand{\@makeenmark}{\raisebox{4pt}[0pt][0pt]{\scriptsize\@theenmark}}
+\makeatother
+
+\newcommand{\fn}[1]
+           {\setcounter{fnexample}{0}\footnote{\ls{.92}#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% DIY LI Headings
+\makeatletter
+\def\section{\@startsection {section}{1}{\z@}{-15pt}{7.5pt}{\centering\normalsize\sc}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-11pt}{7.5pt}{\centering\normalsize\itshape}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-11pt}{7.5pt}{\normalsize\itshape}} 
+\def\paragraph{\@startsection
+ {paragraph}{4}{\z@}{0pt}{0pt}{\normalsize\itshape}}
+\def\subparagraph{\@startsection
+ {subparagraph}{4}{\parindent}{0pt}{0pt}{\normalsize\itshape}}
+
+
+\setcounter{secnumdepth}{3}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fool with the bibliography header-- from csli stuff
+%    ****************************************
+%    *             BIBLIOGRAPHY             *
+%    ****************************************
+%
+% The thebibliography environment executes the following commands:
+%
+%  \def\newblock{\hskip .11em plus .33em minus .07em} --
+%      Defines the `closed' format, where the blocks (major units of 
+%      information) of an entry run together.
+%
+%  \sloppy  -- Used because it's rather hard to do line breaks in 
+%      bibliographies,
+% 
+%  \sfcode`\.=1000\relax --
+%      Causes a `.' (period) not to produce an end-of-sentence space.
+%
+
+
+\def\thebibliography#1{\section*{References}
+%  \addcontentsline{toc}{chapter}{References}
+\list{}{\setlength{\labelwidth}{0pt}\setlength{\leftmargin}{0pt}
+%\settowidth\labelwidth{#1}\leftmargin\labelwidth
+%    \advance\leftmargin\labelsep 
+    \advance\itemsep by -7pt% this instruction should be -7 for 10pt
+    \usecounter{enumi}}
+    \def\newblock{\hskip .11em plus .33em minus .07em}
+    \sloppy\clubpenalty4000\widowpenalty4000
+    \small
+    \sfcode`\.=1000\relax}
+
+\let\endthebibliography=\endlist
+
+
+% \def\@biblabel#1{[#1]\hfill}  % Produces the label for a \bibitem[...]
+                                % command. 
+% \def\@cite#1{[#1]}            % Produces the output of the \cite command.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% fool with theindex
+\makeatletter
+% frigged from /pkg/tex-3.14/lib/texmf/tex/latex2e/base/book.cls
+\renewenvironment{theindex}
+               {\if@twocolumn
+                  \@restonecolfalse
+                \else
+                  \@restonecoltrue
+                \fi
+                \columnseprule \z@
+                \columnsep 12\p@ % mjs frigged from 35\p@
+                \parindent\z@    % mjs frigged
+                \twocolumn[\section*{Index}]      %mjs frigged here
+%                \chaptermark{Index}              %and here
+%                \twocolumn[\@makeschapterhead{\indexname}]% here ...
+%%                \@mkboth{\MakeUppercase\indexname}%mjs frigged here ...
+%%                        {\MakeUppercase\indexname}%here ...
+%                \thispagestyle{empty}\parindent\z@ % and here.
+%                \parskip\z@ \@plus .3\p@\relax
+                \let\item\@idxitem
+                \footnotesize\ls{.78}}       %here too
+               {\if@restonecol\onecolumn\else\clearpage\fi}
+\renewcommand\@idxitem{\par\hangindent 40\p@}
+\renewcommand\subitem{\par\hangindent 40\p@ \hspace*{8\p@}}     %here
+\renewcommand\subsubitem{\par\hangindent 40\p@ \hspace*{12\p@}} %and here
+\renewcommand\indexspace{\par \vskip 10\p@ \@plus5\p@ \@minus3\p@\relax} %and here
+\makeatother
+\newcommand{\Index}[1]{#1\index{#1}}
+\makeindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% CCG stuff originally by B. Hoffman, modified by mjs
+%frig \mathbf for combinators to sans:
+\DeclareMathAlphabet{\mathbf}{OT1}{cmss}{bx}{n}
+
+\newcommand{\bs}{\backslash}
+\newcommand{\Tc}{\mathbf{T}}
+\newcommand{\Bc}{\mathbf{B}}
+\newcommand{\Sc}{\mathbf{S}}
+\newcommand{\bu}{\%}%{\S}%{\letterspace to 0.82\naturalwidth{\%\%}}
+\newcommand{\mathasterisk}{\raisebox{0pt}{*}}%an asterisk raised as in
+					     %textmode for mathmode
+%%%% Baldridge modal slashes
+\newcommand{\fxs}	 %forward crossing slash, math environment only
+{/\makebox[.25em][r]{\raisebox{-3pt}{\scriptsize$\times$}}}
+\newcommand{\bxs}	 % backward crossing slash, math environment only
+{\bs\makebox[.5em][r]{\raisebox{-3pt}{\scriptsize$\times$}}}
+
+\newcommand{\fdots}	 %forward dot slash, math environment only
+{/\makebox[.05em][r]{\raisebox{-2pt}{\scriptsize$\cdot$}}}
+\newcommand{\bdots}	 % backward dot slash, math environment only
+{\bs\makebox[.2em][r]{\raisebox{-2pt}{\scriptsize$\cdot$}}}
+
+\newcommand{\fds}	 %forward diamond slash, math environment only
+{/\makebox[.1em][r]{\raisebox{-3pt}{\scriptsize$\diamond$}}}
+\newcommand{\bds}	 % backward diamond slash, math environment only
+{\bs\makebox[.4em][r]{\raisebox{-3pt}{\scriptsize$\diamond$}}}
+
+\newcommand{\fstars}	 %forward star slash, math environment only
+{/\makebox[.1em][r]{\raisebox{-3pt}{\scriptsize$\star$}}}
+\newcommand{\bstars}	 % backward star slash, math environment only
+{\bs\makebox[.4em][r]{\raisebox{-3pt}{\scriptsize$\star$}}}
+
+\newcommand{\findexs}	 %forward i slash, math environment only
+{/\makebox[.1em][r]{\raisebox{-3pt}{\scriptsize$i$}}}
+\newcommand{\bindexs}	 % backward i slash, math environment only
+{\bs\makebox[.4em][r]{\raisebox{-3pt}{\scriptsize$i$}}}
+
+%frig \mathbf for combinators to sans:
+\DeclareMathAlphabet{\mathbf}{OT1}{cmss}{bx}{n}
+
+%somehow does #1 many c's
+% CCG derivations
+% arguments: #1 = no. of words, #2 = body
+\newcommand{\deriv}[2]
+{ %\arraycolsep=.25em
+   \renewcommand{\arraystretch}{.5}
+  $\begin{array}[t]{@{}*{#1}{c@{~~}}}
+     #2
+   \end{array}$ }
+
+% centered multicolumn, 
+\newcommand{\mc}[2]
+  {\multicolumn{#1}{c}{#2}}
+%\newcommand{\less}{\\ \vspace{-.5ex}}
+% Rules, argument #1 gives the number of columns to cover.
+\newcommand{\uline}[1]
+{\mc{#1}{\hrulefill} }
+\newcommand{\fapply}[1]
+{ \mc{#1}{\hrulefill_{>}} }
+\newcommand{\bapply}[1]
+{ \mc{#1}{\hrulefill_{<}} }
+\newcommand{\lex}[1]
+{ \mc{#1}{\hrulefill_{lex}} }
+\newcommand{\fcomp}[1]
+{ \mc{#1}{\hrulefill_{{>}\mathbf{B}}}}
+\newcommand{\fxcomp}[1]
+{ \mc{#1}{\hrulefill_{{>}\mathbf{B}_{\times}}}}
+\newcommand{\fcomptwo}[1]
+{ \mc{#1}{\hrulefill_{{>}\mathbf{B}^2}}}
+\newcommand{\fxcomptwo}[1]
+{ \mc{#1}{\hrulefill_{{>}\mathbf{B}_{\times}^2}}}
+\newcommand{\fcompthree}[1]
+{ \mc{#1}{\hrulefill_{{>}\mathbf{B}^3}}}
+\newcommand{\bcomp}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{B}}}}
+\newcommand{\bxcomp}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{B}_{\times}}}}
+\newcommand{\bcomptwo}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{B}^2}}}
+\newcommand{\bxcomptwo}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{B}_{\times}^2}}}
+\newcommand{\bcompthree}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{B}^3}}}
+\newcommand{\bxcompthree}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{B}_{\times}^3}}}
+\newcommand{\fsubst}[1]
+{ \mc{#1}{\hrulefill_{{>}\mathbf{S}}}}
+\newcommand{\fxsubst}[1]
+{ \mc{#1}{\hrulefill_{{>}\mathbf{S}_{\times}}}}
+\newcommand{\bxsubst}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{S}_{\times}}}}
+\newcommand{\ftype}[1]
+{ \mc{#1}{\hrulefill_{{>}\mathbf{T}}}}
+\newcommand{\btype}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{T}}}}
+\newcommand{\conj}[1]
+{ \mc{#1}{\hrulefill_{{<}\Phi{>}}}}
+\newcommand{\boundary}[1]
+{ \mc{#1}{\hrulefill_{{<}\mathbf{\%}}}}
+\newcommand{\asterisk}[1]
+{ \mc{#1}{\hrulefill_{\mathbf{*}}}}
+\newcommand{\comb}[2] % an arbitrary combinator
+{ \mc{#1}{\hrulefill_{#2}}}
+\newcommand{\dcomp}[2] % an arbitrary dcomposition
+{ \mc{#1}{\dotfill_{#2}}}
+\newcommand{\unfreeze}[1]
+{\mc{#1}{\hrulefill_{\mathbf{@}}}  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% stuff to allow stuff besides brackets in citation labels
+\makeatletter
+\newcommand{\citedelimiters}[2]{    %change opening and closing brackets
+\def\@cite##1##2{#1{##1\if@tempswa , ##2\fi}#2}
+\def\@biblabel##1{#1##1#2\hfill}
+}
+\makeatother
+
+\citedelimiters{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Examples
+%%Notice that the example envirnment shrinks tabcolsep
+
+\newcounter{example}
+\newlength{\labellength}
+\newlength{\textlength}
+
+\newenvironment{example}
+{\begin{list}{}{\setlength{\itemindent}{0em}\settowidth{\labelwidth}{(\theexample)}\setlength{\labelsep}{0.5em}\settowidth{\leftmargin}{(\theexample)\makebox[0.5em]{}}\setlength{\topsep}{5pt}\setlength{\partopsep}{0ex}}
+\refstepcounter{example}\setlength{\tabcolsep}{1pt}}{\end{list}}
+
+\newcommand{\startx} %cg example
+ {\begin{example}\rm\settowidth{\labellength}{(\theexample)\makebox[0.5em]{}}\setlength{\textlength}{\columnwidth}\addtolength{\textlength}{-\labellength}
+  \item[(\theexample)]\begin{minipage}[t]{\textlength}}
+
+\newcommand{\startxl}[1] %labelled cg example
+ {\begin{example}\rm\settowidth{\labellength}{(\theexample)\makebox[0.5em]{}}\setlength{\textlength}{\columnwidth}\addtolength{\textlength}{-\labellength}
+  \label{#1}
+  \item[(\theexample)]\begin{minipage}[t]{\textlength}}
+
+\newcommand{\startpx} %paragraph example
+ {\begin{example}\rm\settowidth{\labellength}{(\theexample)\makebox[0.5em]{}}\setlength{\textlength}{\columnwidth}\addtolength{\textlength}{-\labellength}
+  \item[(\theexample)]\begin{minipage}[t]{\textlength}}%{3.5in}}
+
+\newcommand{\startpxl}[1] %labelled paragraph example
+ {\begin{example}\rm\settowidth{\labellength}{(\theexample)\makebox[0.5em]{}}\setlength{\textlength}{\columnwidth}\addtolength{\textlength}{-\labellength}
+  \label{#1}
+  \item[(\theexample)]\begin{minipage}[t]{\textlength}}
+
+\newcommand{\stopx} %end all numbered example
+ {\end{minipage}
+  \end{example}}
+
+%\newcommand{\startfnx}[1] %cg example IN A FOOTNOTE--OBSOLETE BUGGY
+% {\par\noindent #1\makebox[.5em]{}
+%  \setlength{\tabcolsep}{1pt}\settowidth{\labellength}{#1\makebox[0.5em]{}}\setlength{\textlength}{\columnwidth}\addtolength{\textlength}{-\labellength}
+%  \begin{minipage}[t]{\textlength}}
+%
+%\newcommand{\stopfnx} %end example in footnote
+% {\end{minipage}\\}
+%
+
+\newcounter{fnexample}
+\newenvironment{fnexample} 
+{\begin{list}{}{\setlength{\itemindent}{0em}\settowidth{\labelwidth}{(\roman{fnexample})}\setlength{\labelsep}{0.5em}\settowidth{\leftmargin}{(\roman{fnexample})\makebox[0.5em]{}}\setlength{\topsep}{0pt}\setlength{\partopsep}{0ex}}
+\refstepcounter{fnexample}\setlength{\tabcolsep}{1pt}}{\end{list}}
+
+\newcommand{\startfnx} %cg example IN A FOOTNOTE DOES NOT TAKE ARG #1
+ {\begin{fnexample}\rm\settowidth{\labellength}{(\roman{fnexample})\makebox[0.5em]{}}\setlength{\textlength}{\columnwidth}\addtolength{\textlength}{-\labellength}
+ \item[(\roman{fnexample})]\begin{minipage}[t]{\textlength}}
+
+\newcommand{\stopfnx} %end example in footnote/endnote
+ {\end{minipage}
+  \end{fnexample}}
+
+\newcommand{\lefta}[1]{\stackrel{\leftarrow}{#1}}
+\newcommand{\righta}[1]{\stackrel{\rightarrow}{#1}}
+
+\newcommand{\exref}[2][\mbox{}]{(\ref{#2}#1)}
+
+% the body of an example made up of several unlabelled items
+\newenvironment{exlist}{\begin{list}{}{\setlength{\itemsep}{0ex}\setlength{\parsep}{\parskip}\setlength{\leftmargin}{0in}\setlength{\itemindent}{0ex}\setlength{\labelsep}{0em}\setlength{\labelwidth}{0em}\setlength{\topsep}{0ex}\setlength{\partopsep}{0ex}}}{\end{list}}
+
+\newcounter{lexlistcounter}
+% the body of an example made up of several LABELLED items
+\newenvironment{lexlist}{\begin{list}{\alph{lexlistcounter}.}{\usecounter{lexlistcounter}\setlength{\itemsep}{0ex}\setlength{\parsep}{\parskip}\settowidth{\leftmargin}{\thelexlistcounter .\makebox[0.5em]{}}\setlength{\labelsep}{0.5em}
+\setlength{\itemindent}{0em}\setlength{\topsep}{0ex}\setlength{\partopsep}{0ex}\setlength{\labelwidth}{1em}
+}}{\end{list}}
+
+\newcounter{nexlistcounter}
+% the body of an example made up of several LEFT-JUSTIFIED ROMAN NUMBERED items
+\newenvironment{nexlist}[1]{\begin{list}{\roman{nexlistcounter}.\hfill}{\usecounter{nexlistcounter}\setlength{\itemsep}{0ex}\setlength{\parsep}{\parskip}\settowidth{\labelwidth}{#1 .}\addtolength{\labelwidth}{0.25em}\setlength{\labelsep}{0.0em}
+\setlength{\itemindent}{0em}\setlength{\topsep}{0ex}\setlength{\partopsep}{0ex}\setlength{\leftmargin}{\labelwidth}%\addtolength{\leftmargin}{0.5em}
+}}{\end{list}}
+
+%\newcounter{nexlistcounter}
+%% the body of an example made up of several NUMBERED items
+%\newenvironment{nexlist}{\begin{list}{\arabic{nexlistcounter}.}{\usecounter{nexlistcounter}\setlength{\itemsep}{0ex}\setlength{\parsep}{\parskip}\setlength{\leftmargin}{2em}\setlength{\labelsep}{1em}
+%\setlength{\itemindent}{0em}\setlength{\topsep}{0ex}\setlength{\partopsep}{0ex}\setlength{\labelwidth}{2em}
+%}}{\end{list}}
+
+% for figures
+% FIGURES
+\newenvironment{myfigure}{\begin{figure}[t]}{\end{figure}}
+
+\newcounter{myfigure}
+\newcommand{\mycaption}[1]{\vskip
+10pt\refstepcounter{myfigure}\begin{minipage}{\columnwidth}{\bf
+Figure \themyfigure \\} {\rm #1}\end{minipage}}
+
+\newcommand{\ldb} % left double bracket math mode
+{[ \makebox[.1em][r]{\raisebox{0ex}{$[$}}}
+
+\newcommand{\rdb} % right double bracket math mode
+{] \makebox[.1em][r]{\raisebox{0ex}{$]$}}}
+
+% superscripts and subscripts *in text*
+\newcommand{\textsup}[1]{\raisebox{.8ex}[0pt][0pt]{\scriptsize#1}}
+\newcommand{\textsub}[1]{\raisebox{-.8ex}[0pt][0pt]{\scriptsize#1}}
+
+% make an empty box the width of text #1
+\newlength{\mystringwidth}
+\newcommand{\makeboxtowidth}[1]{\settowidth{\mystringwidth}{#1}\makebox[\mystringwidth]{}}
+
+\newcommand{\hangingpar}[4]{#1#3}%a dummy
+
+%%%Stuff to hang a long example beneath things like *prefixes
+\newlength{\funnylength}
+\newlength{\hanginglength}
+\newcommand{\myindent}[1]{\settowidth{\hanginglength}{#1}\makebox[\hanginglength]{}}%indents width of #1
+\newcommand{\starindent}{\myindent{*}}%indents an asterisk worth
+\newcommand{\hangmyindent}[2]{\setlength{\funnylength}{\linewidth}\settowidth{\hanginglength}{#1}\addtolength{\funnylength}{-\hanginglength}\parbox[t]{\funnylength}{#2}}%makes parbox right size
+
+
+% LDEC logical connectives
+\newcommand{\cfimplies}  % Lewis' counterfactual implication (math
+			 % environment only)
+{\Box \makebox[.85em][r]{\raisebox{.25ex}{$\rightarrow$}}}
+
+\newcommand{\notentails} % Does not entail (math
+			 % environment only)
+{\entails \makebox[0em][r]{\raisebox{0ex}{$/~~$}}}
+
+\newcommand{\entails}    % entails (math
+			 % environment only)
+{\models \makebox[.2em][r]{\raisebox{0ex}{}}}
+
+\newcommand{\compose}    % functional composition (math
+			 % environment only)
+{\makebox{\raisebox{0ex}{\small$~\circ~$}}}
+
+\newcommand{\lolly}	 %linear implication (math
+			 % environment only)
+{\mbox{~~--\makebox[.65em][r]{\raisebox{0pt}{\compose}}}}
+

@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={10.5cm, 3.5cm}, text={10.5cm, 3.6cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+% \selectcolormodel{gray}
+
+% What is the name of the company that acquired Google?
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+\begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.9cm,row
+sep=0.8cm,font=\scriptsize},
+  entity/.style={draw,thick,rectangle,fill=green!20},
+  word/.style={draw,thick,ellipse,fill=blue!20,},
+  mediator/.style={draw,thick,circle},
+  entityType/.style={draw,thick,rounded corners,fill=yellow!20,inner
+sep=.3cm,font=\sffamily\scriptsize},
+  mathType/.style={draw,thick,diamond,fill=red!20},
+  mediatorToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  typeToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  wordToEntity/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dotted,blue,sloped,above,font=\sffamily\scriptsize},
+  entityToMath/.style={->,>=stealth',shorten >=1pt,ultra
+thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
+  collapseEdge/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dashed,sloped,above,font=\sffamily\scshape,bend right=20},
+  every node/.style={align=center}]
+
+  % Position the nodes using a matrix layout
+  \matrix{
+    \node[entityType] (tLanguage) {name}; \& \node[mathType] (mName) {\textsc{target}}; \& \node[entityType] (tCompany) {company}; \\
+    
+    \node[entity] (eName) {$x$}; \& \node[mediator] (e1) {$e_1$}; \& \node[entity] (eCompany) {$y$}; \& \node[mediator] (e2) {$e_2$}; \& \node[entity] (ePixar) {Pixar}; \\
+  };
+ 
+  % mediator to entities
+  \draw [mediatorToEntity] (e1) edge node[below] {name\\.arg0}  (eName);
+  \draw [mediatorToEntity] (e1) edge node[below] {name.of} (eCompany);
+  
+  \draw [mediatorToEntity] (e2) edge node[below] {acquired\\.arg1}  (eCompany);
+  \draw [mediatorToEntity] (e2) edge node[below] {acquired\\.arg2} (ePixar);
+  
+  % types to entities
+  \draw [typeToEntity] (tLanguage) edge node {type}  (eName);
+  \draw [typeToEntity] (tCompany) edge node {type}  (eCompany);
+  
+  % math types
+  \draw [entityToMath] (eName) edge node {}  (mName);
+\end{tikzpicture}
+\end{center}
+
+\end{document}

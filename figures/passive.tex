@@ -1,0 +1,30 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={11cm, 3cm}, text={11cm, 2.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   Titanic \& was \& released \& in \& 1997 \\
+   NNP \& VBD \& VBN \& IN \& NNP \\
+   \end{deptext}
+   \depedge{3}{1}{nsubjpass}
+   \depedge{3}{2}{auxpass}
+   \depedge{3}{4}{prep}
+   \depedge{4}{5}{pobj}
+\end{dependency} \\
+(l-nsubjpass (l-auxpass (l-prep released (l-pobj in 1997))) was) Titanic)
+\end{center}
+\end{document}

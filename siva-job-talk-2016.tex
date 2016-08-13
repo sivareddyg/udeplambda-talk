@@ -1,0 +1,1185 @@
+\documentclass[mathserif,12pt]{beamer}
+ 
+\mode<presentation>
+{
+%\usetheme{CambridgeUS}
+\usetheme{Boadilla}
+%\usecolortheme{whale}
+%\usecolortheme{seahorse} % light blue 
+%\usecolortheme{whale} % dark blue
+%\usecolortheme{dolphin} %blue and black
+\beamertemplatenavigationsymbolsempty
+\setbeamercovered{transparent}
+\setbeamercovered{dynamic}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{footline}[frame number]{}
+}
+
+
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+% \usetikzlibrary{fadings,shapes.arrows,shadows,arrows} 
+% \usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\definecolor{brown}{RGB}{123,50,148}
+
+% \usepackage{dcolumn}
+% \usepackage{transparent}
+% font definitions, try \usepackage{ae} instead of the following
+% three lines if you don't like this look
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+
+% \usepackage{courier}
+% \usepackage{latexsym}
+% \usepackage{multirow} 
+% \usepackage{fancybox}
+\usepackage{xspace}
+%\usepackage{color}
+% \usepackage{wrapfig}
+% \usepackage{graphicx}
+% \usepackage{epsfig}
+% \usepackage{fancyhdr}
+% \usepackage{natbib}
+% \bibliographystyle{apalike}
+% \usepackage[T1]{fontenc}
+% \usepackage{amsmath}
+% \usepackage{mathtools}
+% \usepackage{subfloat}
+% \usepackage{subfig}
+% \usepackage{rotating}
+% \usepackage[export]{adjustbox}
+\usepackage{booktabs}
+
+\usepackage{algorithmic}
+
+\usepackage{xkeyval}
+\usepackage{xargs} % commandx 
+\usepackage{todonotes}
+%\usepackage{marginnote}
+\usepackage{xspace}
+\presetkeys{todonotes}{inline}{}
+%\newcommandx{\todoir}[2][1=]{\todo[inline]{SR: #2}\xspace}
+%\newcommandx{\todor}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{SR: #2}\xspace}
+
+\usepackage{pifont} % for checkmark and xmark
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+%\usepackage[labelformat=empty]{caption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+% \usepackage{graphics}
+\usepackage{amsbsy,amsfonts}
+
+%\usepackage{lmodern}
+%\usefonttheme[onlymath]{serif}
+%\newcommand{\etal}{\textit{et al.\ }}
+
+\newcommand \ignore[1]{}
+\newcommand \siva[1]{} 
+\newcommand \denot[2]{[\![#1]\!]_\mathcal{#2}}
+%\newcommand{\argmax}[1]{\arg\underset{#1}{\max}\;}
+\newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+\newcommand \kcaz{\textsc{kcaz13}\xspace}
+\newcommand \psempre{\textsc{ParaSempre}\xspace}
+\newcommand \mwg{\textsc{mwg}\xspace}
+\newcommand{\word}[1]{\textsl{#1}}        % mention of word
+\newcommand{\hlight}[1]{{\color{blue!80} #1}}
+
+\newcommand \gp{\textsc{GraphParser}\xspace}
+\newcommand \free{Free917\xspace}
+\newcommand \webq{WebQuestions\xspace}
+\newcommand \deplambda{\textsc{DepLambda}\xspace}
+\newcommand \deptree{\textsc{DepTree}\xspace}
+\newcommand \simplegraph{\textsc{SimpleGraph}\xspace}
+\newcommand \ccggraph{\textsc{CCGGraph}\xspace}
+\newcommand \deplambdap{DepLambda+\xspace}
+\newcommand \clue{\textsc{ClueWeb09}\xspace}
+\newcommand \contract{\textsc{contract}\xspace}
+\newcommand \expand{\textsc{expand}\xspace}
+
+
+\newcommand\vect[1]{\overrightarrow{\mathbf{#1}}}
+\newcommand\type[1]{\textbf{\textsc{type}}[#1]\xspace}
+
+\renewcommand{\l}{\lambda}
+\newcommand{\lx}{\lambda x }
+\newcommand{\ly}{\lambda y }
+\newcommand{\lz}{\lambda z }
+\newcommand{\lxy}{\lx \ly}
+\newcommand{\lf}{\lambda f .}
+\renewcommand{\lg}{\lambda g .}
+\newcommand{\fo}{f_1}
+\newcommand{\ft}{f_2}
+\newcommand{\ftt}{f_3}
+\newcommand{\lfo}{\lambda \fo }
+\newcommand{\lft}{\lambda \ft }
+\newcommand{\lftt}{\lambda \ftt }
+\renewcommand{\le}{\lambda e }
+\newcommand{\und}{$\_$}
+
+\newcommand{\ex}{\exists x }
+\newcommand{\ey}{\exists y }
+\newcommand{\ez}{\exists z }
+\newcommand{\exy}{\lx \ly}
+\newcommand{\ef}{\exists f }
+\newcommand{\efo}{\exists \fo }
+\newcommand{\et}{\exists \ft }
+\newcommand{\eftt}{\exists \ftt }
+
+\newcommand{\itype}{{\bf Ind}}
+\newcommand{\etype}{{\bf Event}}
+\newcommand{\ptype}{\itype \times \etype}
+\newcommand{\ftype}{\eta}
+\newcommand{\btype}{{\bf Bool}}
+\renewcommand{\land}{\wedge}
+\newcommand{\true}{\lambda x \lspace \textsc{true}}
+\newcommand{\lspace}{.\,}
+\newcommand{\bind}{\textsc{bind}}
+\newcommand{\eqop}{\textsc{eq}}
+
+\title[\tiny Towards a Compositional Typed Semantics for Universal Dependencies]{Towards a Compositional Typed Semantics for Universal Dependencies}
+
+\vspace{-2cm}
+\author[]{\small Siva Reddy}
+
+\institute{
+\vspace{-0.5cm}
+
+\hlight{School of Informatics\\The University of Edinburgh}\\
+}
+
+% \date{}
+\date[]{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+
+% \begin{center}
+% NAACL 2016
+% \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{People}
+  \begin{center}
+\begin{tabular}{c c c c}
+\includegraphics[width=1.5cm]{figures/mirella} & 
+\includegraphics[width=1.5cm]{figures/steedman} &
+\visible<2->{\includegraphics[width=1.5cm]{figures/oscar} &
+\includegraphics[width=1.2cm]{figures/dipanjan}} \\
+\footnotesize Mirella~Lapata & \footnotesize Mark~Steedman & \visible<2->{\footnotesize Oscar~T\"ackstr\"om & \footnotesize Dipanjan Das} \\
+\\
+\end{tabular}
+
+\visible<2->{
+\begin{tabular}{c c c}
+\includegraphics[width=1.2cm]{figures/tom} &
+\includegraphics[width=1.5cm]{figures/collins} &
+\includegraphics[width=1.4cm]{figures/petrov} \\
+\footnotesize Tom~Kwiatkowski & \footnotesize Michael~Collins & \footnotesize Slav~Petrov \\
+\end{tabular}
+}
+\end{center}
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Syntax helps Semantics}
+\begin{center}
+\only<1>{\vspace{-1em} \includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.0]{figures/telugu-dependency-example} \\}
+  \only<2>{\vspace{5em}\includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.0]{figures/telugu-dependency-example} \\}
+\only<3,4>{\includegraphics[trim=1em 5em 24em 0em,clip=true,scale=1.0]{figures/telugu-dependency-example} \\}
+\only<2,3>{\includegraphics[scale=0.4]{figures/monkey-eat-banana}}
+\only<4>{\includegraphics[scale=0.23]{figures/banana-eat-monkey}}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Syntax in humans?}
+\begin{center}
+\begin{columns}
+\begin{column}{0.7\textwidth}
+  \begin{quote}
+   Studies on Peru Indian bilinguals indicate Quechua word order influences the local varieties of Spanish
+   
+   [Odlin, 1989]
+  \end{quote}
+\end{column}
+\begin{column}{0.3\textwidth}
+  \begin{center}
+   \includegraphics[width=\textwidth]{figures/amazon-tribes}
+  \end{center}
+\end{column}
+\end{columns}
+\vspace{0.5cm}
+\begin{columns}
+
+\visible<2->{
+\begin{column}{0.7\textwidth}
+  \begin{quote}
+   Arabs show strong preference for SVO in Dutch, whereas Turks for SOV
+   
+   [Jansen et al., 1981; Appel, 1984]
+  \end{quote}
+\end{column}
+}
+\begin{column}{0.3\textwidth}
+   
+\end{column}
+\end{columns}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Universal Dependencies}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\vspace{-1em}
+\begin{center}
+\only<1>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative}}
+\only<2>{\includegraphics[trim=2em 2em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-trace}}
+\only<3,4>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-box1}}
+\only<5,6>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-box2}}
+\only<7>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-box3}}
+\only<8->{\includegraphics[trim=1.5em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-box4}}
+
+\only<3>{\includegraphics[trim=31em 51.5em 3em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation}\vspace{6.5em}}
+\only<4>{\includegraphics[trim=31em 45em 3em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation}}
+\only<5>{\includegraphics[trim=20em 51.5em 6em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1}\vspace{6.5em}}
+\only<6>{\includegraphics[trim=20em 45em 6em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1}}
+\only<7>{\includegraphics[trim=9em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2}}
+
+\only<1>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
+\only<2>{\vspace{-3em}\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \alert{\mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar})} \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
+\only<8>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
+\end{center} 
+\end{frame}
+
+\begin{frame}
+ \frametitle{Why Logical Forms?}
+Logical froms are useful!
+\begin{itemize}
+ \vspace{0.5em}
+ \item Semantic Parsing {\scriptsize [Zelle \& Mooney, 1996; Zettlemoyer \& Collins, 2005]}
+ 
+ \vspace{0.5em}
+ \item Simplification {\scriptsize [Narayan \& Gardent, 2014]}
+ 
+ \vspace{0.5em}
+ \item Paraphrasing {\scriptsize [Pavlick et al., 2015]}
+ 
+ \vspace{0.5em}
+ \item Information Extraction {\scriptsize [Rockt\"aschel et al., 2015]}
+ 
+ \vspace{0.5em}
+ \item Summarization {\scriptsize [Liu et al., 2015]}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Where do logical forms come from?}
+ From rich linguistic formalisms
+ \begin{itemize}
+  \vspace{0.5em}
+  \item CCG {\scriptsize [Bos et al., 2004; Lewis \& Steedman, 2013]}
+  
+  \vspace{0.5em}
+  \item HPSG {\scriptsize [Copestake et al., 2001]}
+  
+  \vspace{0.5em}
+  \item LFG {\scriptsize [Dalrymple et al., 1995]}
+  
+  \vspace{0.5em}
+  \item TAG {\scriptsize [Joshi et al., 1995]}
+ \end{itemize}
+ 
+ \vspace{0.5cm}
+ 
+ CCG has been a popular choice
+ \vspace{0.5em}
+ \begin{itemize}
+  \item Tight integration between syntax and semantics
+  
+  \vspace{0.5em}
+  \item<2> \alert{No treebanks} for many languages
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Why from dependencies?}
+ Treebanks in more than 40 languages.\\
+ {\scriptsize ( e.g., Universal Dependencies [Nivre et al., 2016])}
+ 
+ \vspace{1cm}
+ Very accurate parsers.\\
+ {\scriptsize [Andor et al., 2016; Chen \& Manning, 2014]}
+ 
+\end{frame}
+
+\begin{frame}
+ \frametitle{This Work}
+  \begin{itemize}
+   \item Dependency structures to logical forms using lambda calculus
+   \vspace{1cm}
+   \item We use these logical forms for Freebase Semantic Parsing
+   \vspace{1cm}
+   
+   \item State-of-the-art on Free917, and competitive results on WebQuestions QA datasets
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\begin{center}
+\vspace{1em}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar}
+
+\vspace{4cm}
+
+\includegraphics[trim=7em 10em 7em 2.5em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_full}
+\vspace{-2cm}
+\end{center}
+\end{frame}
+
+\subsection{Single Type System}
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Our Approach}
+\begin{center}
+\vspace{-5em}
+% TODO: remove types on dependency labels.
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar}
+
+\vspace{2cm}
+\begin{block}{}
+\centering
+Let dependency labels drive the composition
+\end{block}
+\end{center}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Our Approach}
+\vspace{-2.5em}
+\centering
+
+\only<1>{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_root}}
+\only<2->{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}}
+
+\tikz[remember picture] \node[coordinate] (n1) {};\\
+\vspace{2cm}
+\tikz[remember picture] \node[coordinate] (n2) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=10pt] (n1) -- node[xshift=6em,black] {\footnotesize $\ldots >$ dobj $> \dots >$  nsubj $> \ldots$ } (n2);
+  \draw [->,>=stealth,blue!20!white,sloped,line width=10pt] (n1) -- node[black] {\footnotesize obliqueness} (n2);
+\end{tikzpicture}
+
+\visible<2->{({\color{red} dobj} {\color{blue} acquired} {\color{blue!40!green!60!black} Pixar})}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Our Approach}
+\vspace{-2.5em}
+\centering
+
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj_phrase}
+
+\tikz[remember picture] \node[coordinate] (n1) {};\\
+\vspace{2cm}
+\tikz[remember picture] \node[coordinate] (n2) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=10pt] (n1) -- node[xshift=6em,black] {\footnotesize $\ldots >$ dobj $> \dots >$  nsubj $> \ldots$ } (n2);
+  \draw [->,>=stealth,blue!20!white,sloped,line width=10pt] (n1) -- node[black] {\footnotesize obliqueness} (n2);
+\end{tikzpicture}
+
+{\color{blue} (dobj acquired Pixar)}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Our Approach}
+\vspace{-2.5em}
+\centering
+
+\only<1>{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_nsubj}}
+\only<2->{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_nsubj_phrase}}
+
+\tikz[remember picture] \node[coordinate] (n1) {};\\
+\vspace{2cm}
+\tikz[remember picture] \node[coordinate] (n2) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=10pt] (n1) -- node[xshift=6em,black] {\footnotesize $\ldots >$ dobj $> \dots >$  nsubj $> \ldots$ } (n2);
+  \draw [->,>=stealth,blue!20!white,sloped,line width=10pt] (n1) -- node[black] {\footnotesize obliqueness} (n2);
+\end{tikzpicture}
+
+\only<1>{({\color{red} nsubj} {\color{blue} (dobj acquired Pixar)} {\color{blue!40!green!60!black} Disney})}
+\only<2->{\color{blue}(nsubj (dobj acquired Pixar) Disney)}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Our Approach}
+\begin{center}
+%\vspace{-1em}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar}
+
+\vspace{3em}
+(nsubj (dobj acquired Pixar) Disney)
+\vspace{3em}
+
+\visible<1->{
+\includegraphics[trim=7em 0em 7em 2.5em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_full}
+\vspace{-1.5cm}}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Lambda Calculus}
+\vspace{-3.3em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{Lambda Calculus Basic Types}
+\begin{itemize}
+  \item Individuals: $\itype$ (also denoted by $._a$)
+  \item Events: $\etype$ (also denoted by $._e$)
+  \item Truth values: $\btype$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Lambda Calculus}
+\vspace{-2.4em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{\centering Lambda Expression for words}
+\vspace{-0.5cm}
+\begin{align*}
+  \hbox{\color{blue} acquired} & \Rightarrow  \lambda x \lspace \hbox{acquired}(x_e)  \\
+  \hbox{\color{blue!40!green!60!black} Pixar} & \Rightarrow  \lambda x \lspace \hbox{Pixar}(x_a) 
+\end{align*}
+\vspace{-0.5cm}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Lambda Calculus}
+\vspace{-2.4em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{\centering Lambda Expression for dependency labels}
+\vspace{-0.5cm}
+\begin{align*}
+  \hbox{\alert{dobj}} & \Rightarrow  \lambda \hlight{\mathbf{f}}\;\; {\color{blue!40!green!60!black} \mathbf{g}}\;\; \hlight{\mathbf{z}}\; \lspace \; \exists {\color{blue!40!green!60!black} \mathbf{x}}\; \lspace \; \hlight{\mathbf{f(z)}}\;\;\; \land \;\;\; {\color{blue!40!green!60!black} \mathbf{g(x)}}  \;\;\; \land\;\;\; \alert{\mathbf{arg_2}}(\hlight{\mathbf{z_e}}, {\color{blue!40!green!60!black} \mathbf{x_a}})
+\end{align*}
+\vspace{-0.5cm}
+\end{block}
+\visible<2->{\hspace{3cm} This operation mirrors the tree structure}
+\end{frame}
+
+\subsection{DepLambda Composition}
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Composition}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+
+\vspace{0.8cm}
+
+\only<1>{\includegraphics[trim=7em 16em 7em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_dobj}\vspace{8em}}
+\only<2>{\includegraphics[trim=7em 12em 7em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_dobj}\vspace{4em}}
+\only<3>{\includegraphics[trim=7em 8em 7em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_dobj}}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Composition}
+\begin{center}
+\only<1>{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj_phrase}}
+\only<2-4>{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_nsubj}}
+\only<5->{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_nsubj_phrase}}
+
+\vspace{0.8cm}
+
+\only<1>{\hspace{1.2em}\includegraphics[trim=10em 16em 10em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{8em}}
+\only<2>{\includegraphics[trim=3em 16em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{8em}}
+\only<3>{\includegraphics[trim=3em 12em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{4em}}
+\only<4>{\includegraphics[trim=3em 8em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}}
+\only<5>{\includegraphics[trim=3em 8em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_full}}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+ \vspace{0.6cm}
+\begin{columns}
+  \begin{column}{0.40\textwidth}
+   \centering
+  \vspace{-1em}
+\includegraphics[trim=2em 9em 28em 0em,clip=true,scale=1.3]{figures/appos}   
+  \end{column}
+  \begin{column}{0.58\textwidth}
+    \large $\textsl{appos}  =$ \\ \hspace{0.5em} $ \lambda f g x \lspace f(x) \land g(x)$ \\
+  \end{column}
+ \end{columns}
+ 
+ \vspace{0.6cm}
+ \begin{columns}
+  \begin{column}{0.39\textwidth}
+   \centering
+\includegraphics[trim=1.9em 9em 26em 0em,clip=true,scale=1.2]{figures/partmod}   
+  \end{column}
+  \begin{column}{0.60\textwidth}
+\large    $\textsl{partmod}= $ \\ \hspace{0.5em} $\lambda f g x \lspace \exists z \lspace f(x) \land g(z) \land \hbox{arg}_2(z_e, x_a)$ 
+  \end{column}
+ \end{columns}
+ 
+  \vspace{0.6cm}
+ \begin{columns}
+  \begin{column}{0.39\textwidth}
+   \centering
+\includegraphics[trim=1em 9em 28em 0em,clip=true,scale=1.3]{figures/conj}   
+  \end{column}
+  \begin{column}{0.61\textwidth}
+\large    $\textsl{conj} =$ \\ $ \lambda f g z \lspace \exists x y \lspace f(x) \land g(y) \land \mathrm{coord}(z,x,y)$ 
+  \end{column}
+ \end{columns}
+\end{frame}
+
+\ignore{
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+ \begin{block}{}
+ \vspace{2cm}
+  \centering \Huge
+  Total number of rules: 46
+  \vspace{2cm}
+  \end{block}
+\end{frame}
+}
+
+\begin{frame}
+\frametitle{Comparison with CCG}
+
+\vspace{-2em}
+\begin{center}
+\begin{tabular}{p{5.6cm}|p{5.6cm}}
+ \multicolumn{1}{c|}{\hlight{CCG}} & \multicolumn{1}{c}{\hlight{DepLambda}} \\
+ \midrule
+ Lexicalized semantics & Simple lexical semantics \\
+ \scriptsize $\hbox{S} \backslash \hbox{NP}/ \hbox{NP} : \lambda f_2 f_1 x \lspace \exists y z \lspace \mathrm{acquired}(x) \land f_1(y) \land f_2(z) \land \mathrm{arg_1}(x, y) \land \mathrm{arg_2}(x, z)$  & \scriptsize $\lx \lspace \mathrm{acquired}(x_e)$ \\ 
+\\
+ Words drive composition & Dependencies drive composition \\
+\\
+ Argument adjunct distinction  & Every dependent is an adjunct \\
+ \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
+\\
+% Language specific categories & Mostly universal \\
+% \pause  \\
+ With ``complex~types'' comes power &  Hard time for few constructions \\
+ \scriptsize $(S[dcl]\backslash NP)/(S[to]\backslash NP_{\hlight{\bf x}})/NP_{\hlight{\bf x}}$ &  \\
+\end{tabular}
+\end{center}
+% \item Robust and no type checking necessary (a boon and a curse)
+\end{frame}
+
+\section{Semantic Parsing as Graph Matching}
+
+\begin{frame}
+\frametitle{Freebase Semantic Parsing [Reddy et al., 2014]}
+% TODO add arrows.
+
+\centering
+%\only<1>{\includegraphics[scale=0.85]{figures/outline1.pdf}}
+%\only<1>{\includegraphics[scale=0.85]{figures/outline2.pdf}}
+%\only<2>{\includegraphics[scale=0.85]{figures/outline3.pdf}}
+%\only<3>{\includegraphics[scale=0.85]{figures/outline4.pdf}}
+%\only<4>{\vspace{-0.9em}\includegraphics[scale=0.85]{figures/outline5.pdf}}
+\only<1>{\vspace{-0.9em}\includegraphics[scale=0.9]{figures/outline_simple.pdf}}
+\only<2>{\vspace{-0.9em}\includegraphics[scale=0.9]{figures/outline_simple2.pdf}}
+\end{frame}
+
+
+\subsection{Graph Mismatch}
+
+\ignore{
+\begin{frame}
+\frametitle{Semantic Parsing as Graph Transduction}
+\framesubtitle{Our extension to Reddy et al., [2014]}
+
+\begin{center}
+  \textsl{What is the name of the company that acquired Pixar?}
+\end{center}
+
+\begin{columns}
+  \begin{column}{0.58\textwidth}
+   \centering
+   \only<1>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch2}} \\
+   \only<2>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch1}}
+   %\only<3>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch_collapsed}}
+  \end{column}
+  \begin{column}{0.42\textwidth}
+    \centering
+   \includegraphics[width=\textwidth]{figures/transitive_grounded} \\
+  \end{column}
+\end{columns}
+
+\visible<1>{
+\begin{alertblock}{}
+ \centering Graph mismatches accounts for 15\% of the data
+\end{alertblock}
+}
+\end{frame}
+}
+
+\section{Evaluation}
+
+\ignore{
+\begin{frame}
+\frametitle{Training and Evaluation Data}
+  \begin{itemize}
+     
+    \item[] \webq [Berant et al., 2013] 
+  	\begin{itemize}
+	  \item Google search queries starting with \textit{wh} question words.
+	  \item 3030 train, 2780 test
+	\end{itemize}
+    
+    \vspace{0.5cm}
+    \item[] \free [Cai and Yates, 2013] 
+  	\begin{itemize}
+  	 \item Manually curated questions
+	 \item 641 train, 276 test
+  	\end{itemize}
+
+    \vspace{0.5cm}	 
+    \item[] 30\% of training for development
+  \end{itemize}
+\end{frame}
+}
+
+\begin{frame}
+\frametitle{Baselines}
+\hlight{\simplegraph: }All entities connected to a single event
+\begin{itemize}
+ \item Does not handle compositional questions% in addition to a \textsc{target} node.
+\end{itemize}
+
+\pause
+
+\vspace{0.9cm} 
+\hlight{\ccggraph: } CCG logical forms 
+
+\pause
+\vspace{0.9cm}
+\hlight{\deptree:} Directly transduce a dependency tree to target graph \\
+%An event for each head. Each dependent is linked to the event via its dependency relation. %Head is linked to the event via \textit{arg0}.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Results on WebQuestions}
+%\centering
+\vspace{0.6em}
+\only<1>{\includegraphics[trim=1em 12em 49.5em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<2>{\includegraphics[trim=1em 12em 45em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<3>{\includegraphics[trim=1em 12em 41em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<4>{\includegraphics[trim=1em 12em 37em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<5>{\includegraphics[trim=1em 12em 33em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results on Free917}
+%\centering
+\vspace{0.6em}
+\only<1>{\includegraphics[trim=10em 21em 24em 1.3em,clip=true,scale=0.58]{figures/deplambda_results_plot_free917}}
+\end{frame}
+
+\ignore{
+\begin{frame}
+\frametitle{Error Analysis}
+\begin{itemize}
+ \item \ccggraph fails to produce logical forms for 4.5\%.
+ \vspace{0.5cm}
+ \begin{itemize}
+  \item Sensitive to grammatical errors
+  \vspace{0.5cm}
+  \item e.g., \textsl{what nestle owns?}
+  \vspace{0.5cm}
+  \item DepLambda fails only for 0.9\%
+ \end{itemize}  
+ %\item Less compositionality in the datasets
+\end{itemize}
+\end{frame}
+}
+
+\begin{frame}
+\frametitle{Recap}
+\vspace{-2em}
+\begin{center}
+\includegraphics[trim=2em 7em 13em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative}
+
+\tikz[remember picture] \node[coordinate] (n1) {};\\
+\vspace{2em}
+\tikz[remember picture] \node[coordinate] (n2) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=3pt] (n1) -- node[xshift=6em,black] {\footnotesize $\ldots >$ dobj $> \dots >$  nsubj $> \ldots$ } (n2);
+\end{tikzpicture}
+
+\includegraphics[trim=3em 47em 3.5em 0em,clip=true,scale=0.7]{figures/dependency-reduced-relative-derivation}
+
+\vspace{-1em}
+\tikz[remember picture] \node[coordinate] (n3) {};\\
+\vspace{2em}
+\tikz[remember picture] \node[coordinate] (n4) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=3pt] (n3) -- node[xshift=7em,black] {\footnotesize lambda expression composition} (n4);
+\end{tikzpicture}
+
+\vspace{-1em}
+$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$
+\end{center} 
+\end{frame}
+
+\section{Summary}
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+ \item Lambda Calculus for converting Dependencies to Logical Forms
+ 
+ \vspace{1em} 
+ \item Semantic parsing as Graph Transduction
+
+ \vspace{1em}
+ \item State-of-the-art results on \free and competitive results on \webq
+ 
+ \pause
+ \vspace{1em}
+ \item Work in progress: DepLambda for multiple languages
+\end{itemize}
+
+\pause
+\begin{center}Rules available from\\ \hlight{\url{https://github.com/sivareddyg/deplambda}} \\
+Thank You!
+\end{center}
+\end{frame}
+
+\section{Additional Slides}
+
+\subsection{Dynamic Oracle}
+\begin{frame}[noframenumbering]
+\frametitle{Learning Model}
+
+\hlight{Structured Perceptron:} Ranks a pair of
+grounded and ungrounded graph $$(\hat{g},\hat{u}) = \arg\max\limits_{g,u}
+                        \Phi(g,u,q,\mathit{KB}) \cdot \theta$$
+
+\pause
+
+\vspace{0.5cm}
+\hlight{Features:} $\Phi$ is defined over sentence, grounded and
+ungrounded graph
+
+\vspace{1cm}
+
+\pause
+\hlight{Training:} Use a surrogate graph (dynamic oracle) to update weights 
+$$\theta \leftarrow \theta +
+\Phi(g^+,u^+,q,\mathit{KB})\hspace{-.3ex}-\hspace{-.3ex}\Phi(\hat{g},\hat{u},q,\mathit{KB})$$
+
+%\pause But we \hlight{do not} have access to gold graphs. Access only to the answers rather than the query.
+
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Learning Model}
+
+\hlight{Oracle Graphs: } Search for all the grounded graphs reachable via the ungrounded graph. 
+
+\vspace{0.5cm}
+Pick all the graphs with minimal $F_1$-loss against the gold answer. \\
+
+\vspace{0.5cm}
+\hlight{Surrogate Gold Graph: }
+$$(u^{+},{g^{+}}) = \argmax_{(u,g) \in \mathit{O}_{\mathit{KB},\;\mathit{A}}(q)} \theta^{t} \cdot \Phi({u,g,q,\mathit{KB}})\,,$$
+
+\vspace{0.5cm}
+\hlight{Beam Search: } Limit the predictions to~100 graph pairs, and choose the best prediction for update.
+\end{frame}
+
+\subsection{Single Type System}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Single Type System}
+\vspace{-3em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+
+%\vspace{1cm}
+
+%{({\color{red} dobj} {\color{blue} acquired} {\color{blue!40!green!60!black} Pixar})}
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{\centering All constituents are of the same lambda expression type}
+\centering
+\vspace{0.1cm}
+\type{{\color{blue} acquired}} =  \type{{\color{blue!40!green!60!black} Pixar}}  = \type{{({\color{red} dobj} {\color{blue} acquired} {\color{blue!40!green!60!black} Pixar})}}
+\vspace{0.1cm}
+\end{block}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Single Type System}
+\vspace{-0.8em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+
+%\vspace{1cm}
+
+%{({\color{red} dobj} {\color{blue} acquired} {\color{blue!40!green!60!black} Pixar})}
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{\only<1>{All \textbf{words} have a \textit{lambda expression} of type $\eta$}
+\only<2->{All \textbf{constituents} have a \textit{lambda expression} of type $\eta$}}
+\vspace{0.5em}
+\begin{itemize}
+  \item \type{{\color{blue} acquired}} = $\eta$
+  \vspace{0.5em}
+  \item \type{{\color{blue!40!green!60!black} Pixar}} = $\eta$
+  \vspace{0.5em}
+  \item<2-> \type{{({\color{red} dobj} {\color{blue} acquired} {\color{blue!40!green!60!black} Pixar})}} = $\eta$
+  \vspace{1em}
+\end{itemize}
+\vspace{-0.3cm}
+\visible<3->{$\implies$ \type{{\color{red} dobj}} = $\eta \rightarrow \eta \rightarrow \eta$}
+\end{block}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Lambda Calculus for Single Type System}
+\vspace{-2.4em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{Lambda Expression for words}
+\vspace{-0.5cm}
+\begin{align*}
+  \hbox{\color{blue} acquired} & \Rightarrow  \lx_e \lspace \hbox{acquired}(x_e) & \visible<2->{\Rightarrow & \textbf{\textsc{type}} = \etype \rightarrow \btype} \\
+  \hbox{\color{blue!40!green!60!black} Pixar} & \Rightarrow  \lx_a \lspace \hbox{Pixar}(x_a) &  \visible<2->{\Rightarrow & \textbf{\textsc{type}} = \itype \rightarrow \btype}
+\end{align*}
+\vspace{-0.5cm}
+\end{block}
+\visible<2->{Here \type{\hlight{acquired}} $\color{red} \neq$ \type{{\color{blue!40!green!60!black} Pixar}}  \alert \xmark}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Lambda Calculus for Single Type System}
+\vspace{-2.4em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{Lambda Expression for words}
+\vspace{-0.5cm}
+\begin{align*}
+  \hbox{\color{blue} acquired} & \Rightarrow  \lambda \mathbf{\color{red} x_a} x_e \lspace \hbox{acquired}(x_e) & \visible<2->{\Rightarrow & \textbf{\textsc{type}} = \ptype  \rightarrow \btype} \\
+  \hbox{\color{blue!40!green!60!black} Pixar} & \Rightarrow  \lx_a {\mathbf{\color{red} x_e}} \lspace \hbox{Pixar}(x_a) &  \visible<2->{\Rightarrow & \textbf{\textsc{type}} = \ptype \rightarrow \btype}
+\end{align*}
+\vspace{-0.5cm}
+\end{block}
+\visible<2->{Here $\eta$ = \type{\hlight{acquired}} = \type{{\color{blue!40!green!60!black} Pixar}} $\hlight \checkmark$} 
+\end{frame}
+
+\subsection{More dependency labels}
+\begin{frame}[noframenumbering]
+\frametitle{Lambda calculus for ``\textit{Single Type}'' System}
+\framesubtitle{More dependency labels}
+\begin{itemize}
+\item (appos Disney the\_company)
+ $$\textsl{appos} = \lambda f g x \lspace f(x) \land g(x)$$
+ This function unifies two nodes
+ 
+ \vspace{1cm}
+ 
+ \item<2-> (partmod a\_company acquired\_by\_Disney)
+ $$\textsl{partmod} = \lambda f g x \lspace \exists z \lspace f(x) \land g(z) \land \hbox{arg}_1(z_e, x_a)$$
+ This function reverses the dependency arc direction, but still returns the head
+\end{itemize}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Lambda calculus for ``\textit{Single Type}'' System}
+\framesubtitle{More dependency labels}
+\begin{itemize}
+\item (conj Disney\_and Pixar)
+  $$\textsl{conj} = \lambda f g z \lspace \exists x y \lspace f(x) \land g(y) \land \textbf{coord}(z,x,y)$$
+ This function creates a struct with two variables
+ \vspace{1cm}
+ 
+ \item<2-> (rcmod Disney which\_acquired\_Pixar)
+ \begin{small}
+ \begin{tabular}{l}\\
+ $\mathrm{(rcmod}$  $\mathrm{Disney}$ \\ 
+  \hspace*{1cm} $\mathrm{(wh}$-$\mathrm{dobj}$
+  ($\hlight{\bind}$ $f$ $\mathrm{(nsubj~(dobj~acquired}$~$f$$\mathrm{)~Pixar))}$ \\
+ \hspace*{2.5cm} $\mathrm{which))}$
+ \end{tabular}
+ \end{small}
+\end{itemize}
+\end{frame}
+
+\subsection{Mimic CCG}
+\begin{frame}[noframenumbering]
+ \frametitle{CCG to Logical Forms}
+ \framesubtitle{Steedman, 2000, 2012; Bos et al., 2004; Lewis \& Steedman, 2013; Reddy et al., 2014}
+ \centering
+ \includegraphics[scale=1]{figures/ccg-transitive}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Challenges}
+
+\begin{center}
+\only<1>{\vspace{-2.5cm} \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1]{figures/pixar_bad_typing}}
+\only<2>{\vspace{-2.5cm} \includegraphics[trim=1.7em 20.7em 20em 0em,clip=true,scale=1]{figures/pixar_bad_typing_prep_derivation_wrong}}
+
+\vspace{1em}
+\visible<1->{
+\footnotesize
+\begin{exampleblock}{\small The obvious idea}
+\begin{algorithmic}
+  \IF{\textit{proper noun}}
+    \STATE assign $\lambda x. \mathrm{word}(x)$
+    \ELSIF{\textit{verb} with \textit{subject} and \textit{object}}
+    \STATE assign $\lambda f g e. \exists xy. f(x) \wedge g(y) \wedge \mathrm{word}(e) \wedge \mathrm{arg_1}(e, x) \wedge \mathrm{arg_2}(e,y)$
+  \ENDIF
+\end{algorithmic}
+\end{exampleblock}
+}
+\end{center}
+
+\visible<2-> {\alert{But, what about?}\vspace{-1.8cm}}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Challenges}
+\begin{center}
+\vspace{-2.5cm} \includegraphics[trim=1.7em 20.7em 20em 0em,clip=true,scale=1]{figures/pixar_bad_typing_prep_derivation_wrong}
+\end{center}
+
+{
+\begin{alertblock}{\small Problems}
+  \footnotesize
+  \begin{enumerate}
+   \item Rules $\propto$ dependency label permutations
+   \item Complex lexical semantics
+   \item Highly sensitive to parse errors
+   \item Prone to type collisions
+  \end{enumerate}
+\end{alertblock}
+}
+\end{frame}
+
+\subsection{Complex constructions}
+\begin{frame}[noframenumbering]
+\frametitle{Comparison with CCG}
+
+Handling of control verbs is painful.
+
+\vspace{0.5cm}
+\textbf{Sentence:}\\
+\textsl{John persuaded Jim to acquire Pixar}.
+
+\vspace{0.3cm}
+\textbf{Binarized Tree:}\\
+(nsubj (xcomp (dobj persuaded Jim) to\_acquire\_Pixar) John)
+
+\pause
+\vspace{0.3cm}
+\textbf{Elegant handling in CCG} \\
+\hspace{0.5cm} persuaded: $((S[dcl]\backslash NP)/(S[to]\backslash NP_{\hlight{x}}))/NP_{\hlight{x}}$
+\end{frame}
+
+
+\begin{frame}[noframenumbering]
+\frametitle{Conjunctions}
+
+\textbf{Sentence:} \\
+{\centering Eminem signed to Interscope and discovered 50 Cent. \\} 
+
+\vspace{0.3cm}  
+\textbf{Binarized tree:} \\
+{\centering (nsubj (conj-vp (cc s\_to\_I and) d\_50) Eminem) \\}
+
+\pause
+\vspace{0.3cm}  
+\textbf{Substitution:} 
+
+\begin{tabbing}
+  conj-vp $\Rightarrow$ $\lambda f g x \lspace \exists y z \lspace f(y) \land g(z) \land \mathrm{\hlight{coord}}(x, y, z)$
+\end{tabbing}
+
+\vspace{0.3cm}  
+\textbf{Logical Expression:}
+\begin{tabbing}
+  $\lambda w \lspace$\=$\exists x y z \lspace \mathrm{Eminem}(x_a) \land \mathrm{\hlight{coord}}(w, y, z)$ \\
+\> $\land\, \mathrm{arg_1}(w_e, x_a) \land\, \mathrm{s\_to\_I}(y) \land \mathrm{d\_50}(z)$
+\end{tabbing}
+
+\pause
+\textbf{Post processing:}
+\begin{tabbing}
+$\lambda e \lspace$\=$\exists x y z \lspace \mathrm{Eminem}(x_a) \land \mathrm{arg_1}(y_e, x_a)$ \\
+\> $\land\,\mathrm{arg_1}(z_e, x_a) \land \mathrm{s\_to\_I}(y) \land \mathrm{d\_50}(z)$
+\end{tabbing}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Relative Clause}
+\framesubtitle{following Moortgat (1988); Pereira (1990); Carpenter (1998)}
+\textbf{Sentence:} \\
+{\centering Apple which Jobs founded\\} 
+
+\textbf{Binarized tree:} \\
+\begin{small}
+\begin{tabular}{l}\\
+$\mathrm{(rcmod}$  $\mathrm{Apple}$ \\ 
+  \hspace*{1cm} $\mathrm{(wh}$-$\mathrm{dobj}$
+  ($\hlight{\bind}$ $f$ $\mathrm{(nsubj~(dobj~founded}$~$f$$\mathrm{)~Jobs))}$ \\
+\hspace*{2.5cm} $\mathrm{which))}$
+\end{tabular}
+\end{small}
+
+\pause
+\textbf{Substitution:} 
+\begin{tabbing}
+wh-dobj $\Rightarrow$ $\lambda f g z \lspace f(z)$\\
+rcmod $\Rightarrow$ $\lambda f g z \lspace f(z) \land g(z)$
+\end{tabbing}
+
+\textbf{Logical Expression:}
+\begin{tabbing}
+$\lambda u \lspace \exists x y \lspace$\=$\mathrm{founded}(x_e) \land \mathrm{Jobs}(y_a)$\\
+\>$\land\, \mathrm{arg_1}(x_e, y_a)
+\land \mathrm{arg_2}(x_e, u_a) \land \mathrm{Apple}(u_a)$
+\end{tabbing}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Expressivity}
+How isomorphic are the representations compared to Knowledge Graph?
+
+Average Oracle $F_1$ Table.
+
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Search Space}
+How many ways to reach an answer? 
+
+Average Oracle $F_1$ Table.
+
+\end{frame}
+
+\subsection{Graph Operations}
+\begin{frame}[noframenumbering]
+\frametitle{Graph Transformation: \contract operation}
+
+\begin{center}
+  What is the \hlight{name of the company} which Disney acquired in 2006?
+\end{center}
+
+\begin{columns}
+  \begin{column}{0.35\textwidth}
+   \centering
+   \includegraphics[width=\textwidth]{figures/question_unmerged_ungrounded_graph} \\
+   \small Ungrounded graph
+  \end{column}
+  \begin{column}{0.35\textwidth}
+    \centering
+   \includegraphics[width=\textwidth]{figures/question_merged_ungrounded_graph} \\
+   \small Grounded graph 
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Graph Mismatch: \expand operation}
+
+ %\item Due to parse errors, sometimes not all entities are in the ungrounded graph
+ %\item \expand operator connect these entities to the main event
+ What to do Washington DC December? \\
+ 
+
+ \vspace{0.5cm} 
+ \textbf{Before \expand}
+ \begin{itemize}
+   \item $\lambda z \lspace \exists x y w \lspace \textsc{target}(x_a) \land
+\mathrm{do}(z_e) \land \mathrm{arg_1}(z_e, x_a) \land
+\mathrm{Washington\_DC}(y_a) \land \mathrm{December}(w_a)$
+   \end{itemize}
+ 
+ \vspace{0.5cm}
+ \textbf{After \expand}
+ \begin{itemize}
+   \item $\lambda z\lspace \exists x y w \lspace \textsc{target}(x_a) \land \mathrm{do}(z_e) \land \mathrm{arg_1}(z_e, x_a) \land \mathrm{Washington\_DC}(y_a) \land
+   \mathrm{\hlight{dep}}(z_e, y_a) \land \mathrm{December}(w_a) \land \mathrm{\hlight{dep}}(z_e, w_a)$
+   \end{itemize}
+\end{frame}
+
+\end{document}

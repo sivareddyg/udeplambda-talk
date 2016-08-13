@@ -1,0 +1,28 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={8cm, 3cm}, text={8cm, 2.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   director \& of \& Titanic \\
+   NN \& IN \& NNP \\
+   \end{deptext}
+   \depedge{1}{2}{prep}
+   \depedge{2}{3}{dobj}
+\end{dependency} \\
+(l-prep director (l-pobj of Titanic))
+\end{center}
+\end{document}

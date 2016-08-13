@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={10cm, 5cm}, text={10cm, 5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+
+
+\usepackage{mathptmx} % font
+\usepackage{mathtools} % fancy arrows
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}[theme = simple]
+\begin{deptext}[column sep=3em,row sep=0.1em]
+\color{blue} Disney \& \color{blue} acquired \& \color{blue} Pixar\\
+%\small{\textsc{nnp}} \& \small{\textsc{vbd}} \& \small{\textsc{nnp}} \\
+%\small $\alpha$ \& \small $\alpha \xrightarrow[]{dobj} (\alpha \xrightarrow[]{nsubj} \beta)$ \& \small $\alpha$ \\
+%\subpos{det} \& \subpos{noun} \& \subpos{noun} \& \subpos{verb} \& \subpos{adv} \& \subpos{det} \& \subpos{noun}\\
+\end{deptext}
+\depedge[arc angle=30,blue]{2}{1}{{\small \color{blue} nsubj}}
+\depedge[arc angle=30,blue]{2}{3}{{\small \color{blue} dobj}}
+\deproot[edge unit distance=1.5ex,blue]{2}{{\small root}}
+\end{dependency}
+\end{document}

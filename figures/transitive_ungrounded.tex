@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={6cm, 5cm}, text={6cm, 5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+% \selectcolormodel{gray}
+
+% What is the name of the company that acquired Google?
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+\begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.9cm,row
+sep=0.8cm,font=\scriptsize},
+  entity/.style={draw,thick,rectangle,fill=green!20},
+  word/.style={draw,thick,ellipse,fill=blue!20,},
+  mediator/.style={draw,thick,circle},
+  entityType/.style={draw,thick,rounded corners,fill=yellow!20,inner
+sep=.3cm,font=\sffamily\scriptsize},
+  mathType/.style={draw,thick,diamond,fill=red!20},
+  mediatorToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  typeToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  wordToEntity/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dotted,blue,sloped,above,font=\sffamily\scriptsize},
+  entityToMath/.style={->,>=stealth',shorten >=1pt,ultra
+thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
+  collapseEdge/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dashed,sloped,above,font=\sffamily\scshape,bend right=20},
+  every node/.style={align=center}]
+
+  % Position the nodes using a matrix layout
+  \matrix{
+    \node[entityType] (tCompany) {company}; \& \node[mathType] (mCompany) {\textsc{target}}; \\
+    
+    \node[entity] (eCompany) {$x_a$}; \& \node[mediator] (e1) {$y_e$}; \& \node[entity] (ePixar) {Pixar}; \\
+  };
+ 
+  % mediator to entities
+  \draw [mediatorToEntity] (e1) edge node[below] {acquired\\.arg$_1$}  (eCompany);
+  \draw [mediatorToEntity] (e1) edge node[below] {acquired\\.arg$_2$} (ePixar);
+  
+  % types to entities
+  \draw [typeToEntity] (tCompany) edge node {type}  (eCompany);
+  
+  % math types
+  \draw [entityToMath] (eCompany) edge node {}  (mCompany);
+\end{tikzpicture}
+%\vspace{0.1em}
+
+\scriptsize $\lambda y. \exists x. \textsc{target}(x_a) \wedge \mathrm{company}(x_a) \wedge$ $\mathrm{acquired}(y_e) \wedge \mathrm{arg}_1(y_e, x_a) \wedge \mathrm{arg}_2(y_e, \mathrm{Pixar})$ 
+\end{center}
+\end{document}

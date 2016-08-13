@@ -1,0 +1,30 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={10cm, 4cm}, text={10cm, 3.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   Cameron \& directed \& Titanic \& in \& 1997 \\
+   NNP \& VBD \& NNP \& IN \& CD \\ 
+   \end{deptext}
+   \depedge{2}{1}{nsubj}
+   \depedge{2}{3}{dobj}
+   \depedge{2}{4}{prep}
+   \depedge{4}{5}{pobj}
+   \deproot[edge unit distance=2.2ex]{2}{ROOT}
+\end{dependency} \\
+\end{center}
+\end{document}

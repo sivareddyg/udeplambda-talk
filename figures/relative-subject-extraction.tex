@@ -1,0 +1,29 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={11cm, 3cm}, text={11cm, 2.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   company \& which \& acquired \& YouTube \\
+   NN \& WDT \& VBD \& NNP \\
+   \end{deptext}
+   \depedge{1}{3}{rcmod}
+   \depedge{3}{2}{wh-nsubj}
+   \depedge{3}{4}{dobj}
+\end{dependency} \\
+(l-rcmod company (l-wh-nsubj (l-dobj acquired YouTube) which))
+\end{center}
+\end{document}

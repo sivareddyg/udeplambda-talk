@@ -1,0 +1,31 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={10cm, 3cm}, text={10cm, 2.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   Cameron \& is \& the \& director \& of \& Titanic \\
+   NNP \& VBZ \& DT \& NN \& VBD \& NNP \\
+   \end{deptext}
+   \depedge{2}{1}{nsubj}
+   \depedge{2}{4}{attr}
+   \depedge{4}{3}{det}
+   \depedge{4}{5}{prep}
+   \depedge{5}{6}{pobj}
+\end{dependency} \\
+(l-nsubj (l-attr is (l-prep director (l-pobj of Titanic))) Cameron)
+\end{center}
+\end{document}

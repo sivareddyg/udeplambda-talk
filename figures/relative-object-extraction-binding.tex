@@ -1,0 +1,32 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={13cm, 4cm}, text={13cm, 3.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   company \& \color{blue} \bf v-f \& which \& Google \& acquired \& \color{red} \bf v-f \& secretly \\
+   NN \& \& WDT \& NNP \& VBD \&  \& RB \\
+   \end{deptext}
+   \depedge{1}{5}{rcmod}
+   \depedge{5}{2}{\color{blue} \bf BIND}
+   \depedge{5}{3}{wh-dobj}
+   \depedge{5}{4}{nsubj}
+   \depedge{5}{6}{\color{red} \bf dobj}
+   \depedge{5}{7}{advmod}
+\end{dependency} \\
+\small (l-rcmod company ({\color{blue} l-BIND} (l-nsubj (l-wh-dobj ({\color{red} l-dobj} acquired {\color{red} v-f}) which) Google) {\color{blue} v-f}))
+\end{center}
+\end{document}

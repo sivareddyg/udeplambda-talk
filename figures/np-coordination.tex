@@ -1,0 +1,29 @@
+ 
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={10cm, 3cm}, text={10cm, 2.5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+ \begin{dependency}[theme = default]
+   \begin{deptext}[column sep=1em]
+   LarryPage \& and \& SergeyBrin \& co-founded \& Google \\
+   NNP \& CC \& NNP \& VBD \& NNP \\
+   \end{deptext}
+   \depedge{4}{1}{nsubj}
+   \depedge{4}{5}{dobj}
+   \depedge{1}{3}{np-conj}
+   \depedge{1}{2}{cc}
+\end{dependency} \\
+\end{center}
+\end{document}

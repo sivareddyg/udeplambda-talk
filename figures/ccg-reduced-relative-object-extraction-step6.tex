@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage{LandP}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage[papersize={13cm, 5cm}, text={13cm, 5cm}]{geometry}
+
+\begin{document}
+\centering
+%\scriptsize
+\deriv{5}{
+\rm 1     &  \rm 2    & \rm 3         & \rm 4      & \rm 5 \\
+\rm the   & \rm movie & \rm Spielberg & \rm directed        & \rm brilliantly \\
+\uline{1} & \uline{1} & \uline{1}     & \uline{1}           & \uline{1} \\
+NP_x/N_x  & N_2       & NP_3          & (S_4[dcl]\bs NP_y)/NP_z & (S_e\bs NP_y)\bs (S_e\bs NP_y) \\
+\fapply{2}            &               &   \bxcomp{2} \\ 
+\mc{2}{NP_2; x=2} &           & \mc{2}{\color{red} (S_4\bs NP_y)/NP_z ; e=4} \\
+          &           & \ftype{1}     &  \\ 
+          &           & \color{blue} S_u/(S_u\bs NP_3)   \\
+          &           & \fcomp{3}     \\
+          &           & \mc{3}{\color{blue} S_4/NP_z; u=4,y=3} \\
+          &           & \lex{3} \\
+          &           & \mc{3}{\color{red} NP_z\bs NP_z} \\
+\bapply{5} \\
+\mc{5}{NP_2;z=2} \\
+}
+\setlength{\belowcaptionskip}{-10pt}
+\end{document}

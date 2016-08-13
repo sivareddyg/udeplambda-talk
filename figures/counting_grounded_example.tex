@@ -1,0 +1,90 @@
+% Data flow diagram
+% Author: David Fokkema
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={10cm, 3.3cm}, text={10cm, 3.3cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+% \selectcolormodel{gray}
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+\begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column
+sep=0.4cm,row sep=0.2cm,font=\scriptsize},
+  entity/.style={draw,thick,rectangle,fill=green!20,font=\sc\scriptsize},
+  word/.style={draw,thick,ellipse,fill=blue!20},
+  mediator/.style={draw,thick,circle},
+  mediatorR/.style={draw,thick,circle,fill=red!20},
+  mediatorV/.style={draw,thick,circle,fill=cyan!20},
+  mediatorY/.style={draw,thick,circle,fill=yellow!20},
+  entityType/.style={draw,thick,rounded corners,fill=yellow!20,inner sep=.3cm}, 
+  mathType/.style={draw,thick,diamond,fill=red!20,font=\scriptsize},
+  mediatorToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  typeToEntity/.style={->,>=stealth',shorten >=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  wordToEntity/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dotted,blue,sloped,above,font=\sffamily\scriptsize},
+  entityToMath/.style={->,>=stealth',shorten >=1pt,ultra
+thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
+  every node/.style={align=center}]
+
+  % JulieAndrews has appeared in 40 movies .
+  
+  % Position the nodes using a matrix layout
+  \matrix{ 
+     \& \node[word] (wAppeared) {appeared}; \& \node[entityType] (tMovies)
+{film}; \& \node[word] (wMovies)
+{movies};\\
+    \node[entity] (eAndrews) {Julie\\Andrews}; \& \node[mediatorV] (mAppeared) {$m$};
+\& \node[entity]
+(eMovies) {$z$}; \& \node[mathType][font=\sc\scriptsize] (mMovies) {count}; \& \node[entity] (e40)
+{40};\\
+  };
+ 
+  % words to entities
+  % \draw [wordToEntity] (wAndrews) edge node {}  (eAndrews);
+  % \draw [wordToEntity] (w40) edge node {}  (e40);
+  \draw [wordToEntity] (wMovies) edge node {}  (eMovies);
+  % words to types
+  \draw [wordToEntity] (wMovies) edge node {}  (tMovies);
+  % event word to mediators
+  \draw [wordToEntity] (wAppeared) edge node {}  (mAppeared);
+  
+  % mediator to entities
+  \draw [mediatorToEntity] (mAppeared) edge node {performance\\.actor}  (eAndrews);
+  \draw [mediatorToEntity] (mAppeared) edge node {performance\\.film}  (eMovies);
+  
+  % types to entities
+  \draw [typeToEntity] (tMovies) edge node {type}  (eMovies);
+  
+  % math func
+  \draw [entityToMath] (eMovies) edge node {}  (mMovies);
+  \draw [entityToMath] (mMovies) edge node {}  (e40);
+  
+  
+  
+\end{tikzpicture} 
+\scriptsize $\mbox{performance.actor}(m, \textsc{JulieAndrews}) \wedge \mbox{performance.film}(m,
+z)$
+\\ $\wedge\;\mbox{film}(z) \wedge \textsc{count}(z, 40)$
+\end{center}
+
+% \end{landscape}
+
+% \begin{tikzpicture}
+% \node (One) at (-3,0) [shape=circle,draw] {$One$}; 
+% \node (Two) at (3,0) [shape=circle,draw] {$Two$};
+% \def\myshift#1{\raisebox{-2.5ex}}
+% \draw [->,thick,postaction={decorate,decoration={text along path,text align=center,text={|\sffamily\myshift|Some more bent text}}}] (One) to [bend right=45]  (Two);
+% \def\myshift#1{\raisebox{1ex}}
+% \draw [->,thick,postaction={decorate,decoration={text along path,text align=center,text={|\sffamily\myshift|Some bent text}}}]      (One) to [bend left=45] (Two);
+% \end{tikzpicture}
+
+
+\end{document}

@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={7cm, 4.8cm}, text={7cm, 3.7cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+% \selectcolormodel{gray}
+
+% Which company acquired Pixar?
+
+\begin{document}
+\thispagestyle{empty}
+%\begin{landscape}
+\begin{center}
+\begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.9cm,row
+sep=0.8cm,font=\scriptsize},
+  entity/.style={draw,thick,rectangle,fill=green!20},
+  word/.style={draw,thick,ellipse,fill=blue!20,},
+  mediator/.style={draw,thick,circle},
+  entityType/.style={draw,thick,rounded corners,fill=yellow!20,inner
+sep=.3cm,font=\sffamily\scriptsize},
+  mathType/.style={draw,thick,diamond,fill=red!20},
+  mediatorToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\tiny},
+  typeToEntity/.style={->,>=stealth',shorten
+>=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
+  wordToEntity/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dotted,blue,sloped,above,font=\sffamily\scriptsize},
+  entityToMath/.style={->,>=stealth',shorten >=1pt,ultra
+thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
+  collapseEdge/.style={-,>=stealth',shorten >=1pt,ultra
+thick,dashed,sloped,above,font=\sffamily\scshape,bend right=20},
+  every node/.style={align=center}]
+
+  % Position the nodes using a matrix layout
+  \matrix{
+    \node[entityType] (tCompany) {organization.\\organization}; \& \node[mathType] (mCompany) {\textsc{target}}; \\
+    
+    \node[entity] (eCompany) {$x$}; \& \node[mediator] (e1) {$m$}; \& \node[entity] (ePixar)[font=\sc] {\scriptsize Pixar}; \\
+  };
+ 
+  % mediator to entities
+  \draw [mediatorToEntity] (e1) edge node[below] {business.\\acquisition.\\acquiring\_company}  (eCompany);
+  \draw [mediatorToEntity] (e1) edge node[below] {business.\\acquisition.\\company\_acquired} (ePixar);
+  
+  % types to entities
+  \draw [typeToEntity] (tCompany) edge node {type}  (eCompany);
+  
+  % math types
+  \draw [entityToMath] (eCompany) edge node {}  (mCompany);
+\end{tikzpicture}
+\end{center}
+
+\end{document}

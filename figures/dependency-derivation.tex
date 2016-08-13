@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage{LandP}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{url}
+
+\usepackage[papersize={24cm, 6.9cm}, text={24cm, 6.8cm}]{geometry}
+
+\begin{document}
+
+\setlength{\tabcolsep}{10pt}
+
+\centering
+%\scriptsize
+\begin{tabular}{cccccccccccccccccccccccccc}
+( &  nsubj &  ( & attr & is & ( & prep & ( & det & capital & the & )
+& ( & pobj & of & Texas &  ) &  ) & ) & Austin & ) \\
+
+& & & & & & & \uline{5} & \uline{5} \\
+
+& & & & & & & \mc{5}{$\lambda x.\;\mbox{\sc unique}(x) \wedge capital(x)$} &
+\mc{5}{$\lambda f_1. \lambda x. \exists y . f_1(x) \wedge\;Texas(y)$}
+\\
+& & & & & & & \mc{5}{} & \mc{5}{$\wedge\; capital.of.arg1(e, x)$} \\
+& & & & & & & \mc{5}{} & \mc{5}{$\wedge\; capital.of.arg2(e, y)$} \\
+
+& & & & & \uline{13} \\
+& & & & & \mc{13}{$\lambda x.\exists y. \;\mbox{\sc unique}(x) \wedge capital(x)
+\wedge Texas(y) \wedge\; capital.of.arg1(e, x)$} \\
+& & & & & \mc{14}{$\wedge\; capital.of.arg2(e, y)$} \\
+
+& & \uline{17} \\
+& & \mc{17}{$\lambda f_2. \exists x. \exists y. \; f_2(x) \wedge \mbox{\sc
+unique}(x) \wedge capital(x) \wedge Texas(y) \wedge\; capital.of.arg1(e, x)
+\wedge\; capital.of.arg2(e, y)$} \\
+
+\uline{21} \\
+\mc{21}{$\exists x. \exists y. \; Austin(x) \wedge \mbox{\sc
+unique}(x) \wedge capital(x) \wedge Texas(y) \wedge\; capital.of.arg1(e, x)
+\wedge\; capital.of.arg2(e, y)$} \\
+\uline{21} \\
+\mc{21}{$\mbox{\sc unique}(Austin) \wedge capital(Austin) \wedge\;
+capital.of.arg1(e, Austin) \wedge\; capital.of.arg2(e, Texas)$} \\
+
+\end{tabular}
+\setlength{\belowcaptionskip}{-10pt}
+\end{document}

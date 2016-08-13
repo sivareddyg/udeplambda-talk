@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage{LandP}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{url}
+
+\usepackage[papersize={13cm, 7cm}, text={13cm, 7cm}]{geometry}
+
+\begin{document}
+\centering
+%\scriptsize
+\deriv{5}{
+\rm Cameron & \rm directed &\rm Titanic & \rm in & 1997\\
+\uline{1}&\uline{1}&\uline{1} & \uline{1}&\uline{1} \\
+NP & ((S\bs NP)/PP[in])/NP & NP & PP/NP & NP \\
+\\
+\mbox{Cameron}  &  \lambda z \lambda y \lambda x \lambda e.\;
+\mbox{directed.arg1}(e, x) & \mbox{Titanic} & \lambda x. x & \mbox{1997} \\
+& \wedge\; \mbox{directed.arg2}(e, z) & \\
+& \wedge\; \mbox{directed.in}(e, y) & \\
+
+
+& \fapply{2} & \fapply{2} \\
+& \mc{2}{(S\bs NP)/PP} & \mc{2}{PP} \\
+\\
+& \mc{2}{\lambda y \lambda x \lambda e.\;\mbox{directed.arg1}(e, x)} &
+\mc{2}{1997} \\
+& \mc{2}{\wedge\; \mbox{directed.arg2}(e, \mbox{Titanic})} &   \\
+& \mc{2}{\wedge\; \mbox{directed.in}(e, y)} &   \\ 
+
+& \fapply{4} \\
+& \mc{4}{S\bs NP} \\
+& \mc{4}{\lambda x \lambda e.\;\mbox{directed.arg1}(e, x) \wedge
+\mbox{directed.arg2}(e, \mbox{Titanic}) } \\
+& \mc{4}{\wedge\; \mbox{directed.in}(e, \mbox{1997})} \\
+
+\bapply{5}\\
+\mc{5}{S} \\
+\mc{5}{\lambda e.\; \mbox{directed.arg1}(e, \mbox{Cameron}) \wedge
+\mbox{directed.arg2}(e, \mbox{Titanic}) \wedge
+\mbox{directed.in}(e, \mbox{1997}) }\\
+}
+\setlength{\belowcaptionskip}{-10pt}
+\end{document}

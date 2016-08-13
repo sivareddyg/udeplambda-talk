@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={10cm, 10cm}, text={10cm, 10cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+\usepackage{tikz}
+\usetikzlibrary{chains,arrows}
+
+\usepackage{mathptmx} % font
+\usepackage{mathtools} % fancy arrows
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}[theme = simple]
+\begin{deptext}[column sep=2em,row sep=0.1em]
+Disney \& acquired \& Pixar \& in \& 2006 \\
+\small $\eta$ \& \small $\eta$ \& \small $\eta$ \& \small $\eta$ \& \small $\eta$ \\
+\end{deptext}
+\depedge[arc angle=30]{2}{1}{{\small nsubj}}
+\depedge[arc angle=30,label style={below}]{2}{1}{\color{blue} $\bf \eta \rightarrow (\eta \rightarrow \eta)$}
+
+\depedge[arc angle=30]{2}{3}{{\small dobj}}
+\depedge[arc angle=30,label style={below}]{2}{3}{\color{blue} $\bf \eta \rightarrow (\eta \rightarrow \eta)$}
+
+\depedge[arc angle=90]{2}{4}{{\small prep}}
+\depedge[arc angle=90,label style={below}]{2}{4}{\color{blue} $\bf \eta \rightarrow (\eta \rightarrow \eta)$}
+
+\depedge[arc angle=90]{4}{5}{{\small pobj}}
+\depedge[arc angle=90,label style={below}]{4}{5}{\color{blue} $\bf \eta \rightarrow (\eta \rightarrow \eta)$}
+\deproot[edge unit distance=2ex]{2}{{\small root}}
+\end{dependency}
+\end{document}

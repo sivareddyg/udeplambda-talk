@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+\usepackage{LandP}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{url}
+
+\usepackage[papersize={8.5cm, 5.5cm}, text={8.5cm, 5.5cm}]{geometry}
+
+\begin{document}
+\centering
+%\scriptsize
+\deriv{3}{
+\rm Disney & \rm acquired &\rm Pixar \\
+\uline{1}&\uline{1}&\uline{1} \\
+NP & S\bs NP/NP & NP \\ 
+\\
+\mbox{Disney}  &  \lambda y \lambda x . \exists e.\;
+\mbox{acquired}(e)  & \mbox{Pixar} \\
+& \wedge\; \mbox{arg}_1(e, x) & \\
+& \wedge\; \mbox{arg}_2(e, y) & \\
+
+& \fapply{2} \\
+& \mc{2}{S\bs NP} \\
+\\
+& \mc{2}{\lambda x .\exists e.\;\mbox{acquired}(e)}  \\
+& \mc{2}{\wedge\; \mbox{arg}_1(e, x)  \wedge\; \mbox{arg}_2(e, \mbox{Pixar})}  \\ 
+
+\bapply{3}\\
+\mc{3}{S} \\
+\mc{3}{\exists e.\; \mbox{acquired}(e) \wedge
+\mbox{arg}_1(e, \mbox{Disney}) \wedge
+\mbox{arg}_2(e, \mbox{Pixar}) }\\
+}
+\setlength{\belowcaptionskip}{-10pt}
+\end{document}

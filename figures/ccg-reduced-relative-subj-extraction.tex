@@ -1,0 +1,27 @@
+\documentclass[11pt]{article}
+\usepackage{LandP}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{url}
+
+\usepackage[papersize={7cm, 2.5cm}, text={7cm, 2.5cm}]{geometry}
+
+\begin{document}
+\centering
+%\scriptsize
+\deriv{3}{
+\rm the   & \rm company  & \rm acquired\_by\_Microsoft \\
+\uline{1} & \uline{1}    & \uline{1} \\
+NP/N      &  N           &  S\bs NP \\
+\fapply{2}               & \lex{1} \\ 
+\mc{2}{NP}               & \color{red} NP\bs NP \\
+\bapply{3} \\
+\mc{3}{NP} \\
+}
+\setlength{\belowcaptionskip}{-10pt}
+\end{document}
