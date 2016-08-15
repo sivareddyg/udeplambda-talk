@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={15cm, 5cm}, text={15cm, 5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+
+
+\usepackage{mathptmx} % font
+\usepackage{mathtools} % fancy arrows
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}[theme = simple]
+   \begin{deptext}[column sep=1em]
+   company \& which \& Disney \& acquired \\
+   %NN \& WDT \& NNP \& VBD \& RB \\
+   \end{deptext}
+   \depedge{1}{4}{\large acl}
+   \depedge{4}{2}{\large dobj}
+   \depedge[arc angle=30]{4}{3}{\large nsubj}
+\end{dependency}
+\end{document}

@@ -42,19 +42,19 @@ thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
   every node/.style={align=center,distance=2cm}]
 
    \node (webcorpus) [word, xshift=-2cm] {\small Sentences};
-   \node (sentence) [sent,right of=webcorpus, xshift=2cm,fill=white] {\includegraphics[trim=3.8em 0em 5em 6em,clip=true,scale=0.45]{corenlp}
+   \node (sentence) [sent,right of=webcorpus, xshift=2cm,fill=white] {\includegraphics[trim=1.6em 4em 45em 2em,clip=true,scale=0.5]{corenlp}
    };
-   \node (lf) [lf,right of=sentence, xshift=4cm,font=\tiny] {$\lambda x. \exists yz. \mathrm{name}(x_a) \wedge \mathrm{name(x_e)}$ \\$\mathrm{arg_0}(x_e, x_a) \mathrm{of}(x_e, y_a)$ \\ $\wedge \mathrm{company}(y_a) \wedge \mathrm{acquired}(z_e)$ \\ $ \wedge \mathrm{arg_1}(z_e, y_a) \wedge \mathrm{arg_2}(z_e, Pixar)$};
-   \node (ug) [figg,below of=lf, yshift=-1cm] {\includegraphics[scale=0.5]{transitive_ungrounded_mismatch}};
+   \node (lf) [lf,right of=sentence, xshift=4cm,font=\tiny] {$\lambda e. \mbox{directed.arg1}(e, \mathrm{Cameron})$\\ $\wedge \mbox{directed.arg2}(e, \mathrm{Titanic})$ \\ $\wedge \mbox{directed.in}(e, \mathrm{1997})$};
+   \node (ug) [figg,below of=lf, yshift=-1cm] {\includegraphics[scale=0.5]{main_example}};
    \node (db) [figg,left of=ug,xshift=-2cm,yshift=-1cm] {\includegraphics[scale=0.3]{db}};
-   \node (gg) [figg,left of=ug,xshift=-7cm] {\includegraphics[scale=0.5]{transitive_grounded}};
+   \node (gg) [figg,left of=ug,xshift=-7cm] {\includegraphics[scale=0.5]{main_grounded_example}};
    \node (mod) [model,below of=db,yshift=-0.7cm] {Denotation-based \\ Learning Model};
-   \node (quest) [sent,left of=mod,xshift=-2.1cm] {Who acquired Pixar?};
-   \node (ans) [ans,right of=mod,xshift=2cm] {\{Disney\}};
+   \node (quest) [sent,left of=mod,xshift=-2.1cm] {Who is the director of Titanic?};
+   \node (ans) [ans,right of=mod,xshift=2cm] {\{James Cameron\}};
    
    \draw [mediatorToEntity] (webcorpus) -- node[magenta] {\scriptsize \hspace{-0.2cm}Dependency \\ Parser} (sentence);
    \draw [mediatorToEntity] (sentence) -- node[blue] {\large DepLambda} (lf);
-   \draw [mediatorToEntity] (ug) -- node[red] {\Large Graph Transduction}  (gg);
+   \draw [mediatorToEntity] (ug) -- node[red] {\Large Graph Matching}  (gg);
    \draw [entityToMath] (lf) -- (ug);
    \draw [mediatorToEntity] (ug) -- (mod);
    \draw [mediatorToEntity] (gg) -- (mod);

@@ -9,13 +9,14 @@
 %\usecolortheme{whale} % dark blue
 %\usecolortheme{dolphin} %blue and black
 \beamertemplatenavigationsymbolsempty
-\setbeamercovered{transparent}
-\setbeamercovered{dynamic}
+%\setbeamercovered{transparent}
+\setbeamercovered{invisible}
 \setbeamertemplate{itemize items}[default]
 \setbeamertemplate{enumerate items}[default]
 \setbeamertemplate{footline}[frame number]{}
 }
 
+\setbeamercovered{dynamic}
 
 %\usepackage[english]{babel}
 %\usepackage[latin1]{inputenc}
@@ -149,9 +150,9 @@
 \institute{
 \vspace{-0.5cm}
 
-\hlight{School of Informatics\\The University of Edinburgh}\\
+School of Informatics\\The University of Edinburgh\\
 }
-
+  
 % \date{}
 \date[]{}
 
@@ -207,7 +208,7 @@
 \begin{columns}
 \begin{column}{0.7\textwidth}
   \begin{quote}
-   Studies on Peru Indian bilinguals indicate Quechua word order influences the local varieties of Spanish
+   Studies on Peruvian Indian bilinguals indicate Quechua word order influences the local varieties of Spanish
    
    [Odlin, 1989]
   \end{quote}
@@ -239,26 +240,36 @@
 
 \begin{frame}
 \frametitle{Universal Dependencies}
+Homogeneous syntactic representation across languages
 
-\end{frame}
+\begin{center}
+\includegraphics[trim=0em 5em 15em 0em,clip=true,scale=1.0
+]{figures/dependency-word-order-english}
 
+\only<1>{\vspace{5.4em}\includegraphics[trim=0em 5em 15em 6.4em,clip=true,scale=1.0
+  ]{figures/dependency-word-order-telugu}}
+\only<2>{\includegraphics[trim=0em 5em 15em 1em,clip=true,scale=1.0
+  ]{figures/dependency-word-order-telugu}}
+\end{center}
+
+\end{frame} 
 
 \begin{frame}
 \frametitle{Dependencies to Logical Forms}
 \vspace{-1em}
 \begin{center}
-\only<1>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative}}
-\only<2>{\includegraphics[trim=2em 2em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-trace}}
-\only<3,4>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-box1}}
-\only<5,6>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-box2}}
-\only<7>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-box3}}
-\only<8->{\includegraphics[trim=1.5em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-box4}}
-
-\only<3>{\includegraphics[trim=31em 51.5em 3em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation}\vspace{6.5em}}
-\only<4>{\includegraphics[trim=31em 45em 3em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation}}
-\only<5>{\includegraphics[trim=20em 51.5em 6em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1}\vspace{6.5em}}
-\only<6>{\includegraphics[trim=20em 45em 6em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1}}
-\only<7>{\includegraphics[trim=9em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2}}
+\only<1>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
+\only<2>{\includegraphics[trim=2em 2em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-trace-ud}}
+\only<3,4>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box1}}
+\only<5,6>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box2}}
+\only<7>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box3}}
+\only<8->{\includegraphics[trim=1.5em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box4}}
+ 
+\only<3>{\includegraphics[trim=29.5em 51.5em 4.5em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}\vspace{6.5em}}
+\only<4>{\includegraphics[trim=29.5em 45em 4.5em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}}
+\only<5>{\includegraphics[trim=22em 51.5em 8em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}\vspace{6.5em}} 
+\only<6>{\includegraphics[trim=23em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}}
+\only<7>{\includegraphics[trim=9em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2-ud}} 
 
 \only<1>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
 \only<2>{\vspace{-3em}\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \alert{\mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar})} \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
@@ -267,29 +278,8 @@
 \end{frame}
 
 \begin{frame}
- \frametitle{Why Logical Forms?}
-Logical froms are useful!
-\begin{itemize}
- \vspace{0.5em}
- \item Semantic Parsing {\scriptsize [Zelle \& Mooney, 1996; Zettlemoyer \& Collins, 2005]}
- 
- \vspace{0.5em}
- \item Simplification {\scriptsize [Narayan \& Gardent, 2014]}
- 
- \vspace{0.5em}
- \item Paraphrasing {\scriptsize [Pavlick et al., 2015]}
- 
- \vspace{0.5em}
- \item Information Extraction {\scriptsize [Rockt\"aschel et al., 2015]}
- 
- \vspace{0.5em}
- \item Summarization {\scriptsize [Liu et al., 2015]}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
- \frametitle{Where do logical forms come from?}
- From rich linguistic formalisms
+ \frametitle{Synchronous Syntax-Semantics Interfaces}
+ Derive semantics from syntactic derivation
  \begin{itemize}
   \vspace{0.5em}
   \item CCG {\scriptsize [Bos et al., 2004; Lewis \& Steedman, 2013]}
@@ -309,34 +299,22 @@ Logical froms are useful!
  CCG has been a popular choice
  \vspace{0.5em}
  \begin{itemize}
-  \item Tight integration between syntax and semantics
-  
-  \vspace{0.5em}
-  \item<2> \alert{No treebanks} for many languages
+  \item \alert{No treebanks} for many languages
+  \item Syntactic categories differ in each language
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Why from dependencies?}
- Treebanks in more than 40 languages.\\
- {\scriptsize ( e.g., Universal Dependencies [Nivre et al., 2016])}
+ \frametitle{Why from Universal Dependencies?}
+ Treebanks in more than 40 languages\\
  
  \vspace{1cm}
- Very accurate parsers.\\
+ Very accurate parsers\\
  {\scriptsize [Andor et al., 2016; Chen \& Manning, 2014]}
  
-\end{frame}
-
-\begin{frame}
- \frametitle{This Work}
-  \begin{itemize}
-   \item Dependency structures to logical forms using lambda calculus
-   \vspace{1cm}
-   \item We use these logical forms for Freebase Semantic Parsing
-   \vspace{1cm}
-   
-   \item State-of-the-art on Free917, and competitive results on WebQuestions QA datasets
-  \end{itemize}
+ \vspace{1cm}
+ Universal Types, both syntactic and semantic\\
+ 
 \end{frame}
 
 \begin{frame}
@@ -562,7 +540,7 @@ Let dependency labels drive the composition
  \begin{columns}
   \begin{column}{0.39\textwidth}
    \centering
-\includegraphics[trim=1.9em 9em 26em 0em,clip=true,scale=1.2]{figures/partmod}   
+\includegraphics[trim=1.9em 9em 26em 0em,clip=true,scale=1.2]{figures/partmod}
   \end{column}
   \begin{column}{0.60\textwidth}
 \large    $\textsl{partmod}= $ \\ \hspace{0.5em} $\lambda f g x \lspace \exists z \lspace f(x) \land g(z) \land \hbox{arg}_2(z_e, x_a)$ 
@@ -593,35 +571,315 @@ Let dependency labels drive the composition
 \end{frame}
 }
 
+
 \begin{frame}
 \frametitle{Comparison with CCG}
-
-\vspace{-2em}
+\centering
+\includegraphics[scale=1]{figures/ccg-transitive}
+\end{frame}
+ 
+\begin{frame}
+%\frametitle{Comparison with CCG}
+\vspace{-0.5em}
 \begin{center}
 \begin{tabular}{p{5.6cm}|p{5.6cm}}
  \multicolumn{1}{c|}{\hlight{CCG}} & \multicolumn{1}{c}{\hlight{DepLambda}} \\
  \midrule
  Lexicalized semantics & Simple lexical semantics \\
- \scriptsize $\hbox{S} \backslash \hbox{NP}/ \hbox{NP} : \lambda f_2 f_1 x \lspace \exists y z \lspace \mathrm{acquired}(x) \land f_1(y) \land f_2(z) \land \mathrm{arg_1}(x, y) \land \mathrm{arg_2}(x, z)$  & \scriptsize $\lx \lspace \mathrm{acquired}(x_e)$ \\ 
+ \scriptsize $\hbox{S} \backslash \hbox{NP}/ \hbox{NP} : \lambda y \lambda x \lambda e \lspace \mathrm{acquired}(e) \land \mathrm{arg_1}(e, x) \land \mathrm{arg_2}(e, y)$  & \scriptsize $\lx \lspace \mathrm{acquired}(x_e)$ \\ 
 \\
  Words drive composition & Dependencies drive composition \\
 \\
- Argument adjunct distinction  & Every dependent is an adjunct \\
- \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
+ Language specific types & Mostly universal \\
 \\
+ 
+Argument adjunct distinction  & Every dependent is an adjunct \\
+ \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
+\visible<2->{\\
 % Language specific categories & Mostly universal \\
-% \pause  \\
- With ``complex~types'' comes power &  Hard time for few constructions \\
- \scriptsize $(S[dcl]\backslash NP)/(S[to]\backslash NP_{\hlight{\bf x}})/NP_{\hlight{\bf x}}$ &  \\
+With ``complex~types'' comes power & Single-type system is robust, but restricted \\
+\scriptsize $(S[dcl]\backslash NP)/(S[to]\backslash NP_{\hlight{\bf x}})/NP_{\hlight{\bf x}}$ & \small $\lambda fgx \ldots $ i.e., $\eta \rightarrow \eta \rightarrow \eta$ for all labels \\}
 \end{tabular}
 \end{center}
 % \item Robust and no type checking necessary (a boon and a curse)
 \end{frame}
 
-\section{Semantic Parsing as Graph Matching}
+\begin{frame}
+\frametitle{Relative clause in CCG}
+\centering
+\includegraphics[scale=0.7]{figures/ccg-relative-clause}
+\end{frame}
 
 \begin{frame}
-\frametitle{Freebase Semantic Parsing [Reddy et al., 2014]}
+\frametitle{Relative Clause in DepLambda}
+\framesubtitle{following Carpenter (1998)}
+\begin{center}
+\includegraphics[trim=1em 7.5em 22em 0em,clip=true,scale=1]{figures/relative-object-extraction-ud}
+
+\vspace{3em}
+
+\includegraphics[trim=1em 6.5em 17em 0em,clip=true,scale=1]{figures/relative-object-extraction-binding-ud}
+
+\ignore{
+\begin{small}
+\begin{tabular}{l}\\
+  $\mathrm{(acl}$ \hspace{0.3cm}  $\mathrm{company}$ \\ 
+  \hspace*{1cm} ($\hlight{\bind}$ $\alert{f}$ \\
+  \hspace*{2cm}  $\mathrm{(wh}$-$\mathrm{dobj}$  \\  
+  \hspace*{3cm} $\mathrm{(nsubj}$ \\
+  \hspace*{4cm} $\mathrm{(dobj~acquired}$~$f)$\\
+  \hspace*{3cm}$\mathrm{~Disney))}$ \\
+  \hspace*{2cm} $\mathrm{which)))}$
+\end{tabular}
+\end{small}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{DepLambda in a nutshell}
+
+Dependency tree is a series of compositions
+\begin{itemize}
+ \item Dependency label defines the composition function
+ \item Each function takes two typed-semantic sub-expressions
+ \item Returns typed-semantics of the larger expression
+\end{itemize}
+
+
+\vspace{1em}
+\pause
+
+Function could be any computation
+\begin{itemize}
+  \item e.g., a neural network
+\end{itemize}
+
+\vspace{1em}
+\pause
+
+Richer context-sensitive types will allow richer composition functions
+\begin{itemize}
+ \item e.g., neural networks with tensors/neural networks
+ \item directly to the target-application semantics
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Recap}
+\vspace{-2em}
+\begin{center}
+\includegraphics[trim=2em 7em 13em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-ud}
+
+\tikz[remember picture] \node[coordinate] (n1) {};\\
+\vspace{2em}
+\tikz[remember picture] \node[coordinate] (n2) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=3pt] (n1) -- node[xshift=6em,black] {\footnotesize $\ldots >$ dobj $> \dots >$  nsubj $> \ldots$ } (n2);
+\end{tikzpicture}
+
+\includegraphics[trim=1em 47em 1em 0em,clip=true,scale=0.62]{figures/dependency-reduced-relative-derivation-ud}
+
+\vspace{-1em}
+\tikz[remember picture] \node[coordinate] (n3) {};\\
+\vspace{2em}
+\tikz[remember picture] \node[coordinate] (n4) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=3pt] (n3) -- node[xshift=7em,black] {\footnotesize lambda expression composition} (n4);
+\end{tikzpicture}
+
+\vspace{-1em}
+$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$
+\end{center} 
+\end{frame}
+
+\section{Semantic Parsing as Graph Matching}
+\begin{frame}
+\frametitle{Grounded Semantic Parsing}
+\only<1> {
+\begin{center} 
+\begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=2cm},
+  myboxNL/.style={draw,thick,rounded corners,text width=20em,inner sep=0.20cm,fill=green!10},
+  myboxMR/.style={draw,thick,rounded corners,text width=20em,inner sep=0.20cm,fill=red!10},
+  myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=15pt,},
+  every node/.style={align=center}]
+\matrix{ 
+    \node[myboxNL] (NL) {Natural Language (NL)}; \\
+    \node[myboxMR] (MR) {Machine Executable Language (KB)}; \\
+    };
+    \draw [myArrow] (NL) edge node[black] {Parser}  (MR);
+\end{tikzpicture}
+\end{center}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Freebase Semantic Parsing}
+\vspace{-1em}
+\begin{columns}
+ \begin{column}{0.55\textwidth}
+ %\vspace{-1cm}
+ \begin{figure}
+  \begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=2cm},
+  myboxNL/.style={draw,thick,rounded corners,text width=17em,inner sep=0cm,fill=green!10},
+  myboxMR/.style={draw,thick,rounded corners,text width=17em,inner sep=0cm,fill=red!10},
+  myboxAns/.style={draw,thick,rounded corners,text width=17em,inner sep=0.15cm,fill=yellow!10},
+  myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
+  myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
+  every node/.style={align=center}]
+\matrix{
+    \visible<2->{\node[myboxNL] (NL) {\begin{tabular}{l
+    p{4.5cm}}\rotatebox[origin=c]{90}{\hspace{-1cm} \small \bf NL\phantom{xx}}
+    & \small Leonardo DiCaprio starred as Jack in Titanic which was directed by James Cameron.
+\\
+\end{tabular}};} \\
+    \visible<3->{\node[myboxMR] (MR) {\begin{tabular}{l
+    p{4.6cm}}\rotatebox[origin=c]{90}{\hspace{-0.5cm} \small \bf KB\phantom{x}}
+    & \small $\mbox{cast}(\textsc{Titanic},\textsc{DiCaprio},\textsc{Jack})
+    \wedge\mbox{director}(\textsc{Titanic},\textsc{Cameron})$ \\
+    \end{tabular}};}\\
+\visible<4->{\node[myboxAns] (Ans) {\small \textsc{True}}; \\}\\
+    };
+    \visible<3->{\draw [myArrow] (NL) edge node[black] {Parser}  (MR);}
+    \visible<4->{\draw [myArrow1] (MR) edge node[black]
+    {\includegraphics[scale=0.2,angle=90]{figures/db}\\\vspace{-0.38cm}Execute} 
+    (Ans);}
+\end{tikzpicture}
+\end{figure}
+ \end{column}
+
+ \begin{column}{0.45\textwidth}
+ \vspace{-3cm}
+ \begin{figure}
+  \includegraphics[scale=0.45]{figures/titanic} 
+ \end{figure}
+ \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Freebase Semantic Parsing}
+\framesubtitle{[Berant et al., 2013, Kwiatkowski et al., 2013]}
+ 
+\begin{columns}
+ \begin{column}{0.6\textwidth}
+  \begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=1cm},
+  myboxNL/.style={draw,thick,rounded corners,text width=20em,inner sep=0.15cm,fill=green!10},
+  myboxMR/.style={draw,rounded corners,text width=20em,inner 
+  sep=0.05cm,fill=red!5,draw=red!10}, 
+  myboxAns/.style={draw,thick,rounded
+  corners,text width=20em,inner sep=0.15cm,fill=yellow!10}, myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
+  myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
+  every node/.style={align=center}]
+\matrix{
+    \node[myboxNL] (NL) {\textbf{Question} \\ Who is the director of Titanic?}; \\ 
+    \only<2->{\node[myboxMR] (MR) [text=black!16] {
+    \textbf{Logical Form} \\ $\lambda x.\; \mbox{film.directed\_by}(Titanic,x)$ }; \\}
+    \node[myboxAns] (Ans) {\textbf{Answer} \\ \{James Cameron\}}; \\
+    };
+\end{tikzpicture}
+
+\only<2->{\begin{tikzpicture}[rounded corners]
+
+ \node[text width=15em,fill=white!0,draw=white!0](q_A) at (-5,-5) [text=red!80]{
+\vspace{-3.5cm} \\ \hspace{3cm} Latent
+ };
+\end{tikzpicture}}
+
+ \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Freebase is a Graph}
+\begin{center}
+\only<1>{\includegraphics[scale=0.8]{figures/knowledge_graph}}
+\only<2>{\includegraphics[scale=0.8]{figures/knowledge_graph0}}
+\only<3>{\includegraphics[scale=0.8]{figures/knowledge_graph1}}
+\only<4>{\includegraphics[scale=0.8]{figures/knowledge_graph2}}
+%\only<5>{\includegraphics[scale=0.8]{figures/knowledge_graph3}}
+\end{center}
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Semantic Parsing as Graph Matching}
+
+\only<1>{\includegraphics[scale=0.85]{figures/outline1.pdf}} 
+\only<2>{\includegraphics[scale=0.85]{figures/outline2.pdf}}
+\only<3>{\includegraphics[scale=0.85]{figures/outline3.pdf}}
+\only<4>{\includegraphics[scale=0.85]{figures/outline4.pdf}}
+\only<5>{\includegraphics[scale=0.85]{figures/outline.pdf}}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Logical Form to Ungrounded Graph}
+\centering{
+\begin{tikzpicture}[rounded corners]
+ \node[text width=30em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {
+ \only<1>{\begin{center} \vspace{-0.5cm} \textit{Cameron directed Titanic in 
+1997} \\
+ $\lambda e. \mathrm{directed.arg1}(e, \textrm{\color{red} Cameron}) \wedge
+ \mathrm{directed.arg2}(e, \textrm{\color{red} Titanic}) \wedge 
+\mathrm{directed.in}(e,
+ \textrm{\color{red} 1997})$ \end{center}}
+ \only<2>{\begin{center} \vspace{-0.5cm} \textit{Cameron directed Titanic in 
+1997} \\
+ $\lambda e. \mathrm{directed.arg1}({\color{red} \bf e}, \texttt{Cameron}) 
+\wedge
+ \mathrm{directed.arg2}({\color{red} \bf e}, \texttt{Titanic}) \wedge 
+\mathrm{directed.in}({\color{red} \bf e},
+ \texttt{1997})$ \end{center}}
+ \only<3>{\begin{center} \vspace{-0.5cm} \textit{Cameron directed Titanic in 
+1997} \\
+ $\lambda e. \mathrm{\color{red} directed.arg1}(e, \texttt{Cameron}) \wedge
+ \mathrm{\color{red} directed.arg2}(e, \texttt{Titanic}) \wedge 
+\mathrm{\color{red} directed.in}(e,
+ \texttt{1997})$ \end{center}}
+ };
+\end{tikzpicture}}
+
+\vspace{-0.2cm}
+\begin{figure}
+\centering
+\only<1>{\includegraphics[scale=1,trim=0 0cm 0 
+0,clip]{figures/main_example1}} 
+\only<2>{\includegraphics[scale=1,trim=0 0cm 0 0,clip]{figures/main_example2}}
+\only<3>{\includegraphics[scale=1,trim=0 0cm 0 0,clip]{figures/main_example3}}
+\end{figure}
+\vspace{-1.5cm}
+\end{frame}
+
+\begin{frame}
+\frametitle{Graph Matching}
+
+%\begin{figure}[t]
+%\captionsetup[subfigure]{labelformat=empty}
+%\vspace{-0.3cm}
+%\subfloat[sub-caption][\color{blue} \scriptsize{Ungrounded graph}]{
+\centering{
+\only<1>{\includegraphics[scale=1]{figures/graph_pair1}}
+\only<2>{\includegraphics[scale=1]{figures/graph_pair2}}
+\only<3>{\includegraphics[scale=1]{figures/graph_pair3}}
+\only<4>{\includegraphics[scale=1]{figures/graph_pair3}} 
+}
+ 
+\only<1,2,3>{{Ungrounded Graph \hspace{3cm} Grounded Graph}}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Freebase Semantic Parsing}
 % TODO add arrows.
 
 \centering
@@ -750,35 +1008,7 @@ Let dependency labels drive the composition
 \end{frame}
 }
 
-\begin{frame}
-\frametitle{Recap}
-\vspace{-2em}
-\begin{center}
-\includegraphics[trim=2em 7em 13em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative}
 
-\tikz[remember picture] \node[coordinate] (n1) {};\\
-\vspace{2em}
-\tikz[remember picture] \node[coordinate] (n2) {};
-
-\begin{tikzpicture}[remember picture,overlay]   %% use here too
-  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=3pt] (n1) -- node[xshift=6em,black] {\footnotesize $\ldots >$ dobj $> \dots >$  nsubj $> \ldots$ } (n2);
-\end{tikzpicture}
-
-\includegraphics[trim=3em 47em 3.5em 0em,clip=true,scale=0.7]{figures/dependency-reduced-relative-derivation}
-
-\vspace{-1em}
-\tikz[remember picture] \node[coordinate] (n3) {};\\
-\vspace{2em}
-\tikz[remember picture] \node[coordinate] (n4) {};
-
-\begin{tikzpicture}[remember picture,overlay]   %% use here too
-  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=3pt] (n3) -- node[xshift=7em,black] {\footnotesize lambda expression composition} (n4);
-\end{tikzpicture}
-
-\vspace{-1em}
-$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$
-\end{center} 
-\end{frame}
 
 \section{Summary}
 \begin{frame}

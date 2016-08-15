@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={15cm, 5cm}, text={15cm, 5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+
+
+\usepackage{mathptmx} % font
+\usepackage{mathtools} % fancy arrows
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}[theme = simple]
+\begin{deptext}[column sep=2em,row sep=0.1em]
+Pixar \& is \& a \& company \& located \& in \&  CA \\
+%\Large{\textsc{nnp}} \& \Large{\textsc{vbd}} \& \Large{\textsc{nnp}} \\
+%\Large $\alpha$ \& \Large $\alpha \xrightarrow[]{dobj} (\alpha \xrightarrow[]{nsubj} \beta)$ \& \Large $\alpha$ \\
+%\subpos{det} \& \subpos{noun} \& \subpos{noun} \& \subpos{verb} \& \subpos{adv} \& \subpos{det} \& \subpos{noun}\\
+\end{deptext}
+\depedge{4}{1}{{\large nsubj}}
+\depedge{4}{2}{{\large cop}}
+\depedge{4}{3}{{\large det}}
+\depedge{4}{5}{{\large acl}}
+\depedge{7}{6}{{\large case}}
+\depedge{5}{7}{{\large nmod}}
+\depedge[edge below, red,dashed,thick]{5}{1}{{\huge dobj}}
+%\depedge{4}{8}{{\large punct}}
+\deproot{4}{{\large root}}
+\end{dependency}
+\end{document}

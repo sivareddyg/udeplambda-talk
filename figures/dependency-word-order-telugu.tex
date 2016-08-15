@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={15cm, 5cm}, text={15cm, 5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+
+
+\usepackage{mathptmx} % font
+\usepackage{mathtools} % fancy arrows
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}[theme = simple]
+\begin{deptext}[column sep=2em,row sep=0.1em]
+Pixar \& Disney \& 2006 \& in \& acquired \\
+%\small{\textsc{nnp}} \& \small{\textsc{vbd}} \& \small{\textsc{nnp}} \\
+%\small $\alpha$ \& \small $\alpha \xrightarrow[]{dobj} (\alpha \xrightarrow[]{nsubj} \beta)$ \& \small $\alpha$ \\
+%\subpos{det} \& \subpos{noun} \& \subpos{noun} \& \subpos{verb} \& \subpos{adv} \& \subpos{det} \& \subpos{noun}\\
+\end{deptext}
+\depedge{5}{1}{{\small dobj}}
+\depedge{5}{2}{{\small nsubj}}
+\depedge{5}{3}{{\small nmod}}
+\depedge{3}{4}{{\small case}}
+\deproot{5}{{\small root}}
+\end{dependency}
+\end{document}
