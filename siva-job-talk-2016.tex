@@ -16,7 +16,14 @@
 \setbeamertemplate{footline}[frame number]{}
 }
 
-\setbeamercovered{dynamic}
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+%\setbeamercovered{dynamic}
 
 %\usepackage[english]{babel}
 %\usepackage[latin1]{inputenc}
@@ -81,7 +88,7 @@
 
 \newcommand \ignore[1]{}
 \newcommand \siva[1]{} 
-\newcommand \denot[2]{[\![#1]\!]_\mathcal{#2}}
+\newcommand \denot[2]{[\![#1]\!]_\mathit{#2}}
 %\newcommand{\argmax}[1]{\arg\underset{#1}{\max}\;}
 \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
 \newcommand \kcaz{\textsc{kcaz13}\xspace}
@@ -255,7 +262,7 @@ Homogeneous syntactic representation across languages
 \end{frame} 
 
 \begin{frame}
-\frametitle{Dependencies to Logical Forms}
+  \frametitle{Dependencies to Logical Forms}
 \vspace{-1em}
 \begin{center}
 \only<1>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
@@ -273,7 +280,7 @@ Homogeneous syntactic representation across languages
 
 \only<1>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
 \only<2>{\vspace{-3em}\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \alert{\mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar})} \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
-\only<8>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
+\only<8>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$\blfootnote{\scriptsize Reddy, T\"ackstr\"om, Kwiatkowski et al. (TACL 2016)}}
 \end{center} 
 \end{frame}
 
@@ -579,8 +586,8 @@ Let dependency labels drive the composition
 \end{frame}
  
 \begin{frame}
-%\frametitle{Comparison with CCG}
-\vspace{-0.5em}
+\frametitle{Comparison with CCG}
+\vspace{-1.5em}
 \begin{center}
 \begin{tabular}{p{5.6cm}|p{5.6cm}}
  \multicolumn{1}{c|}{\hlight{CCG}} & \multicolumn{1}{c}{\hlight{DepLambda}} \\
@@ -591,49 +598,16 @@ Let dependency labels drive the composition
  Words drive composition & Dependencies drive composition \\
 \\
  Language specific types & Mostly universal \\
-\\
  
-Argument adjunct distinction  & Every dependent is an adjunct \\
- \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
-\visible<2->{\\
+%Argument adjunct distinction  & Every dependent is an adjunct \\
+% \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
+\pause \\
 % Language specific categories & Mostly universal \\
 With ``complex~types'' comes power & Single-type system is robust, but restricted \\
-\scriptsize $(S[dcl]\backslash NP)/(S[to]\backslash NP_{\hlight{\bf x}})/NP_{\hlight{\bf x}}$ & \small $\lambda fgx \ldots $ i.e., $\eta \rightarrow \eta \rightarrow \eta$ for all labels \\}
+\scriptsize $(NP_{\hlight{\bf x}}\backslash NP_\hlight{\bf x})/(S\backslash NP_{\hlight{\bf x}})$ & \small $\lambda fgx \ldots $ i.e., $\eta \rightarrow \eta \rightarrow \eta$ for all labels \\
 \end{tabular}
 \end{center}
 % \item Robust and no type checking necessary (a boon and a curse)
-\end{frame}
-
-\begin{frame}
-\frametitle{Relative clause in CCG}
-\centering
-\includegraphics[scale=0.7]{figures/ccg-relative-clause}
-\end{frame}
-
-\begin{frame}
-\frametitle{Relative Clause in DepLambda}
-\framesubtitle{following Carpenter (1998)}
-\begin{center}
-\includegraphics[trim=1em 7.5em 22em 0em,clip=true,scale=1]{figures/relative-object-extraction-ud}
-
-\vspace{3em}
-
-\includegraphics[trim=1em 6.5em 17em 0em,clip=true,scale=1]{figures/relative-object-extraction-binding-ud}
-
-\ignore{
-\begin{small}
-\begin{tabular}{l}\\
-  $\mathrm{(acl}$ \hspace{0.3cm}  $\mathrm{company}$ \\ 
-  \hspace*{1cm} ($\hlight{\bind}$ $\alert{f}$ \\
-  \hspace*{2cm}  $\mathrm{(wh}$-$\mathrm{dobj}$  \\  
-  \hspace*{3cm} $\mathrm{(nsubj}$ \\
-  \hspace*{4cm} $\mathrm{(dobj~acquired}$~$f)$\\
-  \hspace*{3cm}$\mathrm{~Disney))}$ \\
-  \hspace*{2cm} $\mathrm{which)))}$
-\end{tabular}
-\end{small}
-}
-\end{center}
 \end{frame}
 
 \begin{frame}
@@ -719,64 +693,20 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 
 \begin{frame}
 \frametitle{Freebase Semantic Parsing}
+\framesubtitle{[Berant et al., 2013, Kwiatkowski et al., 2013]}
 \vspace{-1em}
 \begin{columns}
  \begin{column}{0.55\textwidth}
  %\vspace{-1cm}
  \begin{figure}
-  \begin{tikzpicture}[
-  font=\sffamily,
-  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=2cm},
-  myboxNL/.style={draw,thick,rounded corners,text width=17em,inner sep=0cm,fill=green!10},
-  myboxMR/.style={draw,thick,rounded corners,text width=17em,inner sep=0cm,fill=red!10},
-  myboxAns/.style={draw,thick,rounded corners,text width=17em,inner sep=0.15cm,fill=yellow!10},
-  myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
-  myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
-  every node/.style={align=center}]
-\matrix{
-    \visible<2->{\node[myboxNL] (NL) {\begin{tabular}{l
-    p{4.5cm}}\rotatebox[origin=c]{90}{\hspace{-1cm} \small \bf NL\phantom{xx}}
-    & \small Leonardo DiCaprio starred as Jack in Titanic which was directed by James Cameron.
-\\
-\end{tabular}};} \\
-    \visible<3->{\node[myboxMR] (MR) {\begin{tabular}{l
-    p{4.6cm}}\rotatebox[origin=c]{90}{\hspace{-0.5cm} \small \bf KB\phantom{x}}
-    & \small $\mbox{cast}(\textsc{Titanic},\textsc{DiCaprio},\textsc{Jack})
-    \wedge\mbox{director}(\textsc{Titanic},\textsc{Cameron})$ \\
-    \end{tabular}};}\\
-\visible<4->{\node[myboxAns] (Ans) {\small \textsc{True}}; \\}\\
-    };
-    \visible<3->{\draw [myArrow] (NL) edge node[black] {Parser}  (MR);}
-    \visible<4->{\draw [myArrow1] (MR) edge node[black]
-    {\includegraphics[scale=0.2,angle=90]{figures/db}\\\vspace{-0.38cm}Execute} 
-    (Ans);}
-\end{tikzpicture}
-\end{figure}
- \end{column}
-
- \begin{column}{0.45\textwidth}
- \vspace{-3cm}
- \begin{figure}
-  \includegraphics[scale=0.45]{figures/titanic} 
- \end{figure}
- \end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Freebase Semantic Parsing}
-\framesubtitle{[Berant et al., 2013, Kwiatkowski et al., 2013]}
- 
-\begin{columns}
- \begin{column}{0.6\textwidth}
-  \begin{tikzpicture}[
+\begin{tikzpicture}[
   font=\sffamily,
   every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=1cm},
-  myboxNL/.style={draw,thick,rounded corners,text width=20em,inner sep=0.15cm,fill=green!10},
-  myboxMR/.style={draw,rounded corners,text width=20em,inner 
+  myboxNL/.style={draw,thick,rounded corners,text width=15em,inner sep=0.15cm,fill=green!10},
+  myboxMR/.style={draw,rounded corners,text width=15em,inner 
   sep=0.05cm,fill=red!5,draw=red!10}, 
   myboxAns/.style={draw,thick,rounded
-  corners,text width=20em,inner sep=0.15cm,fill=yellow!10}, myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
+  corners,text width=15em,inner sep=0.15cm,fill=yellow!10}, myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
   myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
   every node/.style={align=center}]
 \matrix{
@@ -790,10 +720,17 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 \only<2->{\begin{tikzpicture}[rounded corners]
 
  \node[text width=15em,fill=white!0,draw=white!0](q_A) at (-5,-5) [text=red!80]{
-\vspace{-3.5cm} \\ \hspace{3cm} Latent
+\vspace{-3.5cm} \\ \hspace{2cm} Latent
  };
 \end{tikzpicture}}
+\end{figure}
+ \end{column}
 
+ \begin{column}{0.45\textwidth}
+ \vspace{-1cm}
+ \begin{figure}
+  \includegraphics[scale=0.45]{figures/titanic} 
+ \end{figure}
  \end{column}
 \end{columns}
 \end{frame}
@@ -811,7 +748,7 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 
 
 \begin{frame}
-\frametitle{Semantic Parsing as Graph Matching}
+  \frametitle{Semantic Parsing as Graph Matching\blfootnote{\scriptsize Reddy, Lapata, Steedman (TACL 2014)}}
 
 \only<1>{\includegraphics[scale=0.85]{figures/outline1.pdf}} 
 \only<2>{\includegraphics[scale=0.85]{figures/outline2.pdf}}
@@ -879,77 +816,78 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 
 
 \begin{frame}
-\frametitle{Freebase Semantic Parsing}
-% TODO add arrows.
-
-\centering
-%\only<1>{\includegraphics[scale=0.85]{figures/outline1.pdf}}
-%\only<1>{\includegraphics[scale=0.85]{figures/outline2.pdf}}
-%\only<2>{\includegraphics[scale=0.85]{figures/outline3.pdf}}
-%\only<3>{\includegraphics[scale=0.85]{figures/outline4.pdf}}
-%\only<4>{\vspace{-0.9em}\includegraphics[scale=0.85]{figures/outline5.pdf}}
-\only<1>{\vspace{-0.9em}\includegraphics[scale=0.9]{figures/outline_simple.pdf}}
-\only<2>{\vspace{-0.9em}\includegraphics[scale=0.9]{figures/outline_simple2.pdf}}
-\end{frame}
-
-
-\subsection{Graph Mismatch}
-
-\ignore{
-\begin{frame}
-\frametitle{Semantic Parsing as Graph Transduction}
-\framesubtitle{Our extension to Reddy et al., [2014]}
-
-\begin{center}
-  \textsl{What is the name of the company that acquired Pixar?}
-\end{center}
-
-\begin{columns}
+  \frametitle{Graph Mismatch}
+  \begin{columns}
   \begin{column}{0.58\textwidth}
    \centering
-   \only<1>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch2}} \\
-   \only<2>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch1}}
-   %\only<3>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch_collapsed}}
+   \only<1>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch} \\}
+   \only<2>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch1} \\}
+   \only<3>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch2} \\}
+  \only<4>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch_collapsed} \\}
+   Ungrounded graph
   \end{column}
   \begin{column}{0.42\textwidth}
     \centering
-   \includegraphics[width=\textwidth]{figures/transitive_grounded} \\
+   \includegraphics[width=\textwidth]{figures/czech_question_grounded_graph} \\
+   Freebase graph 
   \end{column}
-\end{columns}
-
-\visible<1>{
-\begin{alertblock}{}
- \centering Graph mismatches accounts for 15\% of the data
-\end{alertblock}
-}
+ \end{columns}
+ 
+ 
+ \only<3>{
+   \vspace{2em}
+ \begin{itemize}
+   \item Paraphrasing is an alternative$^\dagger$\blfootnote{\scriptsize $^\dagger$Narayan, Reddy, Cohen (INLG 2016)}
+ \end{itemize}
+ \vspace{-5em}}
 \end{frame}
-}
+
+\begin{frame}
+\frametitle{Learning Model}
+
+\hlight{Structured Perceptron:} Ranks grounded and ungrounded graph pairs $$(\hat{g},\hat{u}) = \arg\max\limits_{g,u}
+                        \Phi(g,u,q,\mathit{KB}) \cdot \theta$$
+
+\pause
+\hlight{Features $\Phi$:} Defined over question, grounded and
+ungrounded graph
+
+\vspace{0.5cm}
+
+
+\pause
+\hlight{Training:} Use gold graph to update weights 
+$$\theta \leftarrow \theta +
+\Phi(g^+,u^+,q,\mathit{KB})\hspace{-.3ex}-\hspace{-.3ex}\Phi(\hat{g},\hat{u},q,\mathit{KB})$$
+
+\pause
+
+\begin{itemize}
+ \item But we \hlight{do not} have access to gold graphs
+ \item Access only to the answers rather than the query
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning Model}
+
+\hlight{Oracle Graphs: } 
+\begin{itemize}
+ \item[] Get grounded graphs matching an ungrounded graph
+ \item[] Pick the graphs with minimal $F_1$-loss against the gold answer
+\end{itemize}
+
+\vspace{0.5cm}
+\hlight{Surrogate Gold Graph: }
+$$(u^{+},{g^{+}}) = \argmax_{(u,g) \in \mathit{O}(q)} \theta^{t} \cdot \Phi({u,g,q,\mathit{KB}})\,,$$
+
+\vspace{0.5cm}
+\hlight{Beam Search: } Limit the predictions to~100 graph pairs
+\end{frame}
+
+\subsection{Graph Mismatch}
 
 \section{Evaluation}
-
-\ignore{
-\begin{frame}
-\frametitle{Training and Evaluation Data}
-  \begin{itemize}
-     
-    \item[] \webq [Berant et al., 2013] 
-  	\begin{itemize}
-	  \item Google search queries starting with \textit{wh} question words.
-	  \item 3030 train, 2780 test
-	\end{itemize}
-    
-    \vspace{0.5cm}
-    \item[] \free [Cai and Yates, 2013] 
-  	\begin{itemize}
-  	 \item Manually curated questions
-	 \item 641 train, 276 test
-  	\end{itemize}
-
-    \vspace{0.5cm}	 
-    \item[] 30\% of training for development
-  \end{itemize}
-\end{frame}
-}
 
 \begin{frame}
 \frametitle{Baselines}
@@ -974,40 +912,379 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 \begin{frame}
 \frametitle{Results on WebQuestions}
 %\centering
-\vspace{0.6em}
+%\vspace{0.6em}
 \only<1>{\includegraphics[trim=1em 12em 49.5em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
 \only<2>{\includegraphics[trim=1em 12em 45em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
 \only<3>{\includegraphics[trim=1em 12em 41em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
 \only<4>{\includegraphics[trim=1em 12em 37em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
 \only<5>{\includegraphics[trim=1em 12em 33em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}} 
 \end{frame}
 
 \begin{frame}
-\frametitle{Results on Free917}
+\frametitle{Results on Multilingual WebQuestions}
 %\centering
-\vspace{0.6em}
-\only<1>{\includegraphics[trim=10em 21em 24em 1.3em,clip=true,scale=0.58]{figures/deplambda_results_plot_free917}}
+%\vspace{0.6em}
+\huge Works for English, German, Spanish. Graph: TODO
 \end{frame}
 
-\ignore{
 \begin{frame}
 \frametitle{Error Analysis}
-\begin{itemize}
- \item \ccggraph fails to produce logical forms for 4.5\%.
- \vspace{0.5cm}
+ \ccggraph fails to produce logical forms for 4.5\%.
  \begin{itemize}
   \item Sensitive to grammatical errors
-  \vspace{0.5cm}
   \item e.g., \textsl{what nestle owns?}
-  \vspace{0.5cm}
-  \item DepLambda fails only for 0.9\%
  \end{itemize}  
- %\item Less compositionality in the datasets
-\end{itemize}
+ 
+ \vspace{2em}
+ DepLambda fails only for 0.9\%
+ \begin{itemize}
+   \item e.g., \textsl{what to do washington december}
+ \end{itemize}  
 \end{frame}
+
+\section{Distantly-supervised Freebase Semantic Parsing}
+
+\begin{frame}
+\frametitle{Semantic Parsing without QA pairs}
+\vspace{-1em}
+\begin{columns}
+  \begin{column}{0.05\textwidth}
+  \end{column}
+ \begin{column}{0.55\textwidth}
+  \only<1>{\includegraphics{figures/freebase_qa_pair}}
+  \only<2>{\hspace{1em}\includegraphics{figures/freebase_qa_pair_striked}}
+ \end{column}
+
+ \begin{column}{0.45\textwidth}
+ \vspace{-0.5cm}
+ \begin{figure}
+  \includegraphics[scale=0.45]{figures/titanic} 
+ \end{figure}
+ \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning from Text}
+%unique
+
+\begin{center}
+\begin{tikzpicture}[rounded corners]
+ \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {\begin{center} \raisebox{.5ex}[0pt]{Cameron is the director of Titanic.}\end{center} };
+\end{tikzpicture}
+
+\vspace{.5cm}
+
+                \includegraphics[scale=1.2]{figures/unique_example}
+
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Learning from Text}
+
+%arrow 
+ 
+\begin{center}
+\begin{tikzpicture}[rounded corners]
+ \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {\begin{center} \raisebox{.5ex}[0pt]{\alert{Cameron} is the director of Titanic.}\end{center} };
+\end{tikzpicture}
+
+\vspace{.5cm}
+                \includegraphics[scale=1.2]{figures/unique_example_query_pointed}
+
+\vspace{.5cm}
+Select one of the entities as target and replace it with~$x$ (here
+\word{Cameron}). 
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Learning from Text}
+% question-graph 1
+\begin{center}
+\begin{tikzpicture}[rounded corners]
+ \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
+\end{tikzpicture}
+
+\vspace{.5cm}
+             %   \color{blue!80} \scriptsize $\denot{x}{NL}$ = \{\textsc{Austin}\}
+\includegraphics[scale=1.2]{figures/unique_example_query}\\
+
+%                 $\denot{x}{NL}$ = \{\textsc{Austin}\}
+
+\vspace{.5cm}
+Build all knowledge base subgraphs with $x$ uninstantiated.
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Learning from Text}
+% question graph 2
+\begin{center}
+\begin{tikzpicture}[rounded corners]
+ \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
+\end{tikzpicture}
+
+\vspace{.5cm}
+
+\includegraphics[scale=.3]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded2}
+\vspace{.5cm}
+
+Build all knowledge base subgraphs with $x$ uninstantiated.
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Learning from Text}
+% question graph 2
+\begin{center}
+\begin{tikzpicture}[rounded corners]
+ \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
+\end{tikzpicture}
+
+\vspace{.5cm}
+
+\includegraphics[scale=.3]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded1}
+\vspace{.5cm}
+
+Build all knowledge base subgraphs with $x$ uninstantiated.
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Learning from Text}
+
+\begin{center}
+\begin{tikzpicture}[rounded corners]
+ \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {\begin{center} \raisebox{.5ex}[0pt]{\alert{Cameron} is \hlight{the} director of Titanic.}\end{center} };
+\end{tikzpicture}
+
+
+\vspace{.5cm}
+                \includegraphics[scale=1.2]{figures/unique_example_query_pointed}\\
+\vspace{.5cm}
+\hlight{$\denot{x}{NL}$ = \{\textsc{Cameron}\}}
+\vspace{.5cm}
+
+Use denotations in NL and Freebase to select a surrogate gold graph. 
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Learning from Text}
+
+\begin{center}
+\begin{tikzpicture}[rounded corners]
+ \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
+\end{tikzpicture}
+
+\vspace{.5cm}
+
+\only<1>{
+             %   \color{blue!80} \scriptsize $\denot{x}{NL}$ = \{\textsc{Austin}\}
+\includegraphics[scale=.2]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded2}\\ 
+           \hlight{$\denot{x}{KB}$ =
+		\{\textsc{Cameron}, \textsc{JonLandau}\}}
+	}
+	
+\only<2>{
+             %   \color{blue!80} \scriptsize $\denot{x}{NL}$ = \{\textsc{Austin}\}
+\includegraphics[scale=.2]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded2_wrong}\\ 
+           \hlight{$\denot{x}{KB}$ =
+		\{\textsc{Cameron}, \textsc{JonLandau}\}} \alert{$\neq$ $\denot{x}{NL}$}\\
+	}
+\vspace{.5cm}
+Use denotations in NL and Freebase to select a surrogate gold graph. 
+
+\end{center}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Learning from Text}
+
+\begin{center}
+\begin{tikzpicture}[rounded corners]
+ \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
+ {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
+\end{tikzpicture} 
+
+\vspace{.5cm}
+
+\only<1>{
+\includegraphics[scale=.3]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded1}
+\vspace{.5cm}
+
+\hlight{$\denot{x}{KB}$ = \{\textsc{Cameron}\}}
 }
 
+\only<2>{
+\includegraphics[scale=.3]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded1_correct} 
+\vspace{.5cm}
+
+\hlight{$\denot{x}{KB}$ = \{\textsc{Cameron}\} = $\denot{x}{NL}$}
+}
+
+\vspace{.5cm}
+Use denotations in NL and Freebase to select a surrogate gold graph. 
+\end{center}
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Learning from Text: Summary}
+
+\begin{itemize}
+\item[] Learning proceeds by creating \alert{question-like graphs} by replacing named entities in logical forms mined from web
+  text with a variable.
+
+\vspace{2em}
+  
+\item[] Then try to find the subgraph of the knowledge graph with the
+  the most \alert{similar denotation}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Experiments}
+ \hlight{Target Domains:}  Business, Film, People 
+  \begin{itemize}
+    \item Largest domains of Freebase
+    \item 120m triples, 411 relations and 210 types.
+  \end{itemize}
+  
+  \vspace{1em}
+  \hlight{Training data:} 99K sentences from ClueWeb09
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Experiments}
+
+  \hlight{Test data:} 
+  \begin{itemize}
+  	\item \free [Cai and Yates, 2013] 
+  	\begin{itemize}
+  	 \item Syntactically well-formed queries
+  	 \item 124 queries for our target domains
+  	\end{itemize}
+
+  	\item \webq [Berant et al., 2013] 
+  	\begin{itemize}
+	  \item Google search queries starting with \textit{wh} question words.
+	  \item 570 queries for our target domains
+	\end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Results on \free}
+
+\begin{table}
+\begin{tabular}{|l| c c c c|}
+  \hline
+  System  & Precision & Recall & F1 &  \\
+  \hline
+  \textsc{mwg} & 52.6 & 49.1 & 50.8 & \\
+   \kcaz & 72.6 & 66.1 & 69.2 & \\
+   This Work  & \bf 81.9 & \bf  76.6 & \bf 79.2 & \color{blue} \bf +10.0 \\
+   \hline
+\end{tabular}
+\end{table}
+
+% \vspace{-0.5cm}
+\begin{itemize}
+  \item {\color{blue!70} \mwg:} Greedy Maximum Weighted Graph
+  \item {\color{blue!70} \kcaz:} Kwiatkowski et al. 2013 
+  \begin{itemize}
+    \item Manually annotated QA pairs (612 pairs)
+    \item Wiktionary
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results on \webq}
+\begin{table}
+\begin{tabular}{|l| c c c c c|}   
+  \hline
+  System  & Precision & Recall & F1 & $\underset{(\textsc{BL14})}{Avg F1}$ & \\
+  \hline
+  \textsc{mwg} & 39.4 & 34.0 & 36.5 & 41.6 & \\
+  \textsc{BL14} & --- & --- & --- & 37.5 & \\
+  This Work  & \bf 41.9 & \bf 37.0 & \bf 39.3 & \bf 47.7 &  \color{blue} \bf +10.2 \\
+  \hline
+\end{tabular}
+\end{table}
+
+%\vspace{0.5cm}
+
+\begin{itemize}
+  \setlength\itemsep{1em}
+  \item {\color{blue!70} \mwg:} Greedy Maximum Weighted Graph
+  
+  \item {\color{blue!70} \textsc{BL14:}} Berant and Liang, 2014
+  \begin{itemize}
+    \item ClueWeb09
+    \item Manually annotated QA pairs (1115 pairs)
+    \item Paraphrases
+  \end{itemize} 
+\end{itemize}
+\end{frame}
+
+\section{Natural Logic for Semantic Parsing}
+
+\begin{frame}
+\frametitle{Semantic Parsing with Natural Logic and IE \blfootnote{\scriptsize Kun, Reddy, Feng et al. (ACL 2016)}}
+\centering
+\includegraphics[scale=0.8]{figures/natural-logic-flowchart}
+\end{frame}
+
+\begin{frame}
+\frametitle{Natural-Logic styled Semantic Parsing}
+\centering
+\includegraphics[scale=0.7]{figures/natural-logic-argmax-flowchart}
+\end{frame} 
+
+\begin{frame}
+\frametitle{Natural-Logic styled Semantic Parsing}
+\centering
+\includegraphics[scale=0.7]{figures/natural-logic-argmax-flowchart}
+\end{frame} 
+
+\begin{frame}
+\frametitle{Natural-Logic styled Semantic Parsing}
+\includegraphics[trim=-12em 0em 0em 0em,clip=true,scale=0.7]{figures/natural-logic-argmax1}
+
+\vspace{-4em}
+\includegraphics[trim=-12em 0em 0em 0em,clip=true,scale=0.4]{figures/MCCNN}
+\end{frame}
 
 
 \section{Summary}
@@ -1020,16 +1297,11 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
  \item Semantic parsing as Graph Transduction
 
  \vspace{1em}
- \item State-of-the-art results on \free and competitive results on \webq
- 
- \pause
- \vspace{1em}
- \item Work in progress: DepLambda for multiple languages
+ \item Semantic Parsing with Natural Logic and IE
 \end{itemize}
 
 \pause
-\begin{center}Rules available from\\ \hlight{\url{https://github.com/sivareddyg/deplambda}} \\
-Thank You!
+\begin{center}Demo at\\ \hlight{\url{https://sivareddy.in/deplambda.html}} \\
 \end{center}
 \end{frame}
 
@@ -1266,6 +1538,38 @@ $$(u^{+},{g^{+}}) = \argmax_{(u,g) \in \mathit{O}_{\mathit{KB},\;\mathit{A}}(q)}
 \end{frame}
 
 \subsection{Complex constructions}
+\begin{frame}[noframenumbering]
+\frametitle{Relative Clause in CCG}
+\centering
+\includegraphics[scale=0.7]{figures/ccg-relative-clause}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+\frametitle{Relative Clause in DepLambda}
+\framesubtitle{following Carpenter (1998)}
+\begin{center}
+\includegraphics[trim=1em 7.5em 22em 0em,clip=true,scale=1]{figures/relative-object-extraction-ud}
+
+\vspace{3em}
+
+\includegraphics[trim=1em 6.5em 17em 0em,clip=true,scale=1]{figures/relative-object-extraction-binding-ud}
+
+\ignore{
+\begin{small}
+\begin{tabular}{l}\\
+  $\mathrm{(acl}$ \hspace{0.3cm}  $\mathrm{company}$ \\ 
+  \hspace*{1cm} ($\hlight{\bind}$ $\alert{f}$ \\
+  \hspace*{2cm}  $\mathrm{(wh}$-$\mathrm{dobj}$  \\  
+  \hspace*{3cm} $\mathrm{(nsubj}$ \\
+  \hspace*{4cm} $\mathrm{(dobj~acquired}$~$f)$\\
+  \hspace*{3cm}$\mathrm{~Disney))}$ \\
+  \hspace*{2cm} $\mathrm{which)))}$
+\end{tabular}
+\end{small}
+}
+\end{center}
+\end{frame}
+
 \begin{frame}[noframenumbering]
 \frametitle{Comparison with CCG}
 

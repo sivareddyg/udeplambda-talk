@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={15cm, 5cm}, text={15cm, 5cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+
+
+\usepackage{mathptmx} % font
+\usepackage{mathtools} % fancy arrows
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}[theme = simple]
+\begin{deptext}[column sep=2em,row sep=0.1em]
+What \& is \& mountain \& in \& US  \\
+%\small{\textsc{nnp}} \& \small{\textsc{vbd}} \& \small{\textsc{nnp}} \\
+%\small $\alpha$ \& \small $\alpha \xrightarrow[]{dobj} (\alpha \xrightarrow[]{nsubj} \beta)$ \& \small $\alpha$ \\
+%\subpos{det} \& \subpos{noun} \& \subpos{noun} \& \subpos{verb} \& \subpos{adv} \& \subpos{det} \& \subpos{noun}\\
+\end{deptext}
+\depedge{3}{1}{{\small nsubj}}
+\depedge{3}{2}{{\small cop}}
+\depedge{3}{5}{{\small nmod}}
+\depedge{5}{4}{{\small case}}
+%\depedge{5}{4}{{\small amod}}
+%\depedge{7}{6}{{\small case}}
+%\depedge{5}{8}{{\small punct}}
+\deproot{3}{{\small root}}
+\end{dependency}
+\end{document}

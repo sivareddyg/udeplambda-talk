@@ -4,7 +4,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \usepackage{pdflscape}
-\usepackage[papersize={8cm, 4cm}, text={8cm, 4cm}]{geometry}
+\usepackage[papersize={8.5cm, 4cm}, text={8.5cm, 4cm}]{geometry}
 \usetikzlibrary{decorations.text}
 \usepackage{xcolor}
 % \selectcolormodel{gray}
@@ -39,11 +39,11 @@ thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
   
   % Position the nodes using a matrix layout
   \matrix{ 
-  \& \node[entityType] (tCapital) {location\\.city}; \& \node[word]
-(wCapital) {capital}; \\
+  \& \node[entityType] (tCapital) {film\\.producer}; \& \node[word]
+(wCapital) {director}; \\
     \node[mathType] (mTarget) {target}; \&  \node[entity] (eAustin) {$x$}; \& \node[mediatorV]
 (mCapital) {$n$}; \& \node[entity]
-(eTexas) {$\textsc{Texas}$}; \\ 
+(eTexas) {$\textsc{Titanic}$}; \\ 
   };
  
   % words to entities
@@ -59,15 +59,15 @@ thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
   \draw [wordToEntity] (wCapital) edge node {}  (mCapital);
   
   % mediator to entities
-  \draw [mediatorToEntity][below] (mCapital) edge node {location.\\containedby.arg1}  (eAustin);
-  \draw [mediatorToEntity][below] (mCapital) edge node {location.\\containedby.arg2}  (eTexas);
+  \draw [mediatorToEntity][below] (mCapital) edge node {film.film.\\produced\_by.arg2}  (eAustin);
+  \draw [mediatorToEntity][below] (mCapital) edge node {film.film.\\produced\_by.arg1}  (eTexas);
    
    \draw [entityToMath] (eAustin) edge node {}  (mTarget);
   
 \end{tikzpicture} 
-\scriptsize $\textsc{target}(x) \wedge \mbox{location.city}(x) \wedge 
-\mbox{location.containedby.arg1}(n, x) \wedge
-\mbox{location.containedby.arg2}(n, \textsc{Texas})$
+\scriptsize $\textsc{target}(x) \wedge \mbox{film.producer}(x) \wedge 
+\mbox{film.film.produced\_by.arg2}(n, x) \wedge
+\mbox{film.film.produced\_by.arg1}(n, \textsc{Titanic})$
 \end{center}
 
 % \end{landscape}

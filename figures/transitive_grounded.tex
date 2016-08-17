@@ -37,14 +37,14 @@ thick,dashed,sloped,above,font=\sffamily\scshape,bend right=20},
 
   % Position the nodes using a matrix layout
   \matrix{
-    \node[entityType] (tCompany) {organization.\\organization}; \& \node[mathType] (mCompany) {\textsc{target}}; \\
+    \node[entityType] (tCompany) {film.\\director}; \& \node[mathType] (mCompany) {\textsc{target}}; \\
     
-    \node[entity] (eCompany) {$x$}; \& \node[mediator] (e1) {$m$}; \& \node[entity] (ePixar)[font=\sc] {\scriptsize Pixar}; \\
+    \node[entity] (eCompany) {$x$}; \& \node[mediator] (e1) {$m$}; \& \node[entity] (ePixar)[font=\sc] {\scriptsize Titanic}; \\
   };
  
   % mediator to entities
-  \draw [mediatorToEntity] (e1) edge node[below] {business.\\acquisition.\\acquiring\_company}  (eCompany);
-  \draw [mediatorToEntity] (e1) edge node[below] {business.\\acquisition.\\company\_acquired} (ePixar);
+  \draw [mediatorToEntity] (e1) edge node[below] {film.directed\_by.2}  (eCompany);
+  \draw [mediatorToEntity] (e1) edge node[below] {film.directed\_by.1} (ePixar);
   
   % types to entities
   \draw [typeToEntity] (tCompany) edge node {type}  (eCompany);

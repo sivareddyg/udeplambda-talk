@@ -4,7 +4,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \usepackage{pdflscape}
-\usepackage[papersize={8cm, 3.7cm}, text={8cm, 3.7cm}]{geometry}
+\usepackage[papersize={8.5cm, 4cm}, text={8.5cm, 4cm}]{geometry}
 \usetikzlibrary{decorations.text}
 \usepackage{xcolor}
 % \selectcolormodel{gray}
@@ -16,15 +16,14 @@
 \begin{tikzpicture}[
   font=\sffamily,
   every matrix/.style={ampersand replacement=\&,column sep=0.7cm,row
-sep=0.2cm,font=\scriptsize},
+sep=0.4cm,font=\scriptsize},
   entity/.style={draw,thick,rectangle,fill=green!20},
   word/.style={draw,thick,ellipse,fill=blue!20},
   mediator/.style={draw,thick,circle},
   mediatorR/.style={draw,thick,circle,fill=cyan!20},
   mediatorV/.style={draw,thick,circle,fill=violet!20},
   mediatorY/.style={draw,thick,circle,fill=yellow!20},
-  entityType/.style={draw,thick,rounded corners,fill=yellow!20,inner
-sep=.3cm},
+  entityType/.style={draw,thick,rounded corners,fill=yellow!20,inner sep=.3cm},
   mathType/.style={draw,thick,diamond,fill=red!20,font=\sc\scriptsize},
   mediatorToEntity/.style={->,>=stealth',shorten
 >=1pt,semithick,black,sloped,above,font=\sffamily\scriptsize},
@@ -40,12 +39,11 @@ thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
   
   % Position the nodes using a matrix layout
   \matrix{ 
-  \& \node[entityType] (tCapital) {location\\.city}; \& \node[word]
-(wCapital) {capital}; \\
-    \node[mathType] (mTarget) {target}; \&  \node[entity] (eAustin) {$x$};
-\& \node[mediatorR]
-(mCapital) {$m$}; \& \node[entity]
-(eTexas) {$\textsc{Texas}$}; \\ 
+  \& \node[entityType] (tCapital) {film\\.director}; \& \node[word]
+(wCapital) {director}; \\
+    \node[mathType] (mTarget) {target}; \&  \node[entity] (eAustin) {$x$}; \& \node[mediatorV]
+(mCapital) {$n$}; \& \node[entity]
+(eTexas) {$\textsc{Titanic}$}; \\ 
   };
  
   % words to entities
@@ -61,17 +59,29 @@ thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
   \draw [wordToEntity] (wCapital) edge node {}  (mCapital);
   
   % mediator to entities
-  \draw [mediatorToEntity][below] (mCapital) edge node
-{location.\\capital.arg1}  (eAustin);
-  \draw [mediatorToEntity][below] (mCapital) edge node
-{location.\\capital.arg2}  (eTexas);
+  \draw [mediatorToEntity][below] (mCapital) edge node {film.film.\\directed\_by.arg2}  (eAustin);
+  \draw [mediatorToEntity][below] (mCapital) edge node {film.film.\\directed\_by.arg1}  (eTexas);
    
    \draw [entityToMath] (eAustin) edge node {}  (mTarget);
   
 \end{tikzpicture} 
-\scriptsize $\textsc{target}(x) \wedge \mbox{location.city}(x) \wedge 
-\mbox{location.capital.arg1}(m, x) \wedge
-\mbox{location.capital.arg2}(m, \textsc{Texas})$
+\scriptsize $\textsc{target}(x) \wedge \mbox{film.director}(x) \wedge 
+\mbox{film.film.directed\_by.arg2}(n, x) \wedge
+\mbox{film.film.directed\_by.arg1}(n, \textsc{Titanic})$
 \end{center}
+
+% \end{landscape}
+
+% \begin{tikzpicture}
+% \node (One) at (-3,0) [shape=circle,draw] {$One$}; 
+% \node (Two) at (3,0) [shape=circle,draw] {$Two$};
+% \def\myshift#1{\raisebox{-2.5ex}}
+% \draw [->,thick,postaction={decorate,decoration={text along path,text
+%align=center,text={|\sffamily\myshift|Some more bent text}}}] (One) to [bend right=45]  (Two);
+% \def\myshift#1{\raisebox{1ex}}
+% \draw [->,thick,postaction={decorate,decoration={text along path,text
+%align=center,text={|\sffamily\myshift|Some bent text}}}]      (One) to [bend left=45] (Two);
+% \end{tikzpicture}
+
 
 \end{document}

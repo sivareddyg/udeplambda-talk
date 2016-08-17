@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE ipe SYSTEM "ipe.dtd">
+<ipe version="70000" creator="pdftoipe 2014/03/03">
+<ipestyle>
+<layout paper="425.197 141.732" frame="425.197 141.732" origin="0 0"/>
+<symbol name="bullet"><path matrix="0.04 0 0 0.04 0 0" fill="black">
+18 0 0 18 0 0 e</path></symbol>
+</ipestyle>
+<!-- Page: 1 1 -->
+<page>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="9.9626" matrix="1 0 0 1 20.506 66.962">What</text>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="9.9626" matrix="1 0 0 1 66.493 66.962">is</text>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="9.9626" matrix="1 0 0 1 97.547 66.962">the</text>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="9.9626" matrix="1 0 0 1 134.129 66.962">highest</text>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="9.9626" matrix="1 0 0 1 187.319 66.962">mountain</text>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="9.9626" matrix="1 0 0 1 249.366 66.962">in</text>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="9.9626" matrix="1 0 0 1 281.526 66.962">US</text>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="9.9626" matrix="1 0 0 1 318.666 66.962">?</text>
+<path stroke="0 0 0" pen="0.3985" cap="1">
+202.154 76.1277 m
+189.44 141.534 44.0078 141.534 31.6744 78.0852 c
+</path>
+<path fill="0 0 0" fillrule="wind">
+31.2939 76.1277 m
+33.4687 78.9553 l
+31.6744 78.0852 l
+30.3367 79.564 l
+</path>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="8.9664" matrix="0.7 0 0 0.7 109.924 127.535">nsubj</text>
+<path stroke="0 0 0" pen="0.3985" cap="1">
+202.154 76.1277 m
+192.307 126.788 79.6622 126.788 70.1952 78.0852 c
+</path>
+<path fill="0 0 0" fillrule="wind">
+69.8147 76.1277 m
+71.9894 78.9553 l
+70.1952 78.0852 l
+68.8575 79.564 l
+</path>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="8.9664" matrix="0.7 0 0 0.7 131.453 116.476">cop</text>
+<path stroke="0 0 0" pen="0.3985" cap="1">
+202.154 76.1277 m
+194.823 113.842 110.964 113.842 104.014 78.0852 c
+</path>
+<path fill="0 0 0" fillrule="wind">
+103.633 76.1277 m
+105.808 78.9553 l
+104.014 78.0852 l
+102.676 79.5641 l
+</path>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="8.9664" matrix="0.7 0 0 0.7 149.059 106.767">det</text>
+<path stroke="0 0 0" pen="0.3985" cap="1">
+210.124 76.1277 m
+215.911 105.898 282.106 105.898 287.513 78.0852 c
+</path>
+<path fill="0 0 0" fillrule="wind">
+287.893 76.1277 m
+288.851 79.564 l
+287.513 78.0852 l
+285.719 78.9553 l
+</path>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="8.9664" matrix="0.7 0 0 0.7 241.859 100.809">nmod</text>
+<path stroke="0 0 0" pen="0.3985" cap="1">
+202.154 76.1277 m
+198.163 96.6591 152.511 96.6591 148.9 78.0852 c
+</path>
+<path fill="0 0 0" fillrule="wind">
+148.52 76.1277 m
+150.695 78.9553 l
+148.9 78.0852 l
+147.563 79.564 l
+</path>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="8.9664" matrix="0.7 0 0 0.7 168.364 93.879">amod</text>
+<path stroke="0 0 0" pen="0.3985" cap="1">
+283.908 76.1277 m
+281.626 87.8665 255.525 87.8665 253.623 78.0852 c
+</path>
+<path fill="0 0 0" fillrule="wind">
+253.243 76.1277 m
+255.418 78.9553 l
+253.623 78.0852 l
+252.286 79.5641 l
+</path>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="8.9664" matrix="0.7 0 0 0.7 263.173 87.285">case</text>
+<path stroke="0 0 0" pen="0.3985" cap="1">
+210.124 76.1277 m
+218.366 118.526 312.639 118.526 320.499 78.0852 c
+</path>
+<path fill="0 0 0" fillrule="wind">
+320.88 76.1277 m
+321.837 79.5641 l
+320.499 78.0852 l
+318.705 78.9553 l
+</path>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="8.9664" matrix="0.7 0 0 0.7 258.528 110.279">punct</text>
+<text stroke="0 0 0" pos="0 0" transformations="affine" valign="baseline" size="8.9664" matrix="0.7 0 0 0.7 201.083 123.591">root</text>
+<path stroke="0 0 0" pen="0.3985" cap="1">
+206.139 121.238 m
+206.139 78.1202 l
+</path>
+<path fill="0 0 0" fillrule="wind">
+206.139 76.1277 m
+207.733 79.3157 l
+206.139 78.1202 l
+204.545 79.3157 l
+</path>
+</page>
+</ipe>

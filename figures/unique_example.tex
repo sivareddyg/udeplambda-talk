@@ -4,7 +4,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \usepackage{pdflscape}
-\usepackage[papersize={8cm, 3.6cm}, text={8cm, 4.6cm}]{geometry}
+\usepackage[papersize={8.5cm, 3.8cm}, text={8.5cm, 4.5cm}]{geometry}
 \usetikzlibrary{decorations.text}
 \usepackage{xcolor}
 % \selectcolormodel{gray}
@@ -33,44 +33,44 @@ thick,dotted,blue,sloped,above,font=\sffamily\scriptsize},
 thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
   every node/.style={align=center}]
 
-  % Austin is the capital of Texas 
+  % Cameron is the director of Titanic 
   
   % Position the nodes using a matrix layout
   \matrix{ 
-   \& \node[entityType] (tCapital) {capital}; \& \node[word]
-(wCapital) {capital}; \\
+   \& \node[entityType] (tDirector) {director}; \& \node[word]
+(wDirector) {director}; \\
    
-  \node[mathType] (mUniq) {unique};  \& \node[entity] (eAustin) {Austin};
+  \node[mathType] (mUniq) {unique};  \& \node[entity] (eCameron) {Cameron};
 \& \node[mediator]
-(mCapital)  {e}; \& \node[entity]
-(eTexas) {Texas}; \\
+(mDirector)  {e}; \& \node[entity]
+(eTitanic) {Titanic}; \\
   };
  
   % words to entities
-  %\draw [wordToEntity] (wAustin) edge node {}  (eAustin);
-  %\draw [wordToEntity] (wTexas) edge node {}  (eTexas);
+  %\draw [wordToEntity] (wCameron) edge node {}  (eCameron);
+  %\draw [wordToEntity] (wTitanic) edge node {}  (eTitanic);
   % words to types
-  \draw [wordToEntity] (wCapital) edge node {}  (tCapital);
+  \draw [wordToEntity] (wDirector) edge node {}  (tDirector);
   
   % type to entity
-  \draw [typeToEntity][below] (tCapital) edge node {type}  (eAustin);
+  \draw [typeToEntity][below] (tDirector) edge node {type}  (eCameron);
   
   % event word to mediators
-  \draw [wordToEntity] (wCapital) edge node {}  (mCapital);
+  \draw [wordToEntity] (wDirector) edge node {}  (mDirector);
   
   % mediator to entities
-  \draw [mediatorToEntity][below] (mCapital) edge node {capital.\\of.arg1} 
-(eAustin);
-  \draw [mediatorToEntity][below] (mCapital) edge node {capital.\\of.arg2} 
-(eTexas);
+  \draw [mediatorToEntity][below] (mDirector) edge node {director.\\of.arg1} 
+(eCameron);
+  \draw [mediatorToEntity][below] (mDirector) edge node {director.\\of.arg2} 
+(eTitanic);
    
-   \draw [entityToMath] (eAustin) edge node {}  (mUniq);
+   \draw [entityToMath] (eCameron) edge node {}  (mUniq);
   
 \end{tikzpicture} 
-\scriptsize $\textsc{unique}(\mathrm{Austin})
-\wedge \mbox{capital}(\mathrm{Austin}) \wedge $
-$\mbox{capital.of.arg1}(e, \mathrm{Austin}) \wedge
-\mbox{capital.of.arg2}(e, \mathrm{Texas})$
+\scriptsize $\textsc{unique}(\mathrm{Cameron})
+\wedge \mbox{director}(\mathrm{Cameron}) \wedge $
+$\mbox{director.of.arg1}(e, \mathrm{Cameron}) \wedge
+\mbox{director.of.arg2}(e, \mathrm{Titanic})$
 \end{center}
 
 \end{document}
