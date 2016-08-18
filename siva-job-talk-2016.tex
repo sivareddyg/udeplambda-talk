@@ -201,92 +201,90 @@ School of Informatics\\The University of Edinburgh\\
 \begin{frame}
 \frametitle{Syntax helps Semantics}
 \begin{center}
-\only<1>{\vspace{-1em} \includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.0]{figures/telugu-dependency-example} \\}
-  \only<2>{\vspace{5em}\includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.0]{figures/telugu-dependency-example} \\}
-\only<3,4>{\includegraphics[trim=1em 5em 24em 0em,clip=true,scale=1.0]{figures/telugu-dependency-example} \\}
-\only<2,3>{\includegraphics[scale=0.4]{figures/monkey-eat-banana}}
-\only<4>{\includegraphics[scale=0.23]{figures/banana-eat-monkey}}
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Syntax in humans?}
-\begin{center}
-\begin{columns}
-\begin{column}{0.7\textwidth}
-  \begin{quote}
-   Studies on Peruvian Indian bilinguals indicate Quechua word order influences the local varieties of Spanish
-   
-   [Odlin, 1989]
-  \end{quote}
-\end{column}
-\begin{column}{0.3\textwidth}
-  \begin{center}
-   \includegraphics[width=\textwidth]{figures/amazon-tribes}
-  \end{center}
-\end{column}
-\end{columns}
-\vspace{0.5cm}
-\begin{columns}
-
-\visible<2->{
-\begin{column}{0.7\textwidth}
-  \begin{quote}
-   Arabs show strong preference for SVO in Dutch, whereas Turks for SOV
-   
-   [Jansen et al., 1981; Appel, 1984]
-  \end{quote}
-\end{column}
-}
-\begin{column}{0.3\textwidth}
-   
-\end{column}
-\end{columns}
+\only<1>{\vspace{-1em} \includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.3]{figures/telugu-dependency-example} \\}
+  \only<2>{\vspace{5em}\includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.3]{figures/telugu-dependency-example} \\}
+\only<3,4>{\includegraphics[trim=1em 5em 24em 0em,clip=true,scale=1.3]{figures/telugu-dependency-example} \\}
+\only<2,3>{\includegraphics[scale=0.45]{figures/monkey-eat-banana}}
+\only<4>{\includegraphics[scale=0.26]{figures/banana-eat-monkey}}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{Universal Dependencies}
-Homogeneous syntactic representation across languages
+\large Homogeneous syntactic representation across languages
 
 \begin{center}
-\includegraphics[trim=0em 5em 15em 0em,clip=true,scale=1.0
+\includegraphics[trim=0em 5em 15em 0em,clip=true,scale=1.2
 ]{figures/dependency-word-order-english}
 
-\only<1>{\vspace{5.4em}\includegraphics[trim=0em 5em 15em 6.4em,clip=true,scale=1.0
+\only<1>{\vspace{4.8em}\includegraphics[trim=0em 4.5em 15em 5.3em,clip=true,scale=1.2
   ]{figures/dependency-word-order-telugu}}
-\only<2>{\includegraphics[trim=0em 5em 15em 1em,clip=true,scale=1.0
-  ]{figures/dependency-word-order-telugu}}
+\only<2>{\includegraphics[trim=0em 4.5em 15em 0.5em,clip=true,scale=1.2
+  ]{figures/dependency-word-order-telugu}
+  \vspace{-0.5em}}
 \end{center}
+\end{frame} 
+
+\begin{frame}[noframenumbering]
+\frametitle{Universal Dependencies}
+
+\large
+Dependency trees are human-friendly
+
+\vspace{2em}
+Treebanks in 40 languages
+
+\vspace{2em}
+
+40 dependency labels
 
 \end{frame} 
 
 \begin{frame}
-  \frametitle{Dependencies to Logical Forms}
-\vspace{-1em}
-\begin{center}
-\only<1>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
-\only<2>{\includegraphics[trim=2em 2em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-trace-ud}}
-\only<3,4>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box1}}
-\only<5,6>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box2}}
-\only<7>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box3}}
-\only<8->{\includegraphics[trim=1.5em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box4}}
- 
-\only<3>{\includegraphics[trim=29.5em 51.5em 4.5em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}\vspace{6.5em}}
-\only<4>{\includegraphics[trim=29.5em 45em 4.5em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}}
-\only<5>{\includegraphics[trim=22em 51.5em 8em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}\vspace{6.5em}} 
-\only<6>{\includegraphics[trim=23em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}}
-\only<7>{\includegraphics[trim=9em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2-ud}} 
-
-\only<1>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
-\only<2>{\vspace{-3em}\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \alert{\mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar})} \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
-\only<8>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$\blfootnote{\scriptsize Reddy, T\"ackstr\"om, Kwiatkowski et al. (TACL 2016)}}
-\end{center} 
+\frametitle{Dependency Tree to Semantics}
+\large
+  
+\begin{block}{\center Semantics}
+  \begin{itemize}
+   \vspace{1em}
+   \item Symbolic representations such as logical forms
+   \vspace{1em}
+   \item Distributed representations such as vectors
+   \vspace{1em}
+  \end{itemize}
+\end{block}
 \end{frame}
 
 \begin{frame}
- \frametitle{Synchronous Syntax-Semantics Interfaces}
- Derive semantics from syntactic derivation
+\frametitle{Dependency Tree to Semantics}
+\large
+  \hlight{Principle of Compositionality:} the semantics of a complex expression is determined by the semantics of its constituent expressions and the rules used to combine them
+  
+  \vspace{2em}
+  \alert{Complex expression} is the depedency tree
+  
+  \vspace{2em}
+  \alert{Constituent expressions} are subtree
+  
+  \vspace{2em}
+  \alert{Rules} are the dependency labels
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Dependency Tree to Semantics}
+\large
+  Dependencies \alert{lack} a formal mechanism to derive semantics from consituents
+
+\vspace{3em}
+  
+ Syntax to semantics inferface is important
+\end{frame}
+
+\begin{frame}
+\frametitle{Existing Syntax-Semantics interfaces}
+\large
  \begin{itemize}
   \vspace{0.5em}
   \item CCG {\scriptsize [Bos et al., 2004; Lewis \& Steedman, 2013]}
@@ -303,25 +301,120 @@ Homogeneous syntactic representation across languages
  
  \vspace{0.5cm}
  
- CCG has been a popular choice
- \vspace{0.5em}
+ CCG is a popular choice
  \begin{itemize}
-  \item \alert{No treebanks} for many languages
-  \item Syntactic categories differ in each language
+   \item Typing Mechanism
+   \item Combinator Rules
  \end{itemize}
 \end{frame}
 
 \begin{frame}
- \frametitle{Why from Universal Dependencies?}
- Treebanks in more than 40 languages\\
+\frametitle{CCG}
+\centering
+\only<1>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive-svo-derivation1}}
+\only<2>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive-svo-derivation2}}
+\only<3>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive-svo-derivation3}}
+\only<4>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive-svo-derivation}}
+\end{frame}
+
+\begin{frame}
+\frametitle{CCG}
+\centering
+\includegraphics[trim=3em 1em 3em 0em,clip=true,scale=1.3]{figures/ccg-transitive-svo-derivation-tensors} 
+
+\pause
+\large
+Typing and Combinator Rules allow \\Synchronous Syntax-Semantics interface
+\end{frame}
+
+\begin{frame}
+\frametitle{CCG}
+\centering
+\includegraphics[trim=0em 10em 1em 0em,clip=true,scale=1.3]{figures/ccg-transitive-svo}
+
+\vspace{2em}
+\includegraphics[trim=0em 10.5em 1em 0em,clip=true,scale=1.3]{figures/ccg-transitive-osv-derivation}
+
+\large
+\begin{itemize}
+ \item Language-specific types
+ \item Heavy lexicalization, e.g., $\mathrm{(V\backslash S)/ (V\backslash O)/O}$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{This Talk}
+ \Large \centering
  
- \vspace{1cm}
- Very accurate parsers\\
- {\scriptsize [Andor et al., 2016; Chen \& Manning, 2014]}
+ A Compositional Typed Semantic Interface \\
+ for Dependencies
  
- \vspace{1cm}
- Universal Types, both syntactic and semantic\\
+\end{frame}
+
+\begin{frame}
+\frametitle{This Talk}
+\large 
+\begin{enumerate}
+ \item Dependencies to Logical Forms
  
+ \vspace{2em}
+ \item Freebase Semantic Parsing using Logical Forms
+ 
+ \vspace{2em}
+ \item Exploiting Text for Freebase Semantic Parsing
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\Large
+\centering
+\vspace{1.5em}
+\begin{enumerate}
+ \item DepLambda: \\
+ Dependencies to Logical Forms \blfootnote{\color{blue} Reddy, T\"ackstr\"om, Kwiatkowski, Das, Collins, Steedman, Lapata (TACL 2016)}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Dependencies to Logical Forms}
+\vspace{-1em}
+\begin{center}
+\only<1>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
+\only<2>{\includegraphics[trim=2em 2em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-trace-ud}}
+\only<3,4>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box1}}
+\only<5,6>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box2}}
+\only<7>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box3}}
+\only<8->{\includegraphics[trim=1.5em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box4}}
+ 
+\only<3>{\includegraphics[trim=29.5em 51.5em 4.5em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}\vspace{6.5em}}
+\only<4>{\includegraphics[trim=30.6em 45em 4em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}}
+\only<5>{\includegraphics[trim=22em 51.5em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}\vspace{6.5em}} 
+\only<6>{\includegraphics[trim=23em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}}
+\only<7>{\includegraphics[trim=9em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2-ud}} 
+
+\only<1>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
+\only<2>{\vspace{-3em}\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \alert{\mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar})} \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
+\only<8>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
+\end{center} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Quick Intro to Lambda Calculus}
+
+$(\lambda x.M)N = M[x := N]$
+
+\begin{align*}
+sum(2,3) & =  (\lambda x . \lambda y \lspace (+\;\; x \;\;\; y))(2,3) \\
+ &  = (\lambda y \lspace (+\;\; 2 \;\;\; y))(3) \\
+  & = (+\;\; 2 \;\;\; 3) \\
+  & = 5 \\
+  \\
+\type{sum} & =   int \rightarrow int \rightarrow int \\
+sum(4,sum(2,3)) & = 9 \\
+sum(2, \mathrm{``three"}) & = \alert{TypeError} \\
+\end{align*}
 \end{frame}
 
 \begin{frame}
@@ -478,22 +571,12 @@ Let dependency labels drive the composition
 \begin{frame}
 \frametitle{Dependencies to Logical Forms}
 \framesubtitle{Lambda Calculus}
-\vspace{-2.4em}
-\begin{center}
-\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+\centering
+\vspace{-1em}
+\only<1>{\includegraphics[trim=1em 0em 0em 0em,scale=1]{figures/dobj-lambda-calculus1}}
+\only<2->{\includegraphics[trim=1em 0em 0em 0em,scale=1]{figures/dobj-lambda-calculus}}
 
-\end{center}
-
-\vspace{1cm}
-
-\begin{block}{\centering Lambda Expression for dependency labels}
-\vspace{-0.5cm}
-\begin{align*}
-  \hbox{\alert{dobj}} & \Rightarrow  \lambda \hlight{\mathbf{f}}\;\; {\color{blue!40!green!60!black} \mathbf{g}}\;\; \hlight{\mathbf{z}}\; \lspace \; \exists {\color{blue!40!green!60!black} \mathbf{x}}\; \lspace \; \hlight{\mathbf{f(z)}}\;\;\; \land \;\;\; {\color{blue!40!green!60!black} \mathbf{g(x)}}  \;\;\; \land\;\;\; \alert{\mathbf{arg_2}}(\hlight{\mathbf{z_e}}, {\color{blue!40!green!60!black} \mathbf{x_a}})
-\end{align*}
-\vspace{-0.5cm}
-\end{block}
-\visible<2->{\hspace{3cm} This operation mirrors the tree structure}
+\visible<3->{This operation mirrors the tree structure}
 \end{frame}
 
 \subsection{DepLambda Composition}
@@ -566,28 +649,10 @@ Let dependency labels drive the composition
  \end{columns}
 \end{frame}
 
-\ignore{
-\begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
- \begin{block}{}
- \vspace{2cm}
-  \centering \Huge
-  Total number of rules: 46
-  \vspace{2cm}
-  \end{block}
-\end{frame}
-}
-
-
 \begin{frame}
 \frametitle{Comparison with CCG}
-\centering
-\includegraphics[scale=1]{figures/ccg-transitive}
-\end{frame}
- 
-\begin{frame}
-\frametitle{Comparison with CCG}
-\vspace{-1.5em}
+\large
+\vspace{-1em}
 \begin{center}
 \begin{tabular}{p{5.6cm}|p{5.6cm}}
  \multicolumn{1}{c|}{\hlight{CCG}} & \multicolumn{1}{c}{\hlight{DepLambda}} \\
@@ -601,46 +666,16 @@ Let dependency labels drive the composition
  
 %Argument adjunct distinction  & Every dependent is an adjunct \\
 % \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
-\pause \\
 % Language specific categories & Mostly universal \\
-With ``complex~types'' comes power & Single-type system is robust, but restricted \\
-\scriptsize $(NP_{\hlight{\bf x}}\backslash NP_\hlight{\bf x})/(S\backslash NP_{\hlight{\bf x}})$ & \small $\lambda fgx \ldots $ i.e., $\eta \rightarrow \eta \rightarrow \eta$ for all labels \\
+%With ``complex~types'' comes power & Single-type system is robust, but restricted \\
+%\scriptsize $(NP_{\hlight{\bf x}}\backslash NP_\hlight{\bf x})/(S\backslash NP_{\hlight{\bf x}})$ & \small $\lambda fgx \ldots $ i.e., $\eta \rightarrow \eta \rightarrow \eta$ for all labels \\
 \end{tabular}
 \end{center}
 % \item Robust and no type checking necessary (a boon and a curse)
 \end{frame}
 
 \begin{frame}
-\frametitle{DepLambda in a nutshell}
-
-Dependency tree is a series of compositions
-\begin{itemize}
- \item Dependency label defines the composition function
- \item Each function takes two typed-semantic sub-expressions
- \item Returns typed-semantics of the larger expression
-\end{itemize}
-
-
-\vspace{1em}
-\pause
-
-Function could be any computation
-\begin{itemize}
-  \item e.g., a neural network
-\end{itemize}
-
-\vspace{1em}
-\pause
-
-Richer context-sensitive types will allow richer composition functions
-\begin{itemize}
- \item e.g., neural networks with tensors/neural networks
- \item directly to the target-application semantics
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Recap}
+\frametitle{DepLambda}
 \vspace{-2em}
 \begin{center}
 \includegraphics[trim=2em 7em 13em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-ud}
@@ -669,28 +704,81 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 \end{center} 
 \end{frame}
 
-\section{Semantic Parsing as Graph Matching}
 \begin{frame}
-\frametitle{Grounded Semantic Parsing}
-\only<1> {
-\begin{center} 
-\begin{tikzpicture}[
-  font=\sffamily,
-  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=2cm},
-  myboxNL/.style={draw,thick,rounded corners,text width=20em,inner sep=0.20cm,fill=green!10},
-  myboxMR/.style={draw,thick,rounded corners,text width=20em,inner sep=0.20cm,fill=red!10},
-  myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=15pt,},
-  every node/.style={align=center}]
-\matrix{ 
-    \node[myboxNL] (NL) {Natural Language (NL)}; \\
-    \node[myboxMR] (MR) {Machine Executable Language (KB)}; \\
-    };
-    \draw [myArrow] (NL) edge node[black] {Parser}  (MR);
-\end{tikzpicture}
-\end{center}
-}
+\frametitle{DepLambda in a nutshell}
+\large
+
+Dependency tree is a series of \hlight{compositions}
+
+\vspace{2em}
+Dependency label defines the \hlight{composition function}
+
+\vspace{2em}
+Each function takes two \hlight{typed}-semantic sub-expressions
+
+\vspace{2em}
+Returns typed-semantics of the larger expression
 \end{frame}
 
+\begin{frame}
+\frametitle{DepLambda: Current Status}
+\large
+Compositional Typed Semantics using Lambda Calculus
+
+\vspace{2em}
+Two universal types
+
+\vspace{2em}
+69 lambda calculus formulae
+
+\vspace{2em}
+Ouput: General-purpose logical forms
+\end{frame}
+
+\begin{frame}
+\frametitle{DepLambda: Towards ...}
+\large
+
+Richer universal context-sensitive types
+
+\vspace{2em}
+Richer composition functions, e.g., neural networks
+
+\vspace{2em}
+Output: Any target semantic representation
+\begin{itemize}
+ \item Semantic Parsing
+ \item Machine Translation
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{This Talk}
+\large 
+\begin{enumerate}
+ \item Dependencies to Logical Forms
+ 
+ \vspace{2em}
+ \item Freebase Semantic Parsing using Logical Forms
+ 
+ \vspace{2em}
+ \item Exploiting Text for Freebase Semantic Parsing
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\Large
+\centering
+\vspace{1.5em}
+\begin{enumerate}
+ \setcounter{enumi}{1}
+ \item Freebase Semantic Parsing using Logical Forms \blfootnote{\color{blue} Reddy, T\"ackstr\"om, Kwiatkowski, Das, Collins, Steedman, Lapata (TACL 2016)\\
+   \hspace{1.8em}Reddy, Lapata, Steedman (TACL 2014)}
+\end{enumerate}
+\end{frame}
+
+\section{Semantic Parsing as Graph Matching}
 \begin{frame}
 \frametitle{Freebase Semantic Parsing}
 \framesubtitle{[Berant et al., 2013, Kwiatkowski et al., 2013]}
@@ -712,7 +800,7 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 \matrix{
     \node[myboxNL] (NL) {\textbf{Question} \\ Who is the director of Titanic?}; \\ 
     \only<2->{\node[myboxMR] (MR) [text=black!16] {
-    \textbf{Logical Form} \\ $\lambda x.\; \mbox{film.directed\_by}(Titanic,x)$ }; \\}
+    \textbf{Logical Form} \\ $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(y,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\}
     \node[myboxAns] (Ans) {\textbf{Answer} \\ \{James Cameron\}}; \\
     };
 \end{tikzpicture}
@@ -720,7 +808,7 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 \only<2->{\begin{tikzpicture}[rounded corners]
 
  \node[text width=15em,fill=white!0,draw=white!0](q_A) at (-5,-5) [text=red!80]{
-\vspace{-3.5cm} \\ \hspace{2cm} Latent
+\vspace{-4.2cm} \\ \hspace{2cm} Latent
  };
 \end{tikzpicture}}
 \end{figure}
@@ -731,6 +819,92 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
  \begin{figure}
   \includegraphics[scale=0.45]{figures/titanic} 
  \end{figure}
+ \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{End-to-End Semantic Parsing}
+\framesubtitle{\scriptsize [Zelle \& Mooney, 1996; Zettlemoyer \& Collins, 2005; Kwiatkowski et al., 2010; Liang et al., 2011; \\
+Artzi \& Zettlemoyer, 2011; Krishnamurthy \& Mitchell, 2012; Berant et al., 2013; Pasupat \& Liang, 2015; \\
+Yih et al., 2015]}
+
+\begin{columns}
+ \begin{column}{0.5\textwidth}
+ \large
+  Grammar learning
+  \begin{itemize} \footnotesize
+    \vspace{1em}
+   \item who $\rightarrow$ $(S/(S/NP): \lambda f x \lspace f(EQ(x)) $
+   \vspace{1em}
+   \item is $\rightarrow$ $(S \backslash NP)/NP:$ $\lambda f 
+  g x \lspace f(x) \wedge g(x)$
+  \vspace{1em}
+  \item director $\rightarrow$ $N: \lambda x \lspace \mbox{film.director}(x)$
+
+  \vspace{1em}
+  \item of $\rightarrow$ $(NP \backslash NP)/NP:$ $\lambda f 
+  g x. \exists ye \lspace f(y) \wedge g(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(e, x) \wedge \mbox{arg1}(e,y)$
+ \end{itemize}
+ \end{column}
+ \begin{column}{0.45\textwidth}
+  \begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=1cm},
+  myboxNL/.style={draw,thick,rounded corners,text width=14em,inner sep=0.15cm,fill=green!10},
+  myboxMR/.style={draw,thick,rounded corners,text width=14em,inner sep=0.15cm,fill=red!10},
+  myboxAns/.style={draw,thick,rounded corners,text width=14em,inner sep=0.15cm,fill=yellow!10},
+  myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
+  myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
+  every node/.style={align=center}]
+\matrix{ 
+    \node[myboxNL] (NL) {\footnotesize \textbf{Question} \\ \centering \footnotesize Who is the director of Titanic?}; \\
+    \node[myboxMR] (MR) {\footnotesize \textbf{Logical Form} \\ \centering \footnotesize $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(y,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\
+    % \node[myboxAns] (Ans) {\{oklahoma city, little rock, baton rouge, santa fe\}}; \\
+    };
+\end{tikzpicture}
+ \end{column}
+\end{columns}
+\end{frame} 
+
+\begin{frame}
+\frametitle{Intermediate Semantic Parsing}
+\framesubtitle{\scriptsize [Kwiatkowski et al., 2013;  Reddy et al., 2014; Choi et al., 2015; Artzi et al., 2015]}
+ 
+\begin{columns}
+ \begin{column}{0.5\textwidth}
+ \large
+ %\item Factorizes the problem into two.
+ Language to \\ \hlight{ungrounded} logical form
+ %\begin{itemize}
+ %\item could exploit existing language processing tools
+ %\item focus on the language aspect
+ %\end{itemize}
+ \vspace{2em} \\
+ 
+ Ungrounded logical form to \hlight{grounded} logical form
+ % \begin{itemize}
+ % \item Exploit structural similarities
+ % \item Powerful graph algorithms
+ % \end{itemize} 
+ \end{column}
+ \begin{column}{0.45\textwidth}
+  \begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=0.5cm},
+  myboxNL/.style={draw,thick,rounded corners,text width=14em,inner sep=0.15cm,fill=green!10},
+  myboxMR/.style={draw,thick,rounded corners,text width=14em,inner sep=0.15cm,fill=red!10},
+  myboxAns/.style={draw,thick,rounded corners,text width=14em,inner sep=0.15cm,fill=yellow!10},
+  myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
+  myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
+  every node/.style={align=center}]
+\matrix{ 
+    \node[myboxNL] (NL) {\footnotesize \textbf{Question} \\ \centering \footnotesize Who is the director of Titanic?}; \\
+    \node[myboxAns] (MR) {\footnotesize \textbf{Ungrounded Logical Form} \\ \centering \footnotesize $\lambda x.\textsc{target}(x_a)\wedge \mbox{director}(x_a) \wedge\mbox{director\_event}(x_e) \wedge \mbox{arg0}(x_e,x_a) \wedge \mbox{arg.of}(x_e,\mbox{Titanic})$ }; \\
+    \node[myboxMR] (MR) {\footnotesize \textbf{Logical Form} \\ \centering \footnotesize $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(e,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\
+    % \node[myboxAns] (Ans) {\{oklahoma city, little rock, baton rouge, santa fe\}}; \\
+    };
+\end{tikzpicture}
  \end{column}
 \end{columns}
 \end{frame}
@@ -748,7 +922,7 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 
 
 \begin{frame}
-  \frametitle{Semantic Parsing as Graph Matching\blfootnote{\scriptsize Reddy, Lapata, Steedman (TACL 2014)}}
+  \frametitle{Semantic Parsing as Graph Matching}
 
 \only<1>{\includegraphics[scale=0.85]{figures/outline1.pdf}} 
 \only<2>{\includegraphics[scale=0.85]{figures/outline2.pdf}}
@@ -808,7 +982,6 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 \only<1>{\includegraphics[scale=1]{figures/graph_pair1}}
 \only<2>{\includegraphics[scale=1]{figures/graph_pair2}}
 \only<3>{\includegraphics[scale=1]{figures/graph_pair3}}
-\only<4>{\includegraphics[scale=1]{figures/graph_pair3}} 
 }
  
 \only<1,2,3>{{Ungrounded Graph \hspace{3cm} Grounded Graph}}
@@ -816,7 +989,11 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 
 
 \begin{frame}
-  \frametitle{Graph Mismatch}
+  \frametitle{Graph Mismatch} 
+  \large
+  \centering
+  What is the name of the director of Titanic?
+  \vspace{1em}
   \begin{columns}
   \begin{column}{0.58\textwidth}
    \centering
@@ -828,8 +1005,9 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
   \end{column}
   \begin{column}{0.42\textwidth}
     \centering
-   \includegraphics[width=\textwidth]{figures/czech_question_grounded_graph} \\
-   Freebase graph 
+    \vspace{-1em}
+   \includegraphics[width=\textwidth]{figures/transitive_grounded} \\
+   \vspace{-1.5em}Freebase graph 
   \end{column}
  \end{columns}
  
@@ -844,57 +1022,60 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 
 \begin{frame}
 \frametitle{Learning Model}
+\large
 
-\hlight{Structured Perceptron:} Ranks grounded and ungrounded graph pairs $$(\hat{g},\hat{u}) = \arg\max\limits_{g,u}
-                        \Phi(g,u,q,\mathit{KB}) \cdot \theta$$
-
-\pause
-\hlight{Features $\Phi$:} Defined over question, grounded and
-ungrounded graph
+\hlight{Structured Perceptron:} Ranks grounded and ungrounded graph pairs 
+\only<1>{\includegraphics{figures/perceptron1}}
+\only<2>{\includegraphics{figures/perceptron2}}
+\only<3>{\includegraphics{figures/perceptron3}}
+\only<4>{\includegraphics{figures/perceptron4}}
+\only<5->{\includegraphics{figures/perceptron5}}
 
 \vspace{0.5cm}
 
 
-\pause
-\hlight{Training:} Use gold graph to update weights 
+
+\visible<6->{\hlight{Training:} Use gold graph to update weights 
 $$\theta \leftarrow \theta +
-\Phi(g^+,u^+,q,\mathit{KB})\hspace{-.3ex}-\hspace{-.3ex}\Phi(\hat{g},\hat{u},q,\mathit{KB})$$
-
-\pause
-
-\begin{itemize}
- \item But we \hlight{do not} have access to gold graphs
- \item Access only to the answers rather than the query
-\end{itemize}
+\Phi(g^+,u^+,q,\mathit{KB})\hspace{-.3ex}-\hspace{-.3ex}\Phi(\hat{g},\hat{u},q,\mathit{KB})$$}
 \end{frame}
 
 \begin{frame}
 \frametitle{Learning Model}
+\large 
 
-\hlight{Oracle Graphs: } 
 \begin{itemize}
- \item[] Get grounded graphs matching an ungrounded graph
- \item[] Pick the graphs with minimal $F_1$-loss against the gold answer
+ \item[\huge $\star$] We \hlight{do not} have access to gold graphs
+ \item[\huge $\star$] Access only to the \hlight{answers} rather than the query
+ \item[\huge $\star$] Instead use a \hlight{surrogate} gold graph
 \end{itemize}
 
+%\hlight{Oracle Graphs: } 
+%\begin{itemize}
+% \item[] Get grounded graphs matching an ungrounded graph
+% \item[] Pick the graphs with minimal $F_1$-loss against the gold answer
+%\end{itemize}
+
+\pause
 \vspace{0.5cm}
 \hlight{Surrogate Gold Graph: }
-$$(u^{+},{g^{+}}) = \argmax_{(u,g) \in \mathit{O}(q)} \theta^{t} \cdot \Phi({u,g,q,\mathit{KB}})\,,$$
+\includegraphics{figures/perceptron-oracle}
 
-\vspace{0.5cm}
-\hlight{Beam Search: } Limit the predictions to~100 graph pairs
+%\vspace{0.5cm}
+%\hlight{Beam Search: } Limit the predictions to~100 graph pairs
 \end{frame}
 
 \subsection{Graph Mismatch}
 
-\section{Evaluation}
+\section{Evaluation} 
 
 \begin{frame}
+\large
 \frametitle{Baselines}
 \hlight{\simplegraph: }All entities connected to a single event
-\begin{itemize}
- \item Does not handle compositional questions% in addition to a \textsc{target} node.
-\end{itemize}
+%\begin{itemize}
+ % \item Does not handle compositional questions% in addition to a \textsc{target} node.
+%\end{itemize}
 
 \pause
 
@@ -930,6 +1111,7 @@ $$(u^{+},{g^{+}}) = \argmax_{(u,g) \in \mathit{O}(q)} \theta^{t} \cdot \Phi({u,g
 
 \begin{frame}
 \frametitle{Error Analysis}
+\large
  \ccggraph fails to produce logical forms for 4.5\%.
  \begin{itemize}
   \item Sensitive to grammatical errors
@@ -944,6 +1126,33 @@ $$(u^{+},{g^{+}}) = \argmax_{(u,g) \in \mathit{O}(q)} \theta^{t} \cdot \Phi({u,g
 \end{frame}
 
 \section{Distantly-supervised Freebase Semantic Parsing}
+
+\begin{frame}
+\frametitle{This Talk}
+\large 
+\begin{enumerate}
+ \item Dependencies to Logical Forms
+ 
+ \vspace{2em}
+ \item Freebase Semantic Parsing using Logical Forms
+ 
+ \vspace{2em}
+ \item Exploiting Text for Freebase Semantic Parsing
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\Large
+\centering
+\vspace{1.5em}
+\begin{enumerate}
+ \setcounter{enumi}{2}
+ \item Exploiting Text for Freebase Semantic Parsing \blfootnote{\color{blue} 
+   Bisk, Reddy, Blitzer, Hockenmaier (EMNLP 2016) \\
+   \hspace{1.8em}Xu, Reddy, Feng, Huang, Zhao (ACL 2016) \\
+   \hspace{1.8em}Reddy, Lapata, Steedman (TACL 2014)}
+\end{enumerate}
+\end{frame}
 
 \begin{frame}
 \frametitle{Semantic Parsing without QA pairs}
@@ -1306,6 +1515,43 @@ Use denotations in NL and Freebase to select a surrogate gold graph.
 \end{frame}
 
 \section{Additional Slides}
+
+\subsection{Motivation}
+\begin{frame}
+\frametitle{Syntax in humans?}
+\begin{center}
+\begin{columns}
+\begin{column}{0.7\textwidth}
+  \begin{quote}
+   Studies on Peruvian Indian bilinguals indicate Quechua word order influences the local varieties of Spanish
+   
+   [Odlin, 1989]
+  \end{quote}
+\end{column}
+\begin{column}{0.3\textwidth}
+  \begin{center}
+   \includegraphics[width=\textwidth]{figures/amazon-tribes}
+  \end{center}
+\end{column}
+\end{columns}
+\vspace{0.5cm}
+\begin{columns}
+
+\visible<2->{
+\begin{column}{0.7\textwidth}
+  \begin{quote}
+   Arabs show strong preference for SVO in Dutch, whereas Turks for SOV
+   
+   [Jansen et al., 1981; Appel, 1984]
+  \end{quote}
+\end{column}
+}
+\begin{column}{0.3\textwidth}
+   
+\end{column}
+\end{columns}
+\end{center}
+\end{frame}
 
 \subsection{Dynamic Oracle}
 \begin{frame}[noframenumbering]
