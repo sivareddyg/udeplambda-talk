@@ -13,7 +13,9 @@
 \setbeamercovered{invisible}
 \setbeamertemplate{itemize items}[default]
 \setbeamertemplate{enumerate items}[default]
-\setbeamertemplate{footline}[frame number]{}
+%\setbeamertemplate{footline}[frame number]{}
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\insertframenumber}}}}
 }
 
 \newcommand\blfootnote[1]{%
@@ -372,7 +374,7 @@ Typing and Combinator Rules allow \\Synchronous Syntax-Semantics interface
 \vspace{1.5em}
 \begin{enumerate}
  \item DepLambda: \\
- Dependencies to Logical Forms \blfootnote{\color{blue} Reddy, T\"ackstr\"om, Kwiatkowski, Das, Collins, Steedman, Lapata (TACL 2016)}
+ Dependencies to Logical Forms \blfootnote{\color{blue} $\bullet$  Reddy, T\"ackstr\"om, Collins, Kwiatkowski, Das, Steedman, Lapata (TACL 2016)}
 \end{enumerate}
 \end{frame}
 
@@ -729,7 +731,7 @@ Compositional Typed Semantics using Lambda Calculus
 Two universal types
 
 \vspace{2em}
-69 lambda calculus formulae
+69 lambda calculus formulae for Universal Dependencies
 
 \vspace{2em}
 Ouput: General-purpose logical forms
@@ -757,7 +759,7 @@ Output: Any target semantic representation
 \frametitle{This Talk}
 \large 
 \begin{enumerate}
- \item Dependencies to Logical Forms
+ \item Dependencies to Logical Forms $\checkmark$
  
  \vspace{2em}
  \item Freebase Semantic Parsing using Logical Forms
@@ -773,8 +775,11 @@ Output: Any target semantic representation
 \vspace{1.5em}
 \begin{enumerate}
  \setcounter{enumi}{1}
- \item Freebase Semantic Parsing using Logical Forms \blfootnote{\color{blue} Reddy, T\"ackstr\"om, Kwiatkowski, Das, Collins, Steedman, Lapata (TACL 2016)\\
-   \hspace{1.8em}Reddy, Lapata, Steedman (TACL 2014)}
+ \item Freebase Semantic Parsing using Logical Forms \blfootnote{
+\color{blue}
+ $\bullet$ Reddy, T\"ackstr\"om, Collins, Kwiatkowski, Das, Steedman, Lapata (TACL 2016) \\
+ \hspace{1.5em} $\bullet$ Reddy, Lapata, Steedman (TACL 2014)}
+
 \end{enumerate}
 \end{frame}
 
@@ -910,6 +915,22 @@ Yih et al., 2015]}
 \end{frame}
 
 \begin{frame}
+\frametitle{Freebase Semantic Parsing: Task Setting}
+\large
+
+\hlight{Training Data:} Question and Answer Pairs
+
+\vspace{2em}
+\hlight{Evaluation:} Question Answering on Freebase
+
+\vspace{2em}
+\hlight{Resources:} Dependency Parser, DepLambda
+
+\vspace{2em}
+\hlight{Hypothesis}: DepLambda logical forms are useful
+\end{frame}
+
+\begin{frame}
 \frametitle{Freebase is a Graph}
 \begin{center}
 \only<1>{\includegraphics[scale=0.8]{figures/knowledge_graph}}
@@ -920,9 +941,8 @@ Yih et al., 2015]}
 \end{center}
 \end{frame} 
 
-
 \begin{frame}
-  \frametitle{Semantic Parsing as Graph Matching}
+  \frametitle{Our Approach}
 
 \only<1>{\includegraphics[scale=0.85]{figures/outline1.pdf}} 
 \only<2>{\includegraphics[scale=0.85]{figures/outline2.pdf}}
@@ -1007,7 +1027,7 @@ Yih et al., 2015]}
     \centering
     \vspace{-1em}
    \includegraphics[width=\textwidth]{figures/transitive_grounded} \\
-   \vspace{-1.5em}Freebase graph 
+   \vspace{-1.5em}Grounded graph 
   \end{column}
  \end{columns}
  
@@ -1047,7 +1067,7 @@ $$\theta \leftarrow \theta +
 \begin{itemize}
  \item[\huge $\star$] We \hlight{do not} have access to gold graphs
  \item[\huge $\star$] Access only to the \hlight{answers} rather than the query
- \item[\huge $\star$] Instead use a \hlight{surrogate} gold graph
+ \item[\huge $\star$] Solution: use a \hlight{surrogate} gold graph
 \end{itemize}
 
 %\hlight{Oracle Graphs: } 
@@ -1072,34 +1092,21 @@ $$\theta \leftarrow \theta +
 \begin{frame}
 \large
 \frametitle{Baselines}
-\hlight{\simplegraph: }All entities connected to a single event
+\hlight{$\underset{\mathrm{bag\; of\; words}}{\simplegraph:}$ }All entities connected to a single event
 %\begin{itemize}
  % \item Does not handle compositional questions% in addition to a \textsc{target} node.
 %\end{itemize}
 
-\pause
+% \pause
 
-\vspace{0.9cm} 
-\hlight{\ccggraph: } CCG logical forms 
+%\vspace{0.9cm} 
+%\hlight{\ccggraph: } CCG logical forms 
 
-\pause
-\vspace{0.9cm}
-\hlight{\deptree:} Directly transduce a dependency tree to target graph \\
+%\pause
+\vspace{2em}
+\hlight{\deptree:} Transduce a dependency tree to target graph \\
 %An event for each head. Each dependent is linked to the event via its dependency relation. %Head is linked to the event via \textit{arg0}.
 
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Results on WebQuestions}
-%\centering
-%\vspace{0.6em}
-\only<1>{\includegraphics[trim=1em 12em 49.5em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<2>{\includegraphics[trim=1em 12em 45em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<3>{\includegraphics[trim=1em 12em 41em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<4>{\includegraphics[trim=1em 12em 37em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<5>{\includegraphics[trim=1em 12em 33em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}} 
 \end{frame}
 
 \begin{frame}
@@ -1107,6 +1114,18 @@ $$\theta \leftarrow \theta +
 %\centering
 %\vspace{0.6em}
 \huge Works for English, German, Spanish. Graph: TODO
+\end{frame}
+
+\begin{frame}
+\frametitle{Results on WebQuestions}
+%\centering
+%\vspace{0.6em}
+%\only<1>{\includegraphics[trim=1em 12em 49.5em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+%\only<2>{\includegraphics[trim=1em 12em 45em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+%\only<3>{\includegraphics[trim=1em 12em 41em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+%\only<4>{\includegraphics[trim=1em 12em 37em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<1>{\includegraphics[trim=1em 12em 33em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<2>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}} 
 \end{frame}
 
 \begin{frame}
@@ -1131,10 +1150,10 @@ $$\theta \leftarrow \theta +
 \frametitle{This Talk}
 \large 
 \begin{enumerate}
- \item Dependencies to Logical Forms
+ \item Dependencies to Logical Forms $\checkmark$
  
  \vspace{2em}
- \item Freebase Semantic Parsing using Logical Forms
+ \item Freebase Semantic Parsing using Logical Forms $\checkmark$
  
  \vspace{2em}
  \item Exploiting Text for Freebase Semantic Parsing
@@ -1148,9 +1167,8 @@ $$\theta \leftarrow \theta +
 \begin{enumerate}
  \setcounter{enumi}{2}
  \item Exploiting Text for Freebase Semantic Parsing \blfootnote{\color{blue} 
-   Bisk, Reddy, Blitzer, Hockenmaier (EMNLP 2016) \\
-   \hspace{1.8em}Xu, Reddy, Feng, Huang, Zhao (ACL 2016) \\
-   \hspace{1.8em}Reddy, Lapata, Steedman (TACL 2014)}
+   $\bullet$ Bisk, Reddy, Blitzer, Hockenmaier (EMNLP 2016) \\
+   \hspace{1.6em} $\bullet$ Reddy, Lapata, Steedman (TACL 2014)}
 \end{enumerate}
 \end{frame}
 
@@ -1173,6 +1191,69 @@ $$\theta \leftarrow \theta +
  \end{column}
 \end{columns}
 \end{frame}
+
+\begin{frame}
+\frametitle{Semantic Parsing without QA pairs}
+
+\begin{columns}
+ \begin{column}{0.56\textwidth}
+ \vspace{-1em}
+ \begin{figure}
+  \begin{tikzpicture}[
+  font=\sffamily,
+  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=2cm},
+  myboxNL/.style={draw,thick,rounded corners,text width=17em,inner sep=0cm,fill=green!10},
+  myboxMR/.style={draw,thick,rounded corners,text width=17em,inner sep=0cm,fill=red!10},
+  myboxAns/.style={draw,thick,rounded corners,text width=17em,inner sep=0.15cm,fill=yellow!10},
+  myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
+  myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
+  every node/.style={align=center}]
+\matrix{
+    \visible<1->{\node[myboxNL] (NL) {\begin{tabular}{l
+    p{4.5cm}}\rotatebox[origin=c]{90}{\hspace{-1cm} \small \bf NL\phantom{xx}}
+    & \small Leonardo DiCaprio starred as Jack in Titanic which was directed by James Cameron.
+\\
+\end{tabular}};} \\
+    \visible<1->{\node[myboxMR] (MR) {\begin{tabular}{l
+    p{4.6cm}}\rotatebox[origin=c]{90}{\hspace{-0.5cm} \small \bf KB\phantom{x}}
+    & \small $\mbox{cast}(\textsc{Titanic},\textsc{DiCaprio},\textsc{Jack})
+    \wedge\mbox{director}(\textsc{Titanic},\textsc{Cameron})$ \\
+    \end{tabular}};}\\
+\visible<1->{\node[myboxAns] (Ans) {\small \textsc{True}}; \\}\\
+    };
+    \visible<1->{\draw [myArrow] (NL) edge node[black] {Parser}  (MR);}
+    \visible<1->{\draw [myArrow1] (MR) edge node[black]
+    {\includegraphics[scale=0.2,angle=90]{figures/db}\\\vspace{-0.38cm}Execute} 
+    (Ans);}
+\end{tikzpicture}
+\end{figure}
+\end{column}
+
+ \begin{column}{0.45\textwidth}
+ \vspace{-3cm}
+ \begin{figure}
+  \includegraphics[scale=0.45]{figures/titanic} 
+ \end{figure}
+ \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Task Setup}
+ \large
+ 
+ \hlight{Training Data:} Web Corpus
+ 
+ \vspace{2em}
+ \hlight{Evaluation:} Question Answering on Freebase
+ 
+ \vspace{2em}
+ \hlight{Resources:} Ungrounded Logical Forms
+ 
+ \vspace{2em}
+ \hlight{Hypothesis:} We do not need \hlight{manual} question answer pairs
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Learning from Text}
@@ -1236,47 +1317,8 @@ Build all knowledge base subgraphs with $x$ uninstantiated.
 \end{center}
 \end{frame}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{Learning from Text}
-% question graph 2
-\begin{center}
-\begin{tikzpicture}[rounded corners]
- \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
- {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
-\end{tikzpicture}
-
-\vspace{.5cm}
-
-\includegraphics[scale=.3]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded2}
-\vspace{.5cm}
-
-Build all knowledge base subgraphs with $x$ uninstantiated.
-\end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Learning from Text}
-% question graph 2
-\begin{center}
-\begin{tikzpicture}[rounded corners]
- \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
- {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
-\end{tikzpicture}
-
-\vspace{.5cm}
-
-\includegraphics[scale=.3]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded1}
-\vspace{.5cm}
-
-Build all knowledge base subgraphs with $x$ uninstantiated.
-\end{center}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Learning from Text}
 
@@ -1366,6 +1408,7 @@ Use denotations in NL and Freebase to select a surrogate gold graph.
  
 \begin{frame}
 \frametitle{Learning from Text: Summary}
+\large
 
 \begin{itemize}
 \item[] Learning proceeds by creating \alert{question-like graphs} by replacing named entities in logical forms mined from web
@@ -1376,39 +1419,6 @@ Use denotations in NL and Freebase to select a surrogate gold graph.
 \item[] Then try to find the subgraph of the knowledge graph with the
   the most \alert{similar denotation}.
 \end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Experiments}
- \hlight{Target Domains:}  Business, Film, People 
-  \begin{itemize}
-    \item Largest domains of Freebase
-    \item 120m triples, 411 relations and 210 types.
-  \end{itemize}
-  
-  \vspace{1em}
-  \hlight{Training data:} 99K sentences from ClueWeb09
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Experiments}
-
-  \hlight{Test data:} 
-  \begin{itemize}
-  	\item \free [Cai and Yates, 2013] 
-  	\begin{itemize}
-  	 \item Syntactically well-formed queries
-  	 \item 124 queries for our target domains
-  	\end{itemize}
-
-  	\item \webq [Berant et al., 2013] 
-  	\begin{itemize}
-	  \item Google search queries starting with \textit{wh} question words.
-	  \item 570 queries for our target domains
-	\end{itemize}
-  \end{itemize}
 
 \end{frame}
 
@@ -1460,57 +1470,86 @@ Use denotations in NL and Freebase to select a surrogate gold graph.
   
   \item {\color{blue!70} \textsc{BL14:}} Berant and Liang, 2014
   \begin{itemize}
-    \item ClueWeb09
     \item Manually annotated QA pairs (1115 pairs)
-    \item Paraphrases
+    \item Paraphrases and Web Corpus
   \end{itemize} 
 \end{itemize}
 \end{frame}
 
+
 \section{Natural Logic for Semantic Parsing}
+\begin{frame}
+\frametitle{This Talk}
+\large 
+\begin{enumerate}
+ \item Dependencies to Logical Forms $\checkmark$
+ 
+ \vspace{2em}
+ \item Freebase Semantic Parsing using Logical Forms $\checkmark$
+ 
+ \vspace{2em}
+ \item Exploiting Text for Freebase Semantic Parsing $\checkmark$
+\end{enumerate}
+\end{frame}
 
 \begin{frame}
-\frametitle{Semantic Parsing with Natural Logic and IE \blfootnote{\scriptsize Kun, Reddy, Feng et al. (ACL 2016)}}
+\Large
+\vspace{1.5em}
+QA without logical forms \blfootnote{\color{blue} 
+  $\bullet$ Xu, Reddy, Feng, Huang, Zhao (ACL 2016)} \\
+\end{frame}
+
+\begin{frame}
+\frametitle{Task Setting}
+\large
+
+\hlight{Training Data:} Question and Answer Pairs, Web Corpus
+
+\vspace{2em}
+\hlight{Evaluation:} Question Answering on Freebase
+
+\vspace{2em}
+\hlight{Resources:} Dependency Parser
+\end{frame}
+
+
+\begin{frame}
+\frametitle{QA with Relation Extraction and Text Evidence}
 \centering
 \includegraphics[scale=0.8]{figures/natural-logic-flowchart}
 \end{frame}
 
 \begin{frame}
-\frametitle{Natural-Logic styled Semantic Parsing}
+\frametitle{QA with Relation Extraction and Text Evidence}
 \centering
 \includegraphics[scale=0.7]{figures/natural-logic-argmax-flowchart}
 \end{frame} 
 
 \begin{frame}
-\frametitle{Natural-Logic styled Semantic Parsing}
-\centering
-\includegraphics[scale=0.7]{figures/natural-logic-argmax-flowchart}
-\end{frame} 
-
-\begin{frame}
-\frametitle{Natural-Logic styled Semantic Parsing}
+\frametitle{QA with Relation Extraction and Text Evidence}
 \includegraphics[trim=-12em 0em 0em 0em,clip=true,scale=0.7]{figures/natural-logic-argmax1}
 
 \vspace{-4em}
 \includegraphics[trim=-12em 0em 0em 0em,clip=true,scale=0.4]{figures/MCCNN}
 \end{frame}
 
-
 \section{Summary}
 \begin{frame}
 \frametitle{Summary}
-\begin{itemize}
- \item Lambda Calculus for converting Dependencies to Logical Forms
+\large
+
+
+Compositional Typed Semantic interface for Dependencies
  
- \vspace{1em} 
- \item Semantic parsing as Graph Transduction
+\vspace{2em} 
+Dependencies to Logical Forms
 
- \vspace{1em}
- \item Semantic Parsing with Natural Logic and IE
-\end{itemize}
+ \vspace{2em}
+Freebase Semantic Parsing using Logical Forms
 
-\pause
+\vspace{2em}
 \begin{center}Demo at\\ \hlight{\url{https://sivareddy.in/deplambda.html}} \\
+  Thank You!
 \end{center}
 \end{frame}
 
@@ -1551,47 +1590,6 @@ Use denotations in NL and Freebase to select a surrogate gold graph.
 \end{column}
 \end{columns}
 \end{center}
-\end{frame}
-
-\subsection{Dynamic Oracle}
-\begin{frame}[noframenumbering]
-\frametitle{Learning Model}
-
-\hlight{Structured Perceptron:} Ranks a pair of
-grounded and ungrounded graph $$(\hat{g},\hat{u}) = \arg\max\limits_{g,u}
-                        \Phi(g,u,q,\mathit{KB}) \cdot \theta$$
-
-\pause
-
-\vspace{0.5cm}
-\hlight{Features:} $\Phi$ is defined over sentence, grounded and
-ungrounded graph
-
-\vspace{1cm}
-
-\pause
-\hlight{Training:} Use a surrogate graph (dynamic oracle) to update weights 
-$$\theta \leftarrow \theta +
-\Phi(g^+,u^+,q,\mathit{KB})\hspace{-.3ex}-\hspace{-.3ex}\Phi(\hat{g},\hat{u},q,\mathit{KB})$$
-
-%\pause But we \hlight{do not} have access to gold graphs. Access only to the answers rather than the query.
-
-\end{frame}
-
-\begin{frame}[noframenumbering]
-\frametitle{Learning Model}
-
-\hlight{Oracle Graphs: } Search for all the grounded graphs reachable via the ungrounded graph. 
-
-\vspace{0.5cm}
-Pick all the graphs with minimal $F_1$-loss against the gold answer. \\
-
-\vspace{0.5cm}
-\hlight{Surrogate Gold Graph: }
-$$(u^{+},{g^{+}}) = \argmax_{(u,g) \in \mathit{O}_{\mathit{KB},\;\mathit{A}}(q)} \theta^{t} \cdot \Phi({u,g,q,\mathit{KB}})\,,$$
-
-\vspace{0.5cm}
-\hlight{Beam Search: } Limit the predictions to~100 graph pairs, and choose the best prediction for update.
 \end{frame}
 
 \subsection{Single Type System}
@@ -1689,98 +1687,6 @@ $$(u^{+},{g^{+}}) = \argmax_{(u,g) \in \mathit{O}_{\mathit{KB},\;\mathit{A}}(q)}
 \vspace{-0.5cm}
 \end{block}
 \visible<2->{Here $\eta$ = \type{\hlight{acquired}} = \type{{\color{blue!40!green!60!black} Pixar}} $\hlight \checkmark$} 
-\end{frame}
-
-\subsection{More dependency labels}
-\begin{frame}[noframenumbering]
-\frametitle{Lambda calculus for ``\textit{Single Type}'' System}
-\framesubtitle{More dependency labels}
-\begin{itemize}
-\item (appos Disney the\_company)
- $$\textsl{appos} = \lambda f g x \lspace f(x) \land g(x)$$
- This function unifies two nodes
- 
- \vspace{1cm}
- 
- \item<2-> (partmod a\_company acquired\_by\_Disney)
- $$\textsl{partmod} = \lambda f g x \lspace \exists z \lspace f(x) \land g(z) \land \hbox{arg}_1(z_e, x_a)$$
- This function reverses the dependency arc direction, but still returns the head
-\end{itemize}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-\frametitle{Lambda calculus for ``\textit{Single Type}'' System}
-\framesubtitle{More dependency labels}
-\begin{itemize}
-\item (conj Disney\_and Pixar)
-  $$\textsl{conj} = \lambda f g z \lspace \exists x y \lspace f(x) \land g(y) \land \textbf{coord}(z,x,y)$$
- This function creates a struct with two variables
- \vspace{1cm}
- 
- \item<2-> (rcmod Disney which\_acquired\_Pixar)
- \begin{small}
- \begin{tabular}{l}\\
- $\mathrm{(rcmod}$  $\mathrm{Disney}$ \\ 
-  \hspace*{1cm} $\mathrm{(wh}$-$\mathrm{dobj}$
-  ($\hlight{\bind}$ $f$ $\mathrm{(nsubj~(dobj~acquired}$~$f$$\mathrm{)~Pixar))}$ \\
- \hspace*{2.5cm} $\mathrm{which))}$
- \end{tabular}
- \end{small}
-\end{itemize}
-\end{frame}
-
-\subsection{Mimic CCG}
-\begin{frame}[noframenumbering]
- \frametitle{CCG to Logical Forms}
- \framesubtitle{Steedman, 2000, 2012; Bos et al., 2004; Lewis \& Steedman, 2013; Reddy et al., 2014}
- \centering
- \includegraphics[scale=1]{figures/ccg-transitive}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Challenges}
-
-\begin{center}
-\only<1>{\vspace{-2.5cm} \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1]{figures/pixar_bad_typing}}
-\only<2>{\vspace{-2.5cm} \includegraphics[trim=1.7em 20.7em 20em 0em,clip=true,scale=1]{figures/pixar_bad_typing_prep_derivation_wrong}}
-
-\vspace{1em}
-\visible<1->{
-\footnotesize
-\begin{exampleblock}{\small The obvious idea}
-\begin{algorithmic}
-  \IF{\textit{proper noun}}
-    \STATE assign $\lambda x. \mathrm{word}(x)$
-    \ELSIF{\textit{verb} with \textit{subject} and \textit{object}}
-    \STATE assign $\lambda f g e. \exists xy. f(x) \wedge g(y) \wedge \mathrm{word}(e) \wedge \mathrm{arg_1}(e, x) \wedge \mathrm{arg_2}(e,y)$
-  \ENDIF
-\end{algorithmic}
-\end{exampleblock}
-}
-\end{center}
-
-\visible<2-> {\alert{But, what about?}\vspace{-1.8cm}}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Challenges}
-\begin{center}
-\vspace{-2.5cm} \includegraphics[trim=1.7em 20.7em 20em 0em,clip=true,scale=1]{figures/pixar_bad_typing_prep_derivation_wrong}
-\end{center}
-
-{
-\begin{alertblock}{\small Problems}
-  \footnotesize
-  \begin{enumerate}
-   \item Rules $\propto$ dependency label permutations
-   \item Complex lexical semantics
-   \item Highly sensitive to parse errors
-   \item Prone to type collisions
-  \end{enumerate}
-\end{alertblock}
-}
 \end{frame}
 
 \subsection{Complex constructions}
@@ -1960,6 +1866,39 @@ Average Oracle $F_1$ Table.
    \item $\lambda z\lspace \exists x y w \lspace \textsc{target}(x_a) \land \mathrm{do}(z_e) \land \mathrm{arg_1}(z_e, x_a) \land \mathrm{Washington\_DC}(y_a) \land
    \mathrm{\hlight{dep}}(z_e, y_a) \land \mathrm{December}(w_a) \land \mathrm{\hlight{dep}}(z_e, w_a)$
    \end{itemize}
+\end{frame}
+
+\subsection{Semantic Parsing without QA Datasets}
+\begin{frame}[noframenumbering]
+\frametitle{Experiments}
+ \hlight{Target Domains:}  Business, Film, People 
+  \begin{itemize}
+    \item Largest domains of Freebase
+    \item 120m triples, 411 relations and 210 types.
+  \end{itemize}
+  
+  \vspace{1em}
+  \hlight{Training data:} 99K sentences from ClueWeb09
+\end{frame}
+
+
+\begin{frame}[noframenumbering]
+\frametitle{Experiments}
+
+  \hlight{Test data:} 
+  \begin{itemize}
+  	\item \free [Cai and Yates, 2013] 
+  	\begin{itemize}
+  	 \item Syntactically well-formed queries
+  	 \item 124 queries for our target domains
+  	\end{itemize}
+
+  	\item \webq [Berant et al., 2013] 
+  	\begin{itemize}
+	  \item Google search queries starting with \textit{wh} question words.
+	  \item 570 queries for our target domains
+	\end{itemize}
+  \end{itemize}
 \end{frame}
 
 \end{document}
