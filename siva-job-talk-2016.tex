@@ -34,6 +34,7 @@
 % \usetikzlibrary{decorations.text}
 \usepackage{xcolor}
 \definecolor{brown}{RGB}{123,50,148}
+\definecolor{darkgreen}{RGB}{0,100,0}
 
 % \usepackage{dcolumn}
 % \usepackage{transparent}
@@ -202,6 +203,15 @@ School of Informatics\\The University of Edinburgh\\
 
 \begin{frame}
 \frametitle{Syntax helps Semantics}
+\centering
+\includegraphics[trim=15em 18em 14em 12em,clip=true,scale=0.5]{figures/prep-ambiguity}
+
+\vspace{2em}
+\includegraphics[trim=1em 9em 21em 0em,clip=true,scale=1.2]{figures/pp-ambiguity}
+\end{frame}
+
+\begin{frame}
+\frametitle{Syntax helps Semantics}
 \begin{center}
 \only<1>{\vspace{-1em} \includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.3]{figures/telugu-dependency-example} \\}
   \only<2>{\vspace{5em}\includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.3]{figures/telugu-dependency-example} \\}
@@ -219,9 +229,9 @@ School of Informatics\\The University of Edinburgh\\
 \includegraphics[trim=0em 5em 15em 0em,clip=true,scale=1.2
 ]{figures/dependency-word-order-english}
 
-\only<1>{\vspace{4.8em}\includegraphics[trim=0em 4.5em 15em 5.3em,clip=true,scale=1.2
+\only<1>{\vspace{4.8em}\includegraphics[trim=0em 3.5em 14em 5.5em,clip=true,scale=1.2
   ]{figures/dependency-word-order-telugu}}
-\only<2>{\includegraphics[trim=0em 4.5em 15em 0.5em,clip=true,scale=1.2
+\only<2>{\includegraphics[trim=0em 3.5em 14em 0.5em,clip=true,scale=1.2
   ]{figures/dependency-word-order-telugu}
   \vspace{-0.5em}}
 \end{center}
@@ -229,7 +239,6 @@ School of Informatics\\The University of Edinburgh\\
 
 \begin{frame}[noframenumbering]
 \frametitle{Universal Dependencies}
-
 \large
 Dependency trees are human-friendly
 
@@ -244,104 +253,16 @@ Treebanks in 40 languages
 
 \begin{frame}
 \frametitle{Dependency Tree to Semantics}
-\large
-  
-\begin{block}{\center Semantics}
-  \begin{itemize}
-   \vspace{1em}
-   \item Symbolic representations such as logical forms
-   \vspace{1em}
-   \item Distributed representations such as vectors
-   \vspace{1em}
-  \end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}
-\frametitle{Dependency Tree to Semantics}
-\large
-  \hlight{Principle of Compositionality:} the semantics of a complex expression is determined by the semantics of its constituent expressions and the rules used to combine them
-  
-  \vspace{2em}
-  \alert{Complex expression} is the depedency tree
-  
-  \vspace{2em}
-  \alert{Constituent expressions} are subtree
-  
-  \vspace{2em}
-  \alert{Rules} are the dependency labels
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Dependency Tree to Semantics}
-\large
-  Dependencies \alert{lack} a formal mechanism to derive semantics from consituents
-
-\vspace{3em}
-  
- Syntax to semantics inferface is important
-\end{frame}
-
-\begin{frame}
-\frametitle{Existing Syntax-Semantics interfaces}
-\large
- \begin{itemize}
-  \vspace{0.5em}
-  \item CCG {\scriptsize [Bos et al., 2004; Lewis \& Steedman, 2013]}
-  
-  \vspace{0.5em}
-  \item HPSG {\scriptsize [Copestake et al., 2001]}
-  
-  \vspace{0.5em}
-  \item LFG {\scriptsize [Dalrymple et al., 1995]}
-  
-  \vspace{0.5em}
-  \item TAG {\scriptsize [Joshi et al., 1995]}
- \end{itemize}
- 
- \vspace{0.5cm}
- 
- CCG is a popular choice
- \begin{itemize}
-   \item Typing Mechanism
-   \item Combinator Rules
- \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{CCG}
 \centering
-\only<1>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive-svo-derivation1}}
-\only<2>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive-svo-derivation2}}
-\only<3>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive-svo-derivation3}}
-\only<4>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive-svo-derivation}}
-\end{frame}
 
-\begin{frame}
-\frametitle{CCG}
-\centering
-\includegraphics[trim=3em 1em 3em 0em,clip=true,scale=1.3]{figures/ccg-transitive-svo-derivation-tensors} 
+\vspace{1em}
 
-\pause
-\large
-Typing and Combinator Rules allow \\Synchronous Syntax-Semantics interface
-\end{frame}
-
-\begin{frame}
-\frametitle{CCG}
-\centering
-\includegraphics[trim=0em 10em 1em 0em,clip=true,scale=1.3]{figures/ccg-transitive-svo}
+\includegraphics[trim=26em 0em 3.8em 2em,clip=true,scale=0.4]{figures/syntax-to-semantics-cartoon}
 
 \vspace{2em}
-\includegraphics[trim=0em 10.5em 1em 0em,clip=true,scale=1.3]{figures/ccg-transitive-osv-derivation}
 
-\large
-\begin{itemize}
- \item Language-specific types
- \item Heavy lexicalization, e.g., $\mathrm{(V\backslash S)/ (V\backslash O)/O}$
-\end{itemize}
+\Large
+  Dependencies \alert{lack} a formal theory of semantics
 \end{frame}
 
 \begin{frame}
@@ -350,37 +271,125 @@ Typing and Combinator Rules allow \\Synchronous Syntax-Semantics interface
  
  A Compositional Typed Semantic Interface \\
  for Dependencies
- 
 \end{frame}
 
 \begin{frame}
-\frametitle{This Talk}
-\large 
-\begin{enumerate}
- \item Dependencies to Logical Forms
- 
- \vspace{2em}
- \item Freebase Semantic Parsing using Logical Forms
- 
- \vspace{2em}
- \item Exploiting Text for Freebase Semantic Parsing
-\end{enumerate}
+\frametitle{Dependency Tree to Semantics}
+\large
+\only<1>{
+  \hlight{Principle of Compositionality:} the semantics of a complex expression is determined by the semantics of its constituent expressions and the rules used to combine them}
+\only<2>{
+  \hlight{Principle of Compositionality:} the semantics of a \alert{complex expression} is determined by the semantics of its constituent expressions and the rules used to combine them}
+\only<3>{
+  \hlight{Principle of Compositionality:} the semantics of a \alert{complex expression} is determined by the semantics of its {\color{darkgreen}
+ constituent expressions} and the rules used to combine them}
+\only<4>{
+  \hlight{Principle of Compositionality:} the semantics of a \alert{complex expression} is determined by the semantics of its {\color{darkgreen}
+    constituent expressions} and the {\color{purple} rules} used to combine them}
+  
+  \visible<2->{
+  \vspace{2em}
+  \alert{Complex expression} is the depedency tree}
+  
+\visible<3->{
+  \vspace{2em}
+  {\color{darkgreen} Constituent expressions} are subtrees}
+  
 
+\visible<4->{
+  \vspace{2em}
+  {\color{purple} Rules} are the dependency labels
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Existing Syntax-Semantics interfaces}
+\large
+CCG {\scriptsize [Steedman, 2000; Bos et al., 2004]}
+  
+\vspace{2em}
+  HPSG {\scriptsize [Copestake et al., 2001]}
+  
+\vspace{2em}
+LFG {\scriptsize [Dalrymple et al., 1995]}
+  
+\vspace{2em}
+TAG {\scriptsize [Joshi et al., 1995]}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{CCG}
+\centering
+\only<1>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive1}} 
+\only<2,4>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive2}}
+\only<3>{
+  \vspace{1em}
+  \begin{block}{\centering Lambda Calculus}
+    \centering $(\lambda x.M)N = M[x := N]$ 
+\end{block}
+
+\begin{align*}
+sum(2,3) & =  (\lambda x \lambda  y \lspace (+\;\; x \;\;\; y))(2)(3) \\
+ &  = (\lambda y \lspace (+\;\; 2 \;\;\; y))(3) \\
+\pause
+  & = (+\;\; 2 \;\;\; 3) \\
+  & = 5 \\
+  \\
+\type{sum} & =   int \rightarrow int \rightarrow int \\
+sum(4,sum(2,3)) & = 9 \\
+\end{align*}
+}
+\only<5>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive3}}
+\only<6>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive4}}
+\only<7,8>{\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive}}
+
+\only<8>{
+\vspace{1em}
+Typing and Combinator Rules allow \\Synchronous Syntax-Semantics interface
+\vspace{-3em}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why from dependencies?}
+\large
+
+Treebanks in 40 languages
+
+\vspace{2em}
+
+Very accurate parsers\\
+{\footnotesize [Andor et al., 2016, Dyer et al., 2015, Chen \& Manning, 2014]}
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\large 
+DepLambda: Dependencies to Logical Forms
+ 
+\vspace{2em}
+Freebase Semantic Parsing using DepLambda
+
+\vspace{2em}
+Results on English, German, and Spanish
+
+\blfootnote{
+\color{blue}
+ $\bullet$ Reddy, T\"ackstr\"om, Collins, Kwiatkowski, Das, Steedman, Lapata (TACL 2016) \\
+ \hspace{1.5em} $\bullet$ Reddy, Lapata, Steedman (TACL 2014) \\
+}
 \end{frame}
 
 \begin{frame}
 \Large
 \centering
 \vspace{1.5em}
-\begin{enumerate}
- \item DepLambda: \\
- Dependencies to Logical Forms \blfootnote{\color{blue} $\bullet$  Reddy, T\"ackstr\"om, Collins, Kwiatkowski, Das, Steedman, Lapata (TACL 2016)}
-\end{enumerate}
+DepLambda: \\
+ Dependencies to Logical Forms
 \end{frame}
 
-
 \begin{frame}
-  \frametitle{Dependencies to Logical Forms}
+\frametitle{Dependencies to Logical Forms}
 \vspace{-1em}
 \begin{center}
 \only<1>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
@@ -400,23 +409,6 @@ Typing and Combinator Rules allow \\Synchronous Syntax-Semantics interface
 \only<2>{\vspace{-3em}\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \alert{\mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar})} \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
 \only<8>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
 \end{center} 
-\end{frame}
-
-\begin{frame}
-\frametitle{Quick Intro to Lambda Calculus}
-
-$(\lambda x.M)N = M[x := N]$
-
-\begin{align*}
-sum(2,3) & =  (\lambda x . \lambda y \lspace (+\;\; x \;\;\; y))(2,3) \\
- &  = (\lambda y \lspace (+\;\; 2 \;\;\; y))(3) \\
-  & = (+\;\; 2 \;\;\; 3) \\
-  & = 5 \\
-  \\
-\type{sum} & =   int \rightarrow int \rightarrow int \\
-sum(4,sum(2,3)) & = 9 \\
-sum(2, \mathrm{``three"}) & = \alert{TypeError} \\
-\end{align*}
 \end{frame}
 
 \begin{frame}
@@ -652,31 +644,6 @@ Let dependency labels drive the composition
 \end{frame}
 
 \begin{frame}
-\frametitle{Comparison with CCG}
-\large
-\vspace{-1em}
-\begin{center}
-\begin{tabular}{p{5.6cm}|p{5.6cm}}
- \multicolumn{1}{c|}{\hlight{CCG}} & \multicolumn{1}{c}{\hlight{DepLambda}} \\
- \midrule
- Lexicalized semantics & Simple lexical semantics \\
- \scriptsize $\hbox{S} \backslash \hbox{NP}/ \hbox{NP} : \lambda y \lambda x \lambda e \lspace \mathrm{acquired}(e) \land \mathrm{arg_1}(e, x) \land \mathrm{arg_2}(e, y)$  & \scriptsize $\lx \lspace \mathrm{acquired}(x_e)$ \\ 
-\\
- Words drive composition & Dependencies drive composition \\
-\\
- Language specific types & Mostly universal \\
- 
-%Argument adjunct distinction  & Every dependent is an adjunct \\
-% \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
-% Language specific categories & Mostly universal \\
-%With ``complex~types'' comes power & Single-type system is robust, but restricted \\
-%\scriptsize $(NP_{\hlight{\bf x}}\backslash NP_\hlight{\bf x})/(S\backslash NP_{\hlight{\bf x}})$ & \small $\lambda fgx \ldots $ i.e., $\eta \rightarrow \eta \rightarrow \eta$ for all labels \\
-\end{tabular}
-\end{center}
-% \item Robust and no type checking necessary (a boon and a curse)
-\end{frame}
-
-\begin{frame}
 \frametitle{DepLambda}
 \vspace{-2em}
 \begin{center}
@@ -723,64 +690,10 @@ Returns typed-semantics of the larger expression
 \end{frame}
 
 \begin{frame}
-\frametitle{DepLambda: Current Status}
-\large
-Compositional Typed Semantics using Lambda Calculus
-
-\vspace{2em}
-Two universal types
-
-\vspace{2em}
-69 lambda calculus formulae for Universal Dependencies
-
-\vspace{2em}
-Ouput: General-purpose logical forms
-\end{frame}
-
-\begin{frame}
-\frametitle{DepLambda: Towards ...}
-\large
-
-Richer universal context-sensitive types
-
-\vspace{2em}
-Richer composition functions, e.g., neural networks
-
-\vspace{2em}
-Output: Any target semantic representation
-\begin{itemize}
- \item Semantic Parsing
- \item Machine Translation
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{This Talk}
-\large 
-\begin{enumerate}
- \item Dependencies to Logical Forms $\checkmark$
- 
- \vspace{2em}
- \item Freebase Semantic Parsing using Logical Forms
- 
- \vspace{2em}
- \item Exploiting Text for Freebase Semantic Parsing
-\end{enumerate}
-\end{frame}
-
-\begin{frame}
 \Large
 \centering
 \vspace{1.5em}
-\begin{enumerate}
- \setcounter{enumi}{1}
- \item Freebase Semantic Parsing using Logical Forms \blfootnote{
-\color{blue}
- $\bullet$ Reddy, T\"ackstr\"om, Collins, Kwiatkowski, Das, Steedman, Lapata (TACL 2016) \\
- \hspace{1.5em} $\bullet$ Reddy, Lapata, Steedman (TACL 2014)}
-
-\end{enumerate}
+Freebase Semantic Parsing using DepLambda
 \end{frame}
 
 \section{Semantic Parsing as Graph Matching}
@@ -805,7 +718,7 @@ Output: Any target semantic representation
 \matrix{
     \node[myboxNL] (NL) {\textbf{Question} \\ Who is the director of Titanic?}; \\ 
     \only<2->{\node[myboxMR] (MR) [text=black!16] {
-    \textbf{Logical Form} \\ $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(y,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\}
+    \textbf{Grounded Logical Form} \\ $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(y,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\}
     \node[myboxAns] (Ans) {\textbf{Answer} \\ \{James Cameron\}}; \\
     };
 \end{tikzpicture}
@@ -837,20 +750,17 @@ Yih et al., 2015]}
 \begin{columns}
  \begin{column}{0.5\textwidth}
  \large
-  Grammar learning
+  Grammar learning problem
+  \visible<2->{
   \begin{itemize} \footnotesize
-    \vspace{1em}
-   \item who $\rightarrow$ $(S/(S/NP): \lambda f x \lspace f(EQ(x)) $
-   \vspace{1em}
-   \item is $\rightarrow$ $(S \backslash NP)/NP:$ $\lambda f 
-  g x \lspace f(x) \wedge g(x)$
   \vspace{1em}
   \item director $\rightarrow$ $N: \lambda x \lspace \mbox{film.director}(x)$
 
   \vspace{1em}
   \item of $\rightarrow$ $(NP \backslash NP)/NP:$ $\lambda f 
-  g x. \exists ye \lspace f(y) \wedge g(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(e, x) \wedge \mbox{arg1}(e,y)$
+  \lambda g \lambda x. \exists y\exists e \lspace f(y) \wedge g(x) \wedge \mbox{film.directed\_by}(e) \wedge $ $\mbox{arg1}(e, y) \wedge \mbox{arg2}(e,x)$
  \end{itemize}
+}
  \end{column}
  \begin{column}{0.45\textwidth}
   \begin{tikzpicture}[
@@ -864,7 +774,7 @@ Yih et al., 2015]}
   every node/.style={align=center}]
 \matrix{ 
     \node[myboxNL] (NL) {\footnotesize \textbf{Question} \\ \centering \footnotesize Who is the director of Titanic?}; \\
-    \node[myboxMR] (MR) {\footnotesize \textbf{Logical Form} \\ \centering \footnotesize $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(y,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\
+    \node[myboxMR] (MR) {\footnotesize \textbf{Grounded Logical Form} \\ \centering \footnotesize $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg1}(e,\mbox{Titanic}) \wedge \mbox{arg2}(e,x)$ }; \\
     % \node[myboxAns] (Ans) {\{oklahoma city, little rock, baton rouge, santa fe\}}; \\
     };
 \end{tikzpicture}
@@ -906,7 +816,7 @@ Yih et al., 2015]}
 \matrix{ 
     \node[myboxNL] (NL) {\footnotesize \textbf{Question} \\ \centering \footnotesize Who is the director of Titanic?}; \\
     \node[myboxAns] (MR) {\footnotesize \textbf{Ungrounded Logical Form} \\ \centering \footnotesize $\lambda x.\textsc{target}(x_a)\wedge \mbox{director}(x_a) \wedge\mbox{director\_event}(x_e) \wedge \mbox{arg0}(x_e,x_a) \wedge \mbox{arg.of}(x_e,\mbox{Titanic})$ }; \\
-    \node[myboxMR] (MR) {\footnotesize \textbf{Logical Form} \\ \centering \footnotesize $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(e,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\
+    \node[myboxMR] (MR) {\footnotesize \textbf{Grounded Logical Form} \\ \centering \footnotesize $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(e,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\
     % \node[myboxAns] (Ans) {\{oklahoma city, little rock, baton rouge, santa fe\}}; \\
     };
 \end{tikzpicture}
@@ -1085,9 +995,10 @@ $$\theta \leftarrow \theta +
 %\hlight{Beam Search: } Limit the predictions to~100 graph pairs
 \end{frame}
 
-\subsection{Graph Mismatch}
+\begin{frame}
+\frametitle{Experimental Setup: Stanford Dependencies}
 
-\section{Evaluation} 
+\end{frame}
 
 \begin{frame}
 \large
@@ -1099,21 +1010,14 @@ $$\theta \leftarrow \theta +
 
 % \pause
 
-%\vspace{0.9cm} 
-%\hlight{\ccggraph: } CCG logical forms 
+\vspace{2em} 
+\hlight{\ccggraph: } CCG logical forms 
 
 %\pause
 \vspace{2em}
 \hlight{\deptree:} Transduce a dependency tree to target graph \\
 %An event for each head. Each dependent is linked to the event via its dependency relation. %Head is linked to the event via \textit{arg0}.
 
-\end{frame}
-
-\begin{frame}
-\frametitle{Results on Multilingual WebQuestions}
-%\centering
-%\vspace{0.6em}
-\huge Works for English, German, Spanish. Graph: TODO
 \end{frame}
 
 \begin{frame}
@@ -1126,6 +1030,26 @@ $$\theta \leftarrow \theta +
 %\only<4>{\includegraphics[trim=1em 12em 37em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
 \only<1>{\includegraphics[trim=1em 12em 33em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
 \only<2>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Experimental Setup: UD}
+\vspace{2em}
+69 lambda calculus formulae for Universal Dependencies
+\end{frame}
+
+\begin{frame}
+\frametitle{WebQuestions in English, German, Spanish}
+ 
+\end{frame}
+
+\section{Evaluation} 
+
+\begin{frame}
+\frametitle{Results on Multilingual WebQuestions}
+%\centering
+%\vspace{0.6em}
+\huge Works for English, German, Spanish. Graph: TODO
 \end{frame}
 
 \begin{frame}
@@ -1144,8 +1068,78 @@ $$\theta \leftarrow \theta +
  \end{itemize}  
 \end{frame}
 
-\section{Distantly-supervised Freebase Semantic Parsing}
+\begin{frame}  
+\frametitle{Comparision with CCG}
+\centering
+\includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive}
+\end{frame}
 
+\begin{frame}
+\frametitle{Comparison with CCG}
+\large
+\vspace{-1em}
+\begin{center}
+\begin{tabular}{p{5.6cm}|p{5.6cm}}
+ \multicolumn{1}{c|}{\hlight{CCG}} & \multicolumn{1}{c}{\hlight{DepLambda}} \\
+ \midrule
+ Lexicalized semantics & Simple lexical semantics \\
+ \scriptsize $\hbox{S} \backslash \hbox{NP}/ \hbox{NP} : \lambda y \lambda x \lambda e \lspace \mathrm{acquired}(e) \land \mathrm{arg_1}(e, x) \land \mathrm{arg_2}(e, y)$  & \scriptsize $\lx \lspace \mathrm{acquired}(x_e)$ \\ 
+\\
+ Words drive composition & Dependencies drive composition \\
+\\
+ Language specific types & Mostly universal \\
+ 
+%Argument adjunct distinction  & Every dependent is an adjunct \\
+% \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
+% Language specific categories & Mostly universal \\
+%With ``complex~types'' comes power & Single-type system is robust, but restricted \\
+%\scriptsize $(NP_{\hlight{\bf x}}\backslash NP_\hlight{\bf x})/(S\backslash NP_{\hlight{\bf x}})$ & \small $\lambda fgx \ldots $ i.e., $\eta \rightarrow \eta \rightarrow \eta$ for all labels \\
+\end{tabular}
+\end{center}
+% \item Robust and no type checking necessary (a boon and a curse)
+\end{frame}
+
+
+\begin{frame}  
+\frametitle{Comparision with CCG}
+\centering
+\includegraphics[trim=3em 1em 3em 0em,clip=true,scale=1.3]{figures/ccg-transitive-svo-derivation-tensors} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{DepLambda: \only<1,3,5>{\alert{Present}} \only<2,4,6>{\color{darkgreen}Towards ...}}
+\large
+Compositional Typed Semantics using Lambda Calculus \\
+\includegraphics{}
+
+\vspace{2em}
+Two universal types
+
+
+\vspace{2em}
+Ouput: General-purpose logical forms
+\end{frame}
+
+\begin{frame}
+\frametitle{DepLambda: Towards ...}
+\large
+
+Richer universal context-sensitive types
+
+\vspace{2em}
+Richer composition functions, e.g., neural networks
+
+\vspace{2em}
+Output: Any target semantic representation
+\begin{itemize}
+ \item Semantic Parsing
+ \item Machine Translation
+\end{itemize}
+
+\end{frame}
+
+
+\section{Distantly-supervised Freebase Semantic Parsing}
 \begin{frame}
 \frametitle{This Talk}
 \large 
