@@ -22,14 +22,14 @@
 \begin{tabular}{ccccccccccccccccc}
 
 ({\color{red} \textbf{nsubj}} & {\color{blue} (\textbf{dobj}} & {\color{blue} \textbf{acquired}} & {\color{blue} \textbf{Pixar})} & {\color{blue!40!green!60!black} \textbf{Disney}})  \\
-$\lambda f g z.\; \exists x.\; $ &  \uline{3} & $\lambda x. \mathrm{Disney}(x_a)$ \\
+$\lambda f \lambda g \lambda z.\; \exists x.\; $ &  \uline{3} & $\lambda x. \mathrm{Disney}(x_a)$ \\
 
 $f(z) \wedge g(x)\,\wedge$ & \mc{3}{$\lambda z.\; \exists y.\; \mathrm{acquired}(z_e) \wedge \mathrm{Pixar}(y_a)$} \\
 
 $\mathrm{arg_1}(z_e,x_a)$ & \mc{3}{$\wedge\; \mathrm{arg_2}(z_e, y_a)$} \\
 
 \uline{4} \\
-\mc{4}{$\lambda g z. \exists x y. \mathrm{acquired}(z_e) \wedge \mathrm{Pixar}(y_a) \wedge \mathrm{g}(x)\,\wedge $}  \\
+\mc{4}{$\lambda g \lambda z. \exists x y. \mathrm{acquired}(z_e) \wedge \mathrm{Pixar}(y_a) \wedge \mathrm{g}(x)\,\wedge $}  \\
 \mc{4}{$\mathrm{arg_1}(z_e,x_a) \wedge \mathrm{arg_2}(z_e, y_a)$} \\
 
 

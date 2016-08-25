@@ -223,13 +223,12 @@ School of Informatics\\The University of Edinburgh\\
 
 \begin{frame}
 \frametitle{Universal Dependencies}
-\large Homogeneous syntactic representation across languages
-
+%\large Homogeneous syntactic representation across languages
 \begin{center}
 \includegraphics[trim=0em 5em 15em 0em,clip=true,scale=1.2
 ]{figures/dependency-word-order-english}
 
-\only<1>{\vspace{4.8em}\includegraphics[trim=0em 3.5em 14em 5.5em,clip=true,scale=1.2
+\only<1>{\vspace{4.8em}\includegraphics[trim=0em 3.5em 14em 6.5em,clip=true,scale=1.2
   ]{figures/dependency-word-order-telugu}}
 \only<2>{\includegraphics[trim=0em 3.5em 14em 0.5em,clip=true,scale=1.2
   ]{figures/dependency-word-order-telugu}
@@ -240,13 +239,12 @@ School of Informatics\\The University of Edinburgh\\
 \begin{frame}[noframenumbering]
 \frametitle{Universal Dependencies}
 \large
-Dependency trees are human-friendly
+Homogeneous syntactic representation across languages
 
 \vspace{2em}
 Treebanks in 40 languages
 
 \vspace{2em}
-
 40 dependency labels
 
 \end{frame} 
@@ -289,7 +287,7 @@ Treebanks in 40 languages
   
   \visible<2->{
   \vspace{2em}
-  \alert{Complex expression} is the depedency tree}
+  \alert{Complex expression} is the dependency tree}
   
 \visible<3->{
   \vspace{2em}
@@ -354,12 +352,18 @@ Typing and Combinator Rules allow \\Synchronous Syntax-Semantics interface
 \frametitle{Why from dependencies?}
 \large
 
-Treebanks in 40 languages
+Easy to annotate
 
 \vspace{2em}
+Treebanks in many languages
 
+\vspace{2em}
 Very accurate parsers\\
 {\footnotesize [Andor et al., 2016, Dyer et al., 2015, Chen \& Manning, 2014]}
+
+
+\vspace{2em}
+Friendly to read
 \end{frame}
 
 \begin{frame}
@@ -376,7 +380,7 @@ Results on English, German, and Spanish
 \blfootnote{
 \color{blue}
  $\bullet$ Reddy, T\"ackstr\"om, Collins, Kwiatkowski, Das, Steedman, Lapata (TACL 2016) \\
- \hspace{1.5em} $\bullet$ Reddy, Lapata, Steedman (TACL 2014) \\
+ \hspace{1.5em} $\bullet$ Reddy, Lapata, Steedman (TACL 2014)
 }
 \end{frame}
 
@@ -392,22 +396,24 @@ DepLambda: \\
 \frametitle{Dependencies to Logical Forms}
 \vspace{-1em}
 \begin{center}
-\only<1>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
-\only<2>{\includegraphics[trim=2em 2em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-trace-ud}}
+\only<1>{\vspace{-5em}\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
+\only<2>{\vspace{2em}\includegraphics[trim=2em 2em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-parg}}
 \only<3,4>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box1}}
 \only<5,6>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box2}}
 \only<7>{\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box3}}
 \only<8->{\includegraphics[trim=1.5em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-box4}}
  
 \only<3>{\includegraphics[trim=29.5em 51.5em 4.5em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}\vspace{6.5em}}
-\only<4>{\includegraphics[trim=30.6em 45em 4em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}}
+\only<4>{\includegraphics[trim=29.5em 51.5em 4.5em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}\\
+\includegraphics[trim=30.6em 45em 6em 3em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation-ud}\vspace{2em}}
 \only<5>{\includegraphics[trim=22em 51.5em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}\vspace{6.5em}} 
-\only<6>{\includegraphics[trim=23em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}}
-\only<7>{\includegraphics[trim=9em 45em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2-ud}} 
+\only<6>{\includegraphics[trim=22em 51.5em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}\\
+\includegraphics[trim=23em 45em 9em 5em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation1-ud}\vspace{4em}}
+\only<7>{\includegraphics[trim=9em 51.3em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2-ud}\\
+\includegraphics[trim=9em 45em 9em 5.5em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2-ud}\vspace{4em}} 
 
-\only<1>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
-\only<2>{\vspace{-3em}\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \alert{\mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar})} \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
-\only<8>{\vspace{2cm}$\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{arg_2}(z_e, \mathrm{Pixar}) \wedge \mathrm{arg_{in}}(z_e, \mathrm{CA})$}
+\only<2>{\vspace{2cm}$\lambda x. \exists yz \lspace \mathrm{located}(z_e) \wedge  \mathrm{Pixar}(x_a) \wedge \mathrm{CA}(y_a) \wedge$ \\ $\mathrm{\color{darkgreen}company(x_a)} \wedge \mathrm{\color{red}arg_2}(z_e, x_a) \wedge \mathrm{\color{blue} arg_{in}}(z_e, y_a)$}
+\only<8>{\vspace{2cm}$\lambda x. \exists yz \lspace \mathrm{located}(z_e) \wedge  \mathrm{Pixar}(x_a) \wedge \mathrm{CA}(y_a) \wedge$ \\ $\mathrm{company(x_a)} \wedge \mathrm{arg_2}(z_e, x_a) \wedge \mathrm{arg_{in}}(z_e, y_a)$}
 \end{center} 
 \end{frame}
 
@@ -565,20 +571,33 @@ Let dependency labels drive the composition
 \begin{frame}
 \frametitle{Dependencies to Logical Forms}
 \framesubtitle{Lambda Calculus}
-\centering
-\vspace{-1em}
-\only<1>{\includegraphics[trim=1em 0em 0em 0em,scale=1]{figures/dobj-lambda-calculus1}}
-\only<2->{\includegraphics[trim=1em 0em 0em 0em,scale=1]{figures/dobj-lambda-calculus}}
+\vspace{-2.4em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
 
-\visible<3->{This operation mirrors the tree structure}
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{\centering Lambda Expression for dependency labels}
+\vspace{-0.5cm}
+\begin{align*}
+  \hbox{\alert{dobj}} & \Rightarrow  \lambda \hlight{\mathbf{f}}\;\; \lambda {\color{blue!40!green!60!black} \mathbf{g}}\;\; \lambda \hlight{\mathbf{z}}\; \lspace \; \exists {\color{blue!40!green!60!black} \mathbf{x}}\; \lspace \; \hlight{\mathbf{f(z)}}\;\;\; \land \;\;\; {\color{blue!40!green!60!black} \mathbf{g(x)}}  \;\;\; \land\;\;\; \alert{\mathbf{arg_2}}(\hlight{\mathbf{z_e}}, {\color{blue!40!green!60!black} \mathbf{x_a}})
+\end{align*}
+\vspace{-0.5cm}
+\end{block}
 \end{frame}
+
+\begin{frame}[noframenumbering]
+\includegraphics[trim=1em 0em 0em 0em,clip=false,scale=1]{figures/dobj-lambda-calculus}
+\end{frame} 
 
 \subsection{DepLambda Composition}
 \begin{frame}
 \frametitle{Dependencies to Logical Forms}
 \framesubtitle{Composition}
 \begin{center}
-\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj} 
 
 \vspace{0.8cm}
 
@@ -613,32 +632,41 @@ Let dependency labels drive the composition
   \begin{column}{0.40\textwidth}
    \centering
   \vspace{-1em}
-\includegraphics[trim=2em 9em 28em 0em,clip=true,scale=1.3]{figures/appos}   
+\includegraphics[trim=1.5em 9em 28em 0em,clip=true,scale=1.3]{figures/appos}   
+  \end{column}
+    \begin{column}{0.1\textwidth}
   \end{column}
   \begin{column}{0.58\textwidth}
-    \large $\textsl{appos}  =$ \\ \hspace{0.5em} $ \lambda f g x \lspace f(x) \land g(x)$ \\
+    \large $\textsl{appos}  =$ \\ \hspace{0.5em} $ \lambda f \lambda g \lambda x \lspace f(x) \land g(x)$ \\
   \end{column}
  \end{columns}
  
+ \pause
  \vspace{0.6cm}
  \begin{columns}
   \begin{column}{0.39\textwidth}
    \centering
-\includegraphics[trim=1.9em 9em 26em 0em,clip=true,scale=1.2]{figures/partmod}
+\includegraphics[trim=1.5em 9em 26em 0em,clip=true,scale=1.2]{figures/partmod}
   \end{column}
-  \begin{column}{0.60\textwidth}
-\large    $\textsl{partmod}= $ \\ \hspace{0.5em} $\lambda f g x \lspace \exists z \lspace f(x) \land g(z) \land \hbox{arg}_2(z_e, x_a)$ 
+  \begin{column}{0.1\textwidth}
   \end{column}
+  \begin{column}{0.59\textwidth}
+\large    $\textsl{partmod}= $ \\ \hspace{0.5em} $\lambda f \lambda g \lambda x \lspace \exists z \lspace f(x) \land g(z) \land \hbox{arg}_2(z_e, x_a)$ 
+  \end{column}
+  
  \end{columns}
  
+ \pause
   \vspace{0.6cm}
  \begin{columns}
   \begin{column}{0.39\textwidth}
    \centering
 \includegraphics[trim=1em 9em 28em 0em,clip=true,scale=1.3]{figures/conj}   
   \end{column}
+  \begin{column}{0.1\textwidth}
+  \end{column}
   \begin{column}{0.61\textwidth}
-\large    $\textsl{conj} =$ \\ $ \lambda f g z \lspace \exists x y \lspace f(x) \land g(y) \land \mathrm{coord}(z,x,y)$ 
+\large    $\textsl{conj} =$ \\ $ \lambda f \lambda g \lambda z \lspace \exists x y \lspace f(x) \land g(y) \land \mathrm{coord}(z,x,y)$ 
   \end{column}
  \end{columns}
 \end{frame}
@@ -996,8 +1024,20 @@ $$\theta \leftarrow \theta +
 \end{frame}
 
 \begin{frame}
-\frametitle{Experimental Setup: Stanford Dependencies}
+\frametitle{Experimental Setup: UD}
+\large
+69 lambda calculus formulae
 
+\vspace{2em}
+WebQuestions in English, German, and Spanish
+
+\vspace{2em}
+BiLSTM Parser {\small [Kipperwiser and Goldberg (2016)]}\\
+\begin{itemize}
+\item English: 81.73 \\
+\item German: 79.13 \\
+\item Spanish: 85.76 \\
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -1010,8 +1050,8 @@ $$\theta \leftarrow \theta +
 
 % \pause
 
-\vspace{2em} 
-\hlight{\ccggraph: } CCG logical forms 
+%\vspace{2em} 
+% \hlight{\ccggraph: } CCG logical forms 
 
 %\pause
 \vspace{2em}
@@ -1021,36 +1061,61 @@ $$\theta \leftarrow \theta +
 \end{frame}
 
 \begin{frame}
-\frametitle{Results on WebQuestions}
-%\centering
-%\vspace{0.6em}
-%\only<1>{\includegraphics[trim=1em 12em 49.5em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-%\only<2>{\includegraphics[trim=1em 12em 45em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-%\only<3>{\includegraphics[trim=1em 12em 41em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-%\only<4>{\includegraphics[trim=1em 12em 37em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<1>{\includegraphics[trim=1em 12em 33em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<2>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}} 
+\frametitle{Results on Multilingual WebQuestions}
+\framesubtitle{English}
+\centering
+\large
+\vspace{0.4em}
+\includegraphics[trim=9.5em 0em 23em 0.5em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud}
 \end{frame}
-
-\begin{frame}
-\frametitle{Experimental Setup: UD}
-\vspace{2em}
-69 lambda calculus formulae for Universal Dependencies
-\end{frame}
-
-\begin{frame}
-\frametitle{WebQuestions in English, German, Spanish}
- 
-\end{frame}
-
-\section{Evaluation} 
 
 \begin{frame}
 \frametitle{Results on Multilingual WebQuestions}
+\framesubtitle{German}
+\centering
+\large
+\vspace{0.4em}
+\includegraphics[trim=9.5em 0em 23em 0.5em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud-de}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results on Multilingual WebQuestions}
+\framesubtitle{Spanish}
+\centering
+\large
+\vspace{0.4em}
+\includegraphics[trim=9.5em 0em 23em 0.5em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud-es}
+\end{frame}
+
+\begin{frame}
+\frametitle{Experimental Setup: Stanford Dependencies} 
+\large
+78 lambda calculus formulae 
+
+\vspace{2em}
+Hypergraph parser {[\small Zhang \& McDonald (2014)]}
+\begin{itemize}
+\item English: 90.64
+\end{itemize}
+
+\vspace{2em}
+Additional Baseline: 
+\ccggraph \; -- CCG logical forms
+\end{frame}
+
+\begin{frame}
+\frametitle{Results on WebQuestions}
 %\centering
 %\vspace{0.6em}
-\huge Works for English, German, Spanish. Graph: TODO
+\only<1>{\includegraphics[trim=1em 12em 49.5em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<2>{\includegraphics[trim=1em 12em 45em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<3>{\includegraphics[trim=1em 12em 41em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<4>{\includegraphics[trim=1em 12em 37em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<5>{\includegraphics[trim=1em 12em 33em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
+\only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}} 
 \end{frame}
+
+\section{Evaluation} 
 
 \begin{frame}
 \frametitle{Error Analysis}
@@ -1069,7 +1134,7 @@ $$\theta \leftarrow \theta +
 \end{frame}
 
 \begin{frame}  
-\frametitle{Comparision with CCG}
+\frametitle{Comparison with CCG}
 \centering
 \includegraphics[trim=0em 1em 1em 0em,clip=true,scale=1.2]{figures/ccg-transitive}
 \end{frame}
@@ -1101,7 +1166,7 @@ $$\theta \leftarrow \theta +
 
 
 \begin{frame}  
-\frametitle{Comparision with CCG}
+\frametitle{Comparison with CCG}
 \centering
 \includegraphics[trim=3em 1em 3em 0em,clip=true,scale=1.3]{figures/ccg-transitive-svo-derivation-tensors} 
 \end{frame}
@@ -1110,34 +1175,20 @@ $$\theta \leftarrow \theta +
   \frametitle{DepLambda: \only<1,3,5>{\alert{Present}} \only<2,4,6>{\color{darkgreen}Towards ...}}
 \large
 Compositional Typed Semantics using Lambda Calculus \\
-\includegraphics{}
+\pause
+\includegraphics[trim=16em 14em 4em 10em,clip=true,scale=0.2]{figures/bullet}\; Richer composition functions e.g. neural networks
 
 \vspace{2em}
-Two universal types
+\pause
+Two universal types\\
+\pause
+\includegraphics[trim=16em 14em 4em 10em,clip=true,scale=0.2]{figures/bullet}\; Richer universal types
 
-
+\pause
 \vspace{2em}
-Ouput: General-purpose logical forms
+Output: General-purpose logical forms\\
+\pause \includegraphics[trim=16em 14em 4em 10em,clip=true,scale=0.2]{figures/bullet}\; Any target representation
 \end{frame}
-
-\begin{frame}
-\frametitle{DepLambda: Towards ...}
-\large
-
-Richer universal context-sensitive types
-
-\vspace{2em}
-Richer composition functions, e.g., neural networks
-
-\vspace{2em}
-Output: Any target semantic representation
-\begin{itemize}
- \item Semantic Parsing
- \item Machine Translation
-\end{itemize}
-
-\end{frame}
-
 
 \section{Distantly-supervised Freebase Semantic Parsing}
 \begin{frame}
@@ -1161,9 +1212,30 @@ Output: Any target semantic representation
 \begin{enumerate}
  \setcounter{enumi}{2}
  \item Exploiting Text for Freebase Semantic Parsing \blfootnote{\color{blue} 
-   $\bullet$ Bisk, Reddy, Blitzer, Hockenmaier (EMNLP 2016) \\
+   $\bullet$ Xu, Reddy, Feng, Huang, Zhao (ACL 2016) \\
+   \hspace{1.6em} $\bullet$ Bisk, Reddy, Blitzer, Hockenmaier (EMNLP 2016) \\
    \hspace{1.6em} $\bullet$ Reddy, Lapata, Steedman (TACL 2014)}
 \end{enumerate}
+\end{frame}
+
+\section{Summary}
+\begin{frame}
+\frametitle{Summary}
+\large
+
+
+Compositional Typed Semantic interface for Dependencies
+ 
+\vspace{2em} 
+Dependencies to Logical Forms
+
+ \vspace{2em}
+Freebase Semantic Parsing using Logical Forms
+
+\vspace{2em}
+\begin{center}Demo at\\ \hlight{\url{https://sivareddy.in/deplambda.html}} \\
+  Thank You!
+\end{center}
 \end{frame}
 
 \begin{frame}
@@ -1527,26 +1599,6 @@ QA without logical forms \blfootnote{\color{blue}
 \includegraphics[trim=-12em 0em 0em 0em,clip=true,scale=0.4]{figures/MCCNN}
 \end{frame}
 
-\section{Summary}
-\begin{frame}
-\frametitle{Summary}
-\large
-
-
-Compositional Typed Semantic interface for Dependencies
- 
-\vspace{2em} 
-Dependencies to Logical Forms
-
- \vspace{2em}
-Freebase Semantic Parsing using Logical Forms
-
-\vspace{2em}
-\begin{center}Demo at\\ \hlight{\url{https://sivareddy.in/deplambda.html}} \\
-  Thank You!
-\end{center}
-\end{frame}
-
 \section{Additional Slides}
 
 \subsection{Motivation}
@@ -1660,6 +1712,27 @@ Freebase Semantic Parsing using Logical Forms
 \vspace{-0.5cm}
 \end{block}
 \visible<2->{Here \type{\hlight{acquired}} $\color{red} \neq$ \type{{\color{blue!40!green!60!black} Pixar}}  \alert \xmark}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\framesubtitle{Lambda Calculus}
+\vspace{-2.4em}
+\begin{center}
+\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
+
+\end{center}
+
+\vspace{1cm}
+
+\begin{block}{\centering Lambda Expression for dependency labels}
+\vspace{-0.5cm}
+\begin{align*}
+  \hbox{\alert{dobj}} & \Rightarrow  \lambda \hlight{\mathbf{f}}\;\; \lambda {\color{blue!40!green!60!black} \mathbf{g}}\;\; \lambda \hlight{\mathbf{z}}\; \lspace \; \exists {\color{blue!40!green!60!black} \mathbf{x}}\; \lspace \; \hlight{\mathbf{f(z)}}\;\;\; \land \;\;\; {\color{blue!40!green!60!black} \mathbf{g(x)}}  \;\;\; \land\;\;\; \alert{\mathbf{arg_2}}(\hlight{\mathbf{z_e}}, {\color{blue!40!green!60!black} \mathbf{x_a}})
+\end{align*}
+\vspace{-0.5cm}
+\end{block}
+\visible<2->{\hspace{3cm} This operation mirrors the tree structure}
 \end{frame}
 
 \begin{frame}[noframenumbering]

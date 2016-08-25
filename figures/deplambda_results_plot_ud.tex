@@ -29,14 +29,9 @@
 % in the preamble
 \begin{filecontents}{jobs.dat}
 Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
-1   {\rotatebox{90}{\huge \textsc{Yao15}}}    44.3 44.3
-2   {\rotatebox{90}{\huge \textsc{Bast15}}}       49.4 49.4
-3   {\rotatebox{90}{\huge \textsc{Berant15}}}     49.7 49.7
-4   {\rotatebox{90}{\huge \textsc{SimpleGraph}}}   48.5 48.5
-5   {\rotatebox{90}{\huge \textsc{CCGGraph}}}   48.6 48.6
-6   {\rotatebox{90}{\huge \textsc{DepTree}}}   40.4 40.4
-7   {\rotatebox{90}{\huge \textsc{DepLambda}}}   50.3 50.3
-8   {\rotatebox{90}{\huge \textsc{Yih15}}}   52.5 52.5
+1   {\rotatebox{90}{\huge \textsc{SimpleGraph}}}   47.4 47.4
+2   {\rotatebox{90}{\huge \textsc{DepTree}}}   47.8 47.8
+3   {\rotatebox{90}{\huge \textsc{DepLambda}}}   48.8 48.8
 \end{filecontents}
 
 \begin{document}
@@ -70,7 +65,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
 ] {jobs.dat} ;
 
 \addplot[ybar, bar shift=0pt, fill=blue,
-    discard if not={Wert}{4},
+    discard if not={Wert}{1},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
         font=\Huge,
@@ -84,20 +79,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
 
 
 \addplot[ybar, bar shift=0pt, fill=violet,
-    discard if not={Wert}{5},
-    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
-    every node near coord/.style={
-        font=\Huge,
-        /pgf/number format/precision=100
-    },
-    point meta=explicit] table [
-    x=Wert,
-    y=HaeufigkeitAbs,
-    meta=HaeufigkeitRel
-] {jobs.dat} ;
-
-\addplot[ybar, bar shift=0pt, fill=magenta,
-    discard if not={Wert}{6},
+    discard if not={Wert}{2},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
         font=\Huge,
@@ -110,7 +92,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
 ] {jobs.dat} ;
 
 \addplot[ybar, bar shift=0pt, fill=red,
-    discard if not={Wert}{7},
+    discard if not={Wert}{3},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
         font=\Huge,
