@@ -201,17 +201,19 @@ School of Informatics\\The University of Edinburgh\\
 
 \section{Introduction}
 
+\ignore{
 \begin{frame}
-\frametitle{Syntax helps Semantics}
+\frametitle{Dependency Trees help Semantics}
 \centering
 \includegraphics[trim=15em 18em 14em 12em,clip=true,scale=0.5]{figures/prep-ambiguity}
 
 \vspace{2em}
 \includegraphics[trim=1em 9em 21em 0em,clip=true,scale=1.2]{figures/pp-ambiguity}
 \end{frame}
+}
 
 \begin{frame}
-\frametitle{Syntax helps Semantics}
+\frametitle{Dependency Trees help Semantics}
 \begin{center}
 \only<1>{\vspace{-1em} \includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.3]{figures/telugu-dependency-example} \\}
   \only<2>{\vspace{5em}\includegraphics[trim=1em 5em 24em 5.1em,clip=true,scale=1.3]{figures/telugu-dependency-example} \\}
@@ -228,9 +230,10 @@ School of Informatics\\The University of Edinburgh\\
 \includegraphics[trim=0em 5em 15em 0em,clip=true,scale=1.2
 ]{figures/dependency-word-order-english}
 
-\only<1>{\vspace{4.8em}\includegraphics[trim=0em 3.5em 14em 6.5em,clip=true,scale=1.2
+\only<1>{\vspace{8em}}
+\only<2>{\vspace{4.8em}\includegraphics[trim=0em 3.5em 14em 6.5em,clip=true,scale=1.2
   ]{figures/dependency-word-order-telugu}}
-\only<2>{\includegraphics[trim=0em 3.5em 14em 0.5em,clip=true,scale=1.2
+\only<3>{\includegraphics[trim=0em 3.5em 14em 0.5em,clip=true,scale=1.2
   ]{figures/dependency-word-order-telugu}
   \vspace{-0.5em}}
 \end{center}
@@ -393,6 +396,24 @@ DepLambda: \\
 \end{frame}
 
 \begin{frame}
+ \frametitle{Why Logical Forms?}
+\large
+Semantic Parsing {\scriptsize [Zelle \& Mooney, 1996; Zettlemoyer \& Collins, 2005]}
+ 
+ \vspace{1em}
+Simplification {\scriptsize [Narayan \& Gardent, 2014]}
+ 
+ \vspace{1em}
+Paraphrasing {\scriptsize [Pavlick et al., 2015]}
+ 
+ \vspace{1em}
+Information Extraction {\scriptsize [Rockt\"aschel et al., 2015]}
+ 
+ \vspace{1em}
+Summarization {\scriptsize [Liu et al., 2015]}
+\end{frame}
+
+\begin{frame}
 \frametitle{Dependencies to Logical Forms}
 \vspace{-1em}
 \begin{center}
@@ -412,8 +433,8 @@ DepLambda: \\
 \only<7>{\includegraphics[trim=9em 51.3em 9em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2-ud}\\
 \includegraphics[trim=9em 45em 9em 5.5em,clip=true,scale=0.9]{figures/dependency-reduced-relative-derivation2-ud}\vspace{4em}} 
 
-\only<2>{\vspace{2cm}$\lambda x. \exists yz \lspace \mathrm{located}(z_e) \wedge  \mathrm{Pixar}(x_a) \wedge \mathrm{CA}(y_a) \wedge$ \\ $\mathrm{\color{darkgreen}company(x_a)} \wedge \mathrm{\color{red}arg_2}(z_e, x_a) \wedge \mathrm{\color{blue} arg_{in}}(z_e, y_a)$}
-\only<8>{\vspace{2cm}$\lambda x. \exists yz \lspace \mathrm{located}(z_e) \wedge  \mathrm{Pixar}(x_a) \wedge \mathrm{CA}(y_a) \wedge$ \\ $\mathrm{company(x_a)} \wedge \mathrm{arg_2}(z_e, x_a) \wedge \mathrm{arg_{in}}(z_e, y_a)$}
+\only<2>{\vspace{2cm}$\lambda x. \exists yz \lspace \mathrm{located}(z_e) \wedge  \mathrm{Pixar}(x_a) \wedge \mathrm{CA}(y_a) \wedge$ \\ $\mathrm{\color{darkgreen}company}(x_a) \wedge \mathrm{\color{red}arg_2}(z_e, x_a) \wedge \mathrm{\color{blue} arg_{in}}(z_e, y_a)$}
+\only<8>{\vspace{2cm}$\lambda x. \exists yz \lspace \mathrm{located}(z_e) \wedge  \mathrm{Pixar}(x_a) \wedge \mathrm{CA}(y_a) \wedge$ \\ $\mathrm{company}(x_a) \wedge \mathrm{arg_2}(z_e, x_a) \wedge \mathrm{arg_{in}}(z_e, y_a)$}
 \end{center} 
 \end{frame}
 
@@ -1107,12 +1128,12 @@ Additional Baseline:
 \frametitle{Results on WebQuestions}
 %\centering
 %\vspace{0.6em}
-\only<1>{\includegraphics[trim=1em 12em 49.5em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<2>{\includegraphics[trim=1em 12em 45em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<3>{\includegraphics[trim=1em 12em 41em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<4>{\includegraphics[trim=1em 12em 37em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<5>{\includegraphics[trim=1em 12em 33em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}}
-\only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.52]{figures/deplambda_results_plot}} 
+\only<1>{\includegraphics[trim=1em 12em 50.9em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<2>{\includegraphics[trim=1em 12em 47.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<3>{\includegraphics[trim=1em 12em 43.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<4>{\includegraphics[trim=1em 12em 39.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<5>{\includegraphics[trim=1em 12em 35.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}} 
 \end{frame}
 
 \section{Evaluation} 
@@ -1176,7 +1197,8 @@ Additional Baseline:
 \large
 Compositional Typed Semantics using Lambda Calculus \\
 \pause
-\includegraphics[trim=16em 14em 4em 10em,clip=true,scale=0.2]{figures/bullet}\; Richer composition functions e.g. neural networks
+\includegraphics[trim=16em 14em 4em 10em,clip=true,scale=0.2]{figures/bullet}\; Richer composition functions e.g. neural networks\\
+\hspace{3.7em} Pipelined vs. Synchronous Syntax-Semantics
 
 \vspace{2em}
 \pause
