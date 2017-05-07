@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={12cm, 4cm}, text={12cm, 4cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}
+\begin{deptext}[column sep=0.2em]
+Everybody \& wants \& to \& \ \ \ \ buy\ \ \ \  \& a \ \ \ \& house \\
+%\small{\textsc{propn}} \& \small{\textsc{verb}} \& \small{\textsc{det}} \& \small{\textsc{propn}} \& \small{\textsc{adp}} \& \small{\textsc{det}} \& \small{\textsc{noun}} \& \small{\textsc{propn}} \\
+%\subpos{det} \& \subpos{noun} \& \subpos{noun} \& \subpos{verb} \& \subpos{adv} \& \subpos{det} \& \subpos{noun}\\
+\end{deptext}
+\depedge{2}{1}{{\small nsubj}}
+\depedge{2}{4}{{\small xcomp}}
+% \depedge[edge unit distance=1.8ex]{2}{8}{{\small nmod}}
+\depedge{4}{6}{{\small dobj}}
+\depedge{6}{5}{{\small det}}
+\depedge{4}{3}{{\small mark}}
+\deproot[edge unit distance=2.2ex]{2}{{\small root}}
+\end{dependency}
+\end{document}

@@ -53,7 +53,7 @@ thick,dashed,violet,sloped,above,font=\sffamily\scriptsize},
    \node (ans) [ans,right of=mod,xshift=2cm] {\{James Cameron\}};
    
    \draw [mediatorToEntity] (webcorpus) -- node[magenta] {\scriptsize \hspace{-0.2cm}Dependency \\ Parser} (sentence);
-   \draw [mediatorToEntity] (sentence) -- node[blue] {\large DepLambda} (lf);
+   \draw [mediatorToEntity] (sentence) -- node[blue] {\large UDepLambda} (lf);
    \draw [mediatorToEntity] (ug) -- node[red] {\Large Graph Matching}  (gg);
    \draw [entityToMath] (lf) -- (ug);
    \draw [mediatorToEntity] (ug) -- (mod);

@@ -405,9 +405,9 @@ Universal Semantic Parsing
 \begin{itemize}
   \large
   \vspace{1em}
-  \item No token-specific semantics
-  \vspace{1em}
   \item Dependency labels and postags dictate the semantics
+  \vspace{1em}
+  \item No token-specific semantics
 \end{itemize}
 \end{enumerate}
 
@@ -963,10 +963,10 @@ Yih et al., 2015]}
 \hlight{Evaluation:} Question Answering on Freebase
 
 \vspace{2em}
-\hlight{Resources:} Dependency Parser, DepLambda
+\hlight{Resources:} Dependency Parser, UDepLambda
 
 \vspace{2em}
-\hlight{Hypothesis}: DepLambda logical forms are useful
+\hlight{Hypothesis}: UDepLambda logical forms are useful
 \end{frame}
 
 \begin{frame}
@@ -1174,11 +1174,11 @@ BiLSTM Parser {\small [Kipperwiser and Goldberg (2016)]}\\
 \frametitle{Results on WebQuestions}
 %\centering
 %\vspace{0.6em}
-\only<1>{\includegraphics[trim=1em 12em 50.9em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
-\only<2>{\includegraphics[trim=1em 12em 47.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
-\only<3>{\includegraphics[trim=1em 12em 43.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
-\only<4>{\includegraphics[trim=1em 12em 39.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
-\only<5>{\includegraphics[trim=1em 12em 35.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<1>{\includegraphics[trim=1em 12em 52.2em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<2>{\includegraphics[trim=1em 12em 48.8em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<3>{\includegraphics[trim=1em 12em 45.3em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<4>{\includegraphics[trim=1em 12em 42em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
+\only<5>{\includegraphics[trim=1em 12em 38.4em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}}
 \only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}} 
 \end{frame}
 
@@ -1215,14 +1215,14 @@ BiLSTM Parser {\small [Kipperwiser and Goldberg (2016)]}\\
 \vspace{-1em}
 \begin{center}
 \begin{tabular}{p{5.6cm}|p{5.6cm}}
- \multicolumn{1}{c|}{\hlight{CCG}} & \multicolumn{1}{c}{\hlight{DepLambda}} \\
+ \multicolumn{1}{c|}{\hlight{CCG}} & \multicolumn{1}{c}{\hlight{UDepLambda}} \\
  \midrule
  Lexicalized semantics & Simple lexical semantics \\
  \scriptsize $\hbox{S} \backslash \hbox{NP}/ \hbox{NP} : \lambda y \lambda x \lambda e \lspace \mathrm{acquired}(e) \land \mathrm{arg_1}(e, x) \land \mathrm{arg_2}(e, y)$  & \scriptsize $\lx \lspace \mathrm{acquired}(x_e)$ \\ 
 \\
  Words drive composition & Dependencies drive composition \\
 \\
- Language specific types & Mostly universal \\
+ Language specific types &  Universal \\
  
 %Argument adjunct distinction  & Every dependent is an adjunct \\
 % \scriptsize $S\backslash NP/PP/NP$ vs. $(S\backslash NP)\backslash(S\backslash NP)/NP$ & \\
@@ -1234,6 +1234,128 @@ BiLSTM Parser {\small [Kipperwiser and Goldberg (2016)]}\\
 % \item Robust and no type checking necessary (a boon and a curse)
 \end{frame}
 
+\begin{frame}
+\frametitle{Limitations}
+\Large
+Context-sensitive semantics of dependency labels, e.g., \textit{nsubj} could mean either agent or patient
+\begin{itemize}
+\item John broke the window
+\item The window broke
+\end{itemize}
+\vspace{1em}
+Delexicalized context is not sufficient, e.g., quantifiers vs determiners
+\end{frame}
+
+\begin{frame}
+\frametitle{Quantifiers and Negation Scope}
+\framesubtitle{(Fancellu et al. 2017, Reddy et al. 2017)}
+\Large 
+Higher-order type system \\
+\vspace{2em}
+Fine-grained dependency labels
+\end{frame}
+
+\begin{frame}
+\frametitle{Quantifiers and Negation Scope}
+\framesubtitle{Fancellu et al. 2017, Reddy et al. 2017}
+\centering
+
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1]{figures/everybody-wants-buy-house-crop} \\
+
+\tikz[remember picture] \node[coordinate] (n1) {};\\
+\vspace{1.5cm} 
+\tikz[remember picture] \node[coordinate] (n2) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=10pt] (n1) -- node[xshift=6em,black] { } (n2);
+  \draw [->,>=stealth,blue!20!white,sloped,line width=10pt] (n1) -- node[black] {\scriptsize Enhancement} (n2);
+\end{tikzpicture}
+
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1]{figures/everybody-wants-buy-house-enhanced-with-univ-crop}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Quantifiers and Negation Scope}
+\centering
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1.1]{figures/everybody-wants-buy-house-enhanced-with-univ-crop}
+
+\begin{block}{\large Type System}
+\large
+\begin{tabbing}
+everybody \= =  \= $\lambda x. \mathrm{everybody}(x_a)$ \hspace{2.8em} \=  [Old Type]\\
+\> = \> $\lambda f \lspace \forall x \lspace \mathrm{person}(x) \rightarrow f(x)$ \> [New Type]  \\
+
+\\
+
+wants \> = \> $\lambda x  \lspace \mathrm{wants}(x_e) $  \> [Old Type] \\
+\> = \> $\lambda f \lspace \exists x \lspace \mathrm{wants}(x_e) \land f(x)$ \> [New Type] 
+
+\end{tabbing}
+\end{block}
+\end{frame} 
+
+\begin{frame}
+\frametitle{Quantifiers and Negation Scope}
+\centering
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1.1]{figures/everybody-wants-buy-house-enhanced-with-univ-crop}
+
+\begin{block}{\large Type System}
+\large
+\begin{tabbing}
+nsubj \hspace{2em} \= =  \= $\lambda f g x\lspace \exists y\lspace f(x) \land g(y) \land \mathrm{arg_1}(x_e, y_a)$ \hspace{2.6em} \=  [Old]\\
+nsubj:univ \> = \> $\lambda P Q\, f \lspace Q(\lambda y \lspace P (\lambda x \lspace f(x)  \land \mathrm{arg_1}(x_e,y_a)))$ \> [New]  \\
+
+\\
+
+dobj \> = \> $\lambda f g x\lspace \exists y\lspace f(x) \land g(y) \land \mathrm{arg_2}(x_e, y_a)$ \> [Old] \\
+\> = \> $ \lambda P\, Q\, f \lspace P(\lambda x \lspace f(x) \land  Q(\lambda y \lspace \mathrm{arg_2}(x_e,y_a))) $ \> [New] 
+
+\end{tabbing}
+\end{block}
+\end{frame} 
+
+\begin{frame}
+\frametitle{Quantifiers and Negation Scope}
+\centering
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1.1]{figures/everybody-wants-buy-house-enhanced-with-univ-crop}
+
+\begin{block}{\large Type System}
+\large
+\begin{tabbing}
+nsubj \hspace{2em} \= =  \= $\lambda f g x\lspace \exists y\lspace f(x) \land g(y) \land \mathrm{arg_1}(x_e, y_a)$ \hspace{2.6em} \=  [Old]\\
+nsubj:univ \> = \> $\lambda P Q\, f \lspace Q(\lambda y \lspace P (\lambda x \lspace f(x)  \land \mathrm{arg_1}(x_e,y_a)))$ \> [New]  \\
+
+\\
+
+dobj \> = \> $\lambda f g x\lspace \exists y\lspace f(x) \land g(y) \land \mathrm{arg_2}(x_e, y_a)$ \> [Old] \\
+\> = \> $ \lambda P\, Q\, f \lspace P(\lambda x \lspace f(x) \land  Q(\lambda y \lspace \mathrm{arg_2}(x_e,y_a))) $ \> [New] 
+
+\end{tabbing}
+\end{block}
+\end{frame} 
+
+\begin{frame}
+\frametitle{Quantifiers and Negation Scope}
+\centering
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1.1]{figures/everybody-wants-buy-house-enhanced-with-univ-crop}
+
+\raggedright \textbf{Old Expression:}
+\begin{tabbing}
+(3) $\lambda z \lspace \exists xyw \lspace$\=$\mathrm{wants}(z_e) \land \mathrm{everybody}(x_a) \land \mathrm{arg_1}(z_e, x_a) $\\
+\>$\land\; \mathrm{buy}(y_e) \land \mathrm{xcomp}(z_e, y_e) \land \mathrm{arg_1}(y_e, x_a)$\\
+\>$\land \; \mathrm{arg_1}(x_e,y_a) \land \mathrm{house}(w_a) \land \mathrm{arg_2}(y_e, w_a)$\,.
+\end{tabbing}
+
+\raggedright \textbf{New Expression:}
+\begin{tabbing}
+(6) $\lambda f \lspace \forall x$ \= $\lspace \mathrm{person}(x_a) \rightarrow$\\\
+\>$[\exists zyw \lspace$\=$f(z) \land \mathrm{wants}(z_e) \land \mathrm{arg_1}(z_e, x_a)\land \mathrm{buy}(y_e)$\\
+\>\>$\land\; \mathrm{xcomp}(z_e, y_e) \land\, \mathrm{house}(w_a)$\\
+\>\>$\land\; \mathrm{arg_1}(z_e, x_a) \land \mathrm{arg_2}(z_e, w_a)]$\,.
+\end{tabbing}
+
+\end{frame} 
 
 % \begin{frame}  
 % \frametitle{Comparison with CCG}
@@ -1242,7 +1364,7 @@ BiLSTM Parser {\small [Kipperwiser and Goldberg (2016)]}\\
 % \end{frame}
 
 \begin{frame}
-  \frametitle{DepLambda: \only<1,3,5>{\alert{Present}} \only<2,4,6>{\color{darkgreen}Towards ...}}
+  \frametitle{UDepLambda: \only<1,3,5>{\alert{Present}} \only<2,4,6>{\color{darkgreen}Towards ...}}
 \large
 Compositional Typed Semantics using Lambda Calculus \\
 \pause
@@ -1270,7 +1392,7 @@ Output: General-purpose logical forms\\
 Compositional Typed Semantic interface for Dependencies
  
 \vspace{2em} 
-Dependencies to Logical Forms
+Universal Semantic Parsing
 
  \vspace{2em}
 Freebase Semantic Parsing using Logical Forms
@@ -1288,8 +1410,7 @@ Freebase Semantic Parsing using Logical Forms
 \subsection{Single Type System}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Single Type System}
+\frametitle{Single Type System}
 \vspace{-3em}
 \begin{center}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
@@ -1310,8 +1431,7 @@ Freebase Semantic Parsing using Logical Forms
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Single Type System}
+\frametitle{Single Type System}
 \vspace{-0.8em}
 \begin{center}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
@@ -1340,8 +1460,7 @@ Freebase Semantic Parsing using Logical Forms
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Lambda Calculus for Single Type System}
+\frametitle{Single Type System}
 \vspace{-2.4em}
 \begin{center}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
@@ -1362,8 +1481,7 @@ Freebase Semantic Parsing using Logical Forms
 \end{frame}
 
 \begin{frame}
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Lambda Calculus}
+\frametitle{Single Type System}
 \vspace{-2.4em}
 \begin{center}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
@@ -1383,8 +1501,7 @@ Freebase Semantic Parsing using Logical Forms
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Lambda Calculus for Single Type System}
+\frametitle{Single Type System}
 \vspace{-2.4em}
 \begin{center}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
