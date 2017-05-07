@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pdflscape}
+\usepackage[papersize={12cm, 4cm}, text={12cm, 4cm}]{geometry}
+\usetikzlibrary{decorations.text}
+\usepackage{xcolor}
+\usepackage{tikz-dependency}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{dependency}
+\begin{deptext}[column sep=1em]
+Anna \& wants \& to \& marry \& Kristoff \\
+%\& \& \& \small{\textsc{propn}} \\
+%\subpos{det} \& \subpos{noun} \& \subpos{noun} \& \subpos{verb} \& \subpos{adv} \& \subpos{det} \& \subpos{noun}\\
+\end{deptext}
+%\node (x) at (-0.8,-0.6){\color{blue} {f$_1$}};
+%\node (y) at (-0.3,-0.6){\color{blue} {f$_1$}};
+%\depedge[arc angle=30]{2}{1}{{\small nsubj}}
+\depedge{2}{1}{{\small nsubj}}
+\depedge{2}{4}{{\small xcomp}}
+\depedge{4}{3}{{\small mark}}
+\depedge{4}{5}{{\small dobj}}
+\depedge[edge below, dashed,edge unit distance=1ex]{4}{1}{{\small nsubj}}
+%\draw [->, out=-90,in=-180, dashed, blue!60] (\wordref{1}{1}) to
+%node [text=black, above, sloped] {\scriptsize \textsc{bind}} (x);
+%\draw [->, out=-90,in=0, dashed, blue!60] (\wordref{1}{3}) to
+%node [text=black, above, sloped] {\scriptsize nsubj} (y);
+%\depedge[edge unit distance=1.8ex]{2}{8}{{\small nmod}}
+%\depedge{1}{x}{{\small det}}
+%\depedge{8}{5}{{\small case}}
+%\depedge{8}{6}{{\small det}}
+%\depedge{8}{7}{{\small compound}}
+%\deproot[edge unit distance=3.5ex]{2}{{\small root}}
+\end{dependency}
+\begin{tikzpicture}
+  
+\end{tikzpicture}
+
+\end{document}

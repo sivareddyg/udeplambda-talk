@@ -152,10 +152,10 @@
 \newcommand{\bind}{\textsc{bind}}
 \newcommand{\eqop}{\textsc{eq}}
 
-\title[\tiny Towards a Compositional Typed Semantics for Universal Dependencies]{Towards a Compositional Typed Semantics for Universal Dependencies}
+\title[\tiny Universal Semantic Parsing]{Universal Semantic Parsing}
 
 \vspace{-2cm}
-\author[]{\small Siva Reddy}
+\author[]{\small }
 
 \institute{
 \vspace{-0.5cm}
@@ -182,18 +182,18 @@ School of Informatics\\The University of Edinburgh\\
 \begin{tabular}{c c c c}
 \includegraphics[width=1.5cm]{figures/mirella} & 
 \includegraphics[width=1.5cm]{figures/steedman} &
-\visible<2->{\includegraphics[width=1.5cm]{figures/oscar} &
-\includegraphics[width=1.2cm]{figures/dipanjan}} \\
+\includegraphics[width=1.5cm]{figures/oscar} &
+\includegraphics[width=1.2cm]{figures/dipanjan} \\
 \footnotesize Mirella~Lapata & \footnotesize Mark~Steedman & \visible<2->{\footnotesize Oscar~T\"ackstr\"om & \footnotesize Dipanjan Das} \\
 \\
 \end{tabular}
 
 \visible<2->{
-\begin{tabular}{c c c}
+\begin{tabular}{c c c c}
 \includegraphics[width=1.2cm]{figures/tom} &
 \includegraphics[width=1.5cm]{figures/collins} &
-\includegraphics[width=1.4cm]{figures/petrov} \\
-\footnotesize Tom~Kwiatkowski & \footnotesize Michael~Collins & \footnotesize Slav~Petrov \\
+\includegraphics[width=1.4cm]{figures/petrov} & \includegraphics[width=1.7cm]{figures/reddy} \\
+\footnotesize Tom~Kwiatkowski & \footnotesize Michael~Collins & \footnotesize Slav~Petrov & \footnotesize Siva~Reddy\\
 \end{tabular}
 }
 \end{center}
@@ -270,8 +270,7 @@ Treebanks in 40 languages
  \frametitle{This Talk}
  \Large \centering
  
- A Compositional Typed Semantic Interface \\
- for Dependencies
+ A Language-independent Semantic Interface for Dependencies 
 \end{frame}
 
 \begin{frame}
@@ -372,10 +371,10 @@ Friendly to read
 \begin{frame}
 \frametitle{Outline}
 \large 
-DepLambda: Dependencies to Logical Forms
+Universal Semantic Parsing
  
 \vspace{2em}
-Freebase Semantic Parsing using DepLambda
+Application task: Freebase Question Answering
 
 \vspace{2em}
 Results on English, German, and Spanish
@@ -391,12 +390,31 @@ Results on English, German, and Spanish
 \Large
 \centering
 \vspace{1.5em}
-DepLambda: \\
- Dependencies to Logical Forms
+Universal Semantic Parsing
 \end{frame}
 
 \begin{frame}
- \frametitle{Why Logical Forms?}
+\frametitle{Goals}
+\Large
+\begin{enumerate}
+\item Dependencies to logical forms
+\vspace{1em}
+\item Compositional
+\vspace{1em}
+\item Language-agnostic conversion
+\begin{itemize}
+  \large
+  \vspace{1em}
+  \item No token-specific semantics
+  \vspace{1em}
+  \item Dependency labels and postags dictate the semantics
+\end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Logical Forms}
 \large
 Semantic Parsing {\scriptsize [Zelle \& Mooney, 1996; Zettlemoyer \& Collins, 2005]}
  
@@ -414,7 +432,7 @@ Summarization {\scriptsize [Liu et al., 2015]}
 \end{frame}
 
 \begin{frame}
-\frametitle{Dependencies to Logical Forms}
+\frametitle{Compositional}
 \vspace{-1em}
 \begin{center}
 \only<1>{\vspace{-5em}\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
@@ -439,7 +457,8 @@ Summarization {\scriptsize [Liu et al., 2015]}
 \end{frame}
 
 \begin{frame}
-\frametitle{Dependencies to Logical Forms}
+\frametitle{Composition Order}
+\framesubtitle{Binarization}
 \begin{center}
 \vspace{1em}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar}
@@ -451,10 +470,9 @@ Summarization {\scriptsize [Liu et al., 2015]}
 \end{center}
 \end{frame}
 
-\subsection{Single Type System}
 \begin{frame}
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Our Approach}
+\frametitle{Composition Order}
+\framesubtitle{Binarization}
 \begin{center}
 \vspace{-5em}
 % TODO: remove types on dependency labels.
@@ -463,14 +481,14 @@ Summarization {\scriptsize [Liu et al., 2015]}
 \vspace{2cm}
 \begin{block}{}
 \centering
-Let dependency labels drive the composition
+Dependency labels drive the composition
 \end{block}
 \end{center}
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Our Approach}
+\frametitle{Composition Order}
+\framesubtitle{Binarization}
 \vspace{-2.5em}
 \centering
 
@@ -490,8 +508,8 @@ Let dependency labels drive the composition
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Our Approach}
+\frametitle{Composition Order}
+\framesubtitle{Binarization}
 \vspace{-2.5em}
 \centering
 
@@ -510,8 +528,8 @@ Let dependency labels drive the composition
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Our Approach}
+\frametitle{Composition Order}
+\framesubtitle{Binarization}
 \vspace{-2.5em}
 \centering
 
@@ -532,8 +550,8 @@ Let dependency labels drive the composition
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Our Approach}
+\frametitle{Composition Order}
+\framesubtitle{Binarization}
 \begin{center}
 %\vspace{-1em}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar}
@@ -549,8 +567,8 @@ Let dependency labels drive the composition
 \end{frame}
 
 \begin{frame}
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Lambda Calculus}
+\frametitle{Language-agnostic Conversion}
+\framesubtitle{Substitution}
 \vspace{-3.3em}
 \begin{center}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
@@ -569,8 +587,8 @@ Let dependency labels drive the composition
 \end{frame}
 
 \begin{frame}[noframenumbering]
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Lambda Calculus}
+\frametitle{Language-agnostic Conversion}
+\framesubtitle{Substitution}
 \vspace{-2.4em}
 \begin{center}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
@@ -582,16 +600,16 @@ Let dependency labels drive the composition
 \begin{block}{\centering Lambda Expression for words}
 \vspace{-0.5cm}
 \begin{align*}
-  \hbox{\color{blue} acquired} & \Rightarrow  \lambda x \lspace \hbox{acquired}(x_e)  \\
-  \hbox{\color{blue!40!green!60!black} Pixar} & \Rightarrow  \lambda x \lspace \hbox{Pixar}(x_a) 
+  VERB \Rightarrow \lambda x \lspace \hbox{word}(x_e), e.g., \hbox{\color{blue} acquired} & \Rightarrow  \lambda x \lspace \hbox{acquired}(x_e)  \\
+  PROPN \Rightarrow \lambda x \lspace \hbox{word}(x_a), e.g., \hbox{\color{blue!40!green!60!black} Pixar} & \Rightarrow  \lambda x \lspace \hbox{Pixar}(x_a) 
 \end{align*}
 \vspace{-0.5cm}
 \end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{Dependencies to Logical Forms}
-\framesubtitle{Lambda Calculus}
+\frametitle{Language-agnostic Conversion}
+\framesubtitle{Substitution}
 \vspace{-2.4em}
 \begin{center}
 \includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj}
@@ -609,8 +627,11 @@ Let dependency labels drive the composition
 \end{block}
 \end{frame}
 
-\begin{frame}[noframenumbering]
-\includegraphics[trim=1em 0em 0em 0em,clip=false,scale=1]{figures/dobj-lambda-calculus}
+\begin{frame}
+\frametitle{Language-agnostic Conversion}
+\framesubtitle{Substitution}
+\vspace{2em}
+\includegraphics[trim=1em 0em 0em 4em,clip=true,scale=1]{figures/dobj-lambda-calculus}
 \end{frame} 
 
 \subsection{DepLambda Composition}
@@ -667,12 +688,12 @@ Let dependency labels drive the composition
  \begin{columns}
   \begin{column}{0.39\textwidth}
    \centering
-\includegraphics[trim=1.5em 9em 26em 0em,clip=true,scale=1.2]{figures/partmod}
+\includegraphics[trim=1.5em 9em 26em 0em,clip=true,scale=1.2]{figures/amod-verb}
   \end{column}
   \begin{column}{0.1\textwidth}
   \end{column}
   \begin{column}{0.59\textwidth}
-\large    $\textsl{partmod}= $ \\ \hspace{0.5em} $\lambda f \lambda g \lambda x \lspace \exists z \lspace f(x) \land g(z) \land \hbox{arg}_2(z_e, x_a)$ 
+\large    $\textsl{amod}= $ \\ \hspace{0.5em} $\lambda f \lambda g \lambda x \lspace \exists z \lspace f(x) \land g(z) \land \hbox{amod}^i(z_e, x_a)$ 
   \end{column}
   
  \end{columns}
@@ -682,7 +703,7 @@ Let dependency labels drive the composition
  \begin{columns}
   \begin{column}{0.39\textwidth}
    \centering
-\includegraphics[trim=1em 9em 28em 0em,clip=true,scale=1.3]{figures/conj}   
+\includegraphics[trim=1em 9em 28em 0em,clip=true,scale=1.3]{figures/conj}
   \end{column}
   \begin{column}{0.1\textwidth}
   \end{column}
@@ -693,7 +714,66 @@ Let dependency labels drive the composition
 \end{frame}
 
 \begin{frame}
-\frametitle{DepLambda}
+\frametitle{Enhancement}
+\framesubtitle{Long-distance, Language-specific phenomenon, Quantifiers}
+\centering
+\includegraphics[trim=0em 1.7em 0em 0em,clip=true,scale=1.1]{figures/control-obj-extraction-crop} \\
+
+\tikz[remember picture] \node[coordinate] (n1) {};\\
+\vspace{2cm} 
+\tikz[remember picture] \node[coordinate] (n2) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=10pt] (n1) -- node[xshift=6em,black] { } (n2);
+  \draw [->,>=stealth,blue!20!white,sloped,line width=10pt] (n1) -- node[black] {\footnotesize Enhancement} (n2);
+\end{tikzpicture}
+
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1.1]{figures/control-obj-extraction-crop}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dependency Graphs to Logical Forms}
+\centering
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1.1]{figures/control-obj-extraction-crop} \\
+
+\tikz[remember picture] \node[coordinate] (n1) {};\\
+\vspace{1cm} 
+\tikz[remember picture] \node[coordinate] (n2) {};
+
+\begin{tikzpicture}[remember picture,overlay]   %% use here too
+  \draw [->,>=stealth,shorten >=1pt,blue!20!white,line width=10pt] (n1) -- node[xshift=6em,black] { } (n2);
+  \draw [->,>=stealth,blue!20!white,sloped,line width=10pt] (n1) -- node[black] {} (n2);
+\end{tikzpicture}
+
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1.1]{figures/control-obj-extraction-bind-crop}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dependency Graphs to Logical Forms}
+\centering
+\includegraphics[trim=0em 0em 0em 0em,clip=true,scale=1.1]{figures/control-obj-extraction-bind-crop}
+
+\begin{block}{Substitution Expressions}
+\begin{tabbing}
+\textsc{bind} \hspace{1em} \=  = \hspace{1em} \= $\lambda f \lambda g \lambda x \lspace f(x) \land g(x)$ \\
+$\mathrm{xcomp}$ \> = \hspace{1em} \> $\lambda f g x \lspace \exists y \lspace f(x) \wedge g(y) \wedge \mathrm{xcomp}(x_e, y_e)$ \\
+$\omega $ \> = \> $\lambda x. \textsc{eq}(x, \omega)$ 
+\end{tabbing}
+\end{block}
+
+\vspace{1em}
+
+\raggedright \textbf{Final Expression:}
+\begin{tabbing}
+$\lambda z\lspace$\=$\exists xyw\lspace \mathrm{wants}(z_e) \wedge \mathrm{Anna}(x_a) \wedge \mathrm{arg_1}(z_e, x_a) $ \\
+\> $ \wedge\; \mathrm{marry}(y_e) \wedge \mathrm{xcomp}(z_e, y_e) \wedge {\color{blue}\mathrm{arg_1}(y_e, x_a)}$\\
+\> $ \wedge\; \mathrm{Kristoff}(w_a)  \wedge \mathrm{arg_2}(y_e, w_a)$\,.
+\end{tabbing}
+
+\end{frame} 
+
+\begin{frame}
+\frametitle{UDepLambda}
 \vspace{-2em}
 \begin{center}
 \includegraphics[trim=2em 7em 13em 0em,clip=true,scale=0.9]{figures/dependency-reduced-relative-ud}
@@ -723,7 +803,7 @@ $\exists z. \mathrm{company(Pixar)} \wedge \mathrm{located}(z_e) \wedge \mathrm{
 \end{frame}
 
 \begin{frame}
-\frametitle{DepLambda in a nutshell}
+\frametitle{UDepLambda in a nutshell}
 \large
 
 Dependency tree is a series of \hlight{compositions}
@@ -742,7 +822,7 @@ Returns typed-semantics of the larger expression
 \Large
 \centering
 \vspace{1.5em}
-Freebase Semantic Parsing using DepLambda
+Freebase Semantic Parsing using UDepLambda
 \end{frame}
 
 \section{Semantic Parsing as Graph Matching}
@@ -1055,9 +1135,9 @@ WebQuestions in English, German, and Spanish
 \vspace{2em}
 BiLSTM Parser {\small [Kipperwiser and Goldberg (2016)]}\\
 \begin{itemize}
-\item English: 81.73 \\
-\item German: 79.13 \\
-\item Spanish: 85.76 \\
+\item English: 81.8 \\
+\item German: 74.7 \\
+\item Spanish: 82.2 \\
 \end{itemize}
 \end{frame}
 
@@ -1087,41 +1167,7 @@ BiLSTM Parser {\small [Kipperwiser and Goldberg (2016)]}\\
 \centering
 \large
 \vspace{0.4em}
-\includegraphics[trim=9.5em 0em 23em 0.5em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud}
-\end{frame}
-
-\begin{frame}
-\frametitle{Results on Multilingual WebQuestions}
-\framesubtitle{German}
-\centering
-\large
-\vspace{0.4em}
-\includegraphics[trim=9.5em 0em 23em 0.5em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud-de}
-\end{frame}
-
-\begin{frame}
-\frametitle{Results on Multilingual WebQuestions}
-\framesubtitle{Spanish}
-\centering
-\large
-\vspace{0.4em}
-\includegraphics[trim=9.5em 0em 23em 0.5em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud-es}
-\end{frame}
-
-\begin{frame}
-\frametitle{Experimental Setup: Stanford Dependencies} 
-\large
-78 lambda calculus formulae 
-
-\vspace{2em}
-Hypergraph parser {[\small Zhang \& McDonald (2014)]}
-\begin{itemize}
-\item English: 90.64
-\end{itemize}
-
-\vspace{2em}
-Additional Baseline: 
-\ccggraph \; -- CCG logical forms
+\includegraphics[trim=9.5em 0em 23em 1em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud}
 \end{frame}
 
 \begin{frame}
@@ -1136,23 +1182,26 @@ Additional Baseline:
 \only<6>{\includegraphics[trim=1em 12em 28em 0.5em,clip=true,scale=0.51]{figures/deplambda_results_plot}} 
 \end{frame}
 
-\section{Evaluation} 
+\begin{frame}
+\frametitle{Results on Multilingual WebQuestions}
+\framesubtitle{German}
+\centering
+\large
+\vspace{0.4em}
+\includegraphics[trim=9.5em 0em 23em 1em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud-de}
+\end{frame}
 
 \begin{frame}
-\frametitle{Error Analysis}
+\frametitle{Results on Multilingual WebQuestions}
+\framesubtitle{Spanish}
+\centering
 \large
- \ccggraph fails to produce logical forms for 4.5\%.
- \begin{itemize}
-  \item Sensitive to grammatical errors
-  \item e.g., \textsl{what nestle owns?}
- \end{itemize}  
- 
- \vspace{2em}
- DepLambda fails only for 0.9\%
- \begin{itemize}
-   \item e.g., \textsl{what to do washington december}
- \end{itemize}  
+\vspace{0.4em}
+\includegraphics[trim=9.5em 0em 23em 0.5em,clip=true,scale=0.5]{figures/deplambda_results_plot_ud-es}
 \end{frame}
+
+
+\section{Evaluation} 
 
 \begin{frame}  
 \frametitle{Comparison with CCG}
@@ -1186,11 +1235,11 @@ Additional Baseline:
 \end{frame}
 
 
-\begin{frame}  
-\frametitle{Comparison with CCG}
-\centering
-\includegraphics[trim=3em 1em 3em 0em,clip=true,scale=1.3]{figures/ccg-transitive-svo-derivation-tensors} 
-\end{frame}
+% \begin{frame}  
+% \frametitle{Comparison with CCG}
+% \centering
+% \includegraphics[trim=3em 1em 3em 0em,clip=true,scale=1.3]{figures/ccg-transitive-svo-derivation-tensors} 
+% \end{frame}
 
 \begin{frame}
   \frametitle{DepLambda: \only<1,3,5>{\alert{Present}} \only<2,4,6>{\color{darkgreen}Towards ...}}
@@ -1212,34 +1261,6 @@ Output: General-purpose logical forms\\
 \pause \includegraphics[trim=16em 14em 4em 10em,clip=true,scale=0.2]{figures/bullet}\; Any target representation
 \end{frame}
 
-\section{Distantly-supervised Freebase Semantic Parsing}
-\begin{frame}
-\frametitle{This Talk}
-\large 
-\begin{enumerate}
- \item Dependencies to Logical Forms $\checkmark$
- 
- \vspace{2em}
- \item Freebase Semantic Parsing using Logical Forms $\checkmark$
- 
- \vspace{2em}
- \item Exploiting Text for Freebase Semantic Parsing
-\end{enumerate}
-\end{frame}
-
-\begin{frame}
-\Large
-\centering
-\vspace{1.5em}
-\begin{enumerate}
- \setcounter{enumi}{2}
- \item Exploiting Text for Freebase Semantic Parsing \blfootnote{\color{blue} 
-   $\bullet$ Xu, Reddy, Feng, Huang, Zhao (ACL 2016) \\
-   \hspace{1.6em} $\bullet$ Bisk, Reddy, Blitzer, Hockenmaier (EMNLP 2016) \\
-   \hspace{1.6em} $\bullet$ Reddy, Lapata, Steedman (TACL 2014)}
-\end{enumerate}
-\end{frame}
-
 \section{Summary}
 \begin{frame}
 \frametitle{Summary}
@@ -1255,410 +1276,14 @@ Dependencies to Logical Forms
 Freebase Semantic Parsing using Logical Forms
 
 \vspace{2em}
-\begin{center}Demo at\\ \hlight{\url{https://sivareddy.in/deplambda.html}} \\
+\begin{center}Demo at\\ \hlight{\url{https://sivareddy.in/udeplambda.html}} \\
   Thank You!
 \end{center}
 \end{frame}
 
-\begin{frame}
-\frametitle{Semantic Parsing without QA pairs}
-\vspace{-1em}
-\begin{columns}
-  \begin{column}{0.05\textwidth}
-  \end{column}
- \begin{column}{0.55\textwidth}
-  \only<1>{\includegraphics{figures/freebase_qa_pair}}
-  \only<2>{\hspace{1em}\includegraphics{figures/freebase_qa_pair_striked}}
- \end{column}
-
- \begin{column}{0.45\textwidth}
- \vspace{-0.5cm}
- \begin{figure}
-  \includegraphics[scale=0.45]{figures/titanic} 
- \end{figure}
- \end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Semantic Parsing without QA pairs}
-
-\begin{columns}
- \begin{column}{0.56\textwidth}
- \vspace{-1em}
- \begin{figure}
-  \begin{tikzpicture}[
-  font=\sffamily,
-  every matrix/.style={ampersand replacement=\&,column sep=0.2cm,row sep=2cm},
-  myboxNL/.style={draw,thick,rounded corners,text width=17em,inner sep=0cm,fill=green!10},
-  myboxMR/.style={draw,thick,rounded corners,text width=17em,inner sep=0cm,fill=red!10},
-  myboxAns/.style={draw,thick,rounded corners,text width=17em,inner sep=0.15cm,fill=yellow!10},
-  myArrow/.style={->,>=stealth,shorten >=1pt,blue!20!white,sloped,line width=10pt},
-  myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
-  every node/.style={align=center}]
-\matrix{
-    \visible<1->{\node[myboxNL] (NL) {\begin{tabular}{l
-    p{4.5cm}}\rotatebox[origin=c]{90}{\hspace{-1cm} \small \bf NL\phantom{xx}}
-    & \small Leonardo DiCaprio starred as Jack in Titanic which was directed by James Cameron.
-\\
-\end{tabular}};} \\
-    \visible<1->{\node[myboxMR] (MR) {\begin{tabular}{l
-    p{4.6cm}}\rotatebox[origin=c]{90}{\hspace{-0.5cm} \small \bf KB\phantom{x}}
-    & \small $\mbox{cast}(\textsc{Titanic},\textsc{DiCaprio},\textsc{Jack})
-    \wedge\mbox{director}(\textsc{Titanic},\textsc{Cameron})$ \\
-    \end{tabular}};}\\
-\visible<1->{\node[myboxAns] (Ans) {\small \textsc{True}}; \\}\\
-    };
-    \visible<1->{\draw [myArrow] (NL) edge node[black] {Parser}  (MR);}
-    \visible<1->{\draw [myArrow1] (MR) edge node[black]
-    {\includegraphics[scale=0.2,angle=90]{figures/db}\\\vspace{-0.38cm}Execute} 
-    (Ans);}
-\end{tikzpicture}
-\end{figure}
-\end{column}
-
- \begin{column}{0.45\textwidth}
- \vspace{-3cm}
- \begin{figure}
-  \includegraphics[scale=0.45]{figures/titanic} 
- \end{figure}
- \end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}
- \frametitle{Task Setup}
- \large
- 
- \hlight{Training Data:} Web Corpus
- 
- \vspace{2em}
- \hlight{Evaluation:} Question Answering on Freebase
- 
- \vspace{2em}
- \hlight{Resources:} Ungrounded Logical Forms
- 
- \vspace{2em}
- \hlight{Hypothesis:} We do not need \hlight{manual} question answer pairs
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Learning from Text}
-%unique
-
-\begin{center}
-\begin{tikzpicture}[rounded corners]
- \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
- {\begin{center} \raisebox{.5ex}[0pt]{Cameron is the director of Titanic.}\end{center} };
-\end{tikzpicture}
-
-\vspace{.5cm}
-
-                \includegraphics[scale=1.2]{figures/unique_example}
-
-\end{center}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Learning from Text}
-
-%arrow 
- 
-\begin{center}
-\begin{tikzpicture}[rounded corners]
- \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
- {\begin{center} \raisebox{.5ex}[0pt]{\alert{Cameron} is the director of Titanic.}\end{center} };
-\end{tikzpicture}
-
-\vspace{.5cm}
-                \includegraphics[scale=1.2]{figures/unique_example_query_pointed}
-
-\vspace{.5cm}
-Select one of the entities as target and replace it with~$x$ (here
-\word{Cameron}). 
-\end{center}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Learning from Text}
-% question-graph 1
-\begin{center}
-\begin{tikzpicture}[rounded corners]
- \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
- {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
-\end{tikzpicture}
-
-\vspace{.5cm}
-             %   \color{blue!80} \scriptsize $\denot{x}{NL}$ = \{\textsc{Austin}\}
-\includegraphics[scale=1.2]{figures/unique_example_query}\\
-
-%                 $\denot{x}{NL}$ = \{\textsc{Austin}\}
-
-\vspace{.5cm}
-Build all knowledge base subgraphs with $x$ uninstantiated.
-\end{center}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Learning from Text}
-
-\begin{center}
-\begin{tikzpicture}[rounded corners]
- \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
- {\begin{center} \raisebox{.5ex}[0pt]{\alert{Cameron} is \hlight{the} director of Titanic.}\end{center} };
-\end{tikzpicture}
-
-
-\vspace{.5cm}
-                \includegraphics[scale=1.2]{figures/unique_example_query_pointed}\\
-\vspace{.5cm}
-\hlight{$\denot{x}{NL}$ = \{\textsc{Cameron}\}}
-\vspace{.5cm}
-
-Use denotations in NL and Freebase to select a surrogate gold graph. 
-\end{center}
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Learning from Text}
-
-\begin{center}
-\begin{tikzpicture}[rounded corners]
- \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
- {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
-\end{tikzpicture}
-
-\vspace{.5cm}
-
-\only<1>{
-             %   \color{blue!80} \scriptsize $\denot{x}{NL}$ = \{\textsc{Austin}\}
-\includegraphics[scale=.2]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded2}\\ 
-           \hlight{$\denot{x}{KB}$ =
-		\{\textsc{Cameron}, \textsc{JonLandau}\}}
-	}
-	
-\only<2>{
-             %   \color{blue!80} \scriptsize $\denot{x}{NL}$ = \{\textsc{Austin}\}
-\includegraphics[scale=.2]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded2_wrong}\\ 
-           \hlight{$\denot{x}{KB}$ =
-		\{\textsc{Cameron}, \textsc{JonLandau}\}} \alert{$\neq$ $\denot{x}{NL}$}\\
-	}
-\vspace{.5cm}
-Use denotations in NL and Freebase to select a surrogate gold graph. 
-
-\end{center}
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Learning from Text}
-
-\begin{center}
-\begin{tikzpicture}[rounded corners]
- \node[text width=20em,scale=1,fill=green!10,draw=blue](q_A) at (0,0)
- {\begin{center} \raisebox{.5ex}[0pt]{\alert{Who} is the director of Titanic?}\end{center} };
-\end{tikzpicture} 
-
-\vspace{.5cm}
-
-\only<1>{
-\includegraphics[scale=.3]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded1}
-\vspace{.5cm}
-
-\hlight{$\denot{x}{KB}$ = \{\textsc{Cameron}\}}
-}
-
-\only<2>{
-\includegraphics[scale=.3]{figures/db} \includegraphics[scale=1.2]{figures/unique_example_grounded1_correct} 
-\vspace{.5cm}
-
-\hlight{$\denot{x}{KB}$ = \{\textsc{Cameron}\} = $\denot{x}{NL}$}
-}
-
-\vspace{.5cm}
-Use denotations in NL and Freebase to select a surrogate gold graph. 
-\end{center}
-\end{frame}
- 
-\begin{frame}
-\frametitle{Learning from Text: Summary}
-\large
-
-\begin{itemize}
-\item[] Learning proceeds by creating \alert{question-like graphs} by replacing named entities in logical forms mined from web
-  text with a variable.
-
-\vspace{2em}
-  
-\item[] Then try to find the subgraph of the knowledge graph with the
-  the most \alert{similar denotation}.
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Results on \free}
-
-\begin{table}
-\begin{tabular}{|l| c c c c|}
-  \hline
-  System  & Precision & Recall & F1 &  \\
-  \hline
-  \textsc{mwg} & 52.6 & 49.1 & 50.8 & \\
-   \kcaz & 72.6 & 66.1 & 69.2 & \\
-   This Work  & \bf 81.9 & \bf  76.6 & \bf 79.2 & \color{blue} \bf +10.0 \\
-   \hline
-\end{tabular}
-\end{table}
-
-% \vspace{-0.5cm}
-\begin{itemize}
-  \item {\color{blue!70} \mwg:} Greedy Maximum Weighted Graph
-  \item {\color{blue!70} \kcaz:} Kwiatkowski et al. 2013 
-  \begin{itemize}
-    \item Manually annotated QA pairs (612 pairs)
-    \item Wiktionary
-  \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Results on \webq}
-\begin{table}
-\begin{tabular}{|l| c c c c c|}   
-  \hline
-  System  & Precision & Recall & F1 & $\underset{(\textsc{BL14})}{Avg F1}$ & \\
-  \hline
-  \textsc{mwg} & 39.4 & 34.0 & 36.5 & 41.6 & \\
-  \textsc{BL14} & --- & --- & --- & 37.5 & \\
-  This Work  & \bf 41.9 & \bf 37.0 & \bf 39.3 & \bf 47.7 &  \color{blue} \bf +10.2 \\
-  \hline
-\end{tabular}
-\end{table}
-
-%\vspace{0.5cm}
-
-\begin{itemize}
-  \setlength\itemsep{1em}
-  \item {\color{blue!70} \mwg:} Greedy Maximum Weighted Graph
-  
-  \item {\color{blue!70} \textsc{BL14:}} Berant and Liang, 2014
-  \begin{itemize}
-    \item Manually annotated QA pairs (1115 pairs)
-    \item Paraphrases and Web Corpus
-  \end{itemize} 
-\end{itemize}
-\end{frame}
-
-
-\section{Natural Logic for Semantic Parsing}
-\begin{frame}
-\frametitle{This Talk}
-\large 
-\begin{enumerate}
- \item Dependencies to Logical Forms $\checkmark$
- 
- \vspace{2em}
- \item Freebase Semantic Parsing using Logical Forms $\checkmark$
- 
- \vspace{2em}
- \item Exploiting Text for Freebase Semantic Parsing $\checkmark$
-\end{enumerate}
-\end{frame}
-
-\begin{frame}
-\Large
-\vspace{1.5em}
-QA without logical forms \blfootnote{\color{blue} 
-  $\bullet$ Xu, Reddy, Feng, Huang, Zhao (ACL 2016)} \\
-\end{frame}
-
-\begin{frame}
-\frametitle{Task Setting}
-\large
-
-\hlight{Training Data:} Question and Answer Pairs, Web Corpus
-
-\vspace{2em}
-\hlight{Evaluation:} Question Answering on Freebase
-
-\vspace{2em}
-\hlight{Resources:} Dependency Parser
-\end{frame}
-
-
-\begin{frame}
-\frametitle{QA with Relation Extraction and Text Evidence}
-\centering
-\includegraphics[scale=0.8]{figures/natural-logic-flowchart}
-\end{frame}
-
-\begin{frame}
-\frametitle{QA with Relation Extraction and Text Evidence}
-\centering
-\includegraphics[scale=0.7]{figures/natural-logic-argmax-flowchart}
-\end{frame} 
-
-\begin{frame}
-\frametitle{QA with Relation Extraction and Text Evidence}
-\includegraphics[trim=-12em 0em 0em 0em,clip=true,scale=0.7]{figures/natural-logic-argmax1}
-
-\vspace{-4em}
-\includegraphics[trim=-12em 0em 0em 0em,clip=true,scale=0.4]{figures/MCCNN}
-\end{frame}
 
 \section{Additional Slides}
 
-\subsection{Motivation}
-\begin{frame}
-\frametitle{Syntax in humans?}
-\begin{center}
-\begin{columns}
-\begin{column}{0.7\textwidth}
-  \begin{quote}
-   Studies on Peruvian Indian bilinguals indicate Quechua word order influences the local varieties of Spanish
-   
-   [Odlin, 1989]
-  \end{quote}
-\end{column}
-\begin{column}{0.3\textwidth}
-  \begin{center}
-   \includegraphics[width=\textwidth]{figures/amazon-tribes}
-  \end{center}
-\end{column}
-\end{columns}
-\vspace{0.5cm}
-\begin{columns}
-
-\visible<2->{
-\begin{column}{0.7\textwidth}
-  \begin{quote}
-   Arabs show strong preference for SVO in Dutch, whereas Turks for SOV
-   
-   [Jansen et al., 1981; Appel, 1984]
-  \end{quote}
-\end{column}
-}
-\begin{column}{0.3\textwidth}
-   
-\end{column}
-\end{columns}
-\end{center}
-\end{frame}
 
 \subsection{Single Type System}
 
@@ -1779,57 +1404,6 @@ QA without logical forms \blfootnote{\color{blue}
 \end{frame}
 
 \subsection{Complex constructions}
-\begin{frame}[noframenumbering]
-\frametitle{Relative Clause in CCG}
-\centering
-\includegraphics[scale=0.7]{figures/ccg-relative-clause}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-\frametitle{Relative Clause in DepLambda}
-\framesubtitle{following Carpenter (1998)}
-\begin{center}
-\includegraphics[trim=1em 7.5em 22em 0em,clip=true,scale=1]{figures/relative-object-extraction-ud}
-
-\vspace{3em}
-
-\includegraphics[trim=1em 6.5em 17em 0em,clip=true,scale=1]{figures/relative-object-extraction-binding-ud}
-
-\ignore{
-\begin{small}
-\begin{tabular}{l}\\
-  $\mathrm{(acl}$ \hspace{0.3cm}  $\mathrm{company}$ \\ 
-  \hspace*{1cm} ($\hlight{\bind}$ $\alert{f}$ \\
-  \hspace*{2cm}  $\mathrm{(wh}$-$\mathrm{dobj}$  \\  
-  \hspace*{3cm} $\mathrm{(nsubj}$ \\
-  \hspace*{4cm} $\mathrm{(dobj~acquired}$~$f)$\\
-  \hspace*{3cm}$\mathrm{~Disney))}$ \\
-  \hspace*{2cm} $\mathrm{which)))}$
-\end{tabular}
-\end{small}
-}
-\end{center}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-\frametitle{Comparison with CCG}
-
-Handling of control verbs is painful.
-
-\vspace{0.5cm}
-\textbf{Sentence:}\\
-\textsl{John persuaded Jim to acquire Pixar}.
-
-\vspace{0.3cm}
-\textbf{Binarized Tree:}\\
-(nsubj (xcomp (dobj persuaded Jim) to\_acquire\_Pixar) John)
-
-\pause
-\vspace{0.3cm}
-\textbf{Elegant handling in CCG} \\
-\hspace{0.5cm} persuaded: $((S[dcl]\backslash NP)/(S[to]\backslash NP_{\hlight{x}}))/NP_{\hlight{x}}$
-\end{frame}
-
 
 \begin{frame}[noframenumbering]
 \frametitle{Conjunctions}
@@ -1864,70 +1438,23 @@ $\lambda e \lspace$\=$\exists x y z \lspace \mathrm{Eminem}(x_a) \land \mathrm{a
 \end{tabbing}
 \end{frame}
 
-\begin{frame}[noframenumbering]
-\frametitle{Relative Clause}
-\framesubtitle{following Moortgat (1988); Pereira (1990); Carpenter (1998)}
-\textbf{Sentence:} \\
-{\centering Apple which Jobs founded\\} 
-
-\textbf{Binarized tree:} \\
-\begin{small}
-\begin{tabular}{l}\\
-$\mathrm{(rcmod}$  $\mathrm{Apple}$ \\ 
-  \hspace*{1cm} $\mathrm{(wh}$-$\mathrm{dobj}$
-  ($\hlight{\bind}$ $f$ $\mathrm{(nsubj~(dobj~founded}$~$f$$\mathrm{)~Jobs))}$ \\
-\hspace*{2.5cm} $\mathrm{which))}$
-\end{tabular}
-\end{small}
-
-\pause
-\textbf{Substitution:} 
-\begin{tabbing}
-wh-dobj $\Rightarrow$ $\lambda f g z \lspace f(z)$\\
-rcmod $\Rightarrow$ $\lambda f g z \lspace f(z) \land g(z)$
-\end{tabbing}
-
-\textbf{Logical Expression:}
-\begin{tabbing}
-$\lambda u \lspace \exists x y \lspace$\=$\mathrm{founded}(x_e) \land \mathrm{Jobs}(y_a)$\\
-\>$\land\, \mathrm{arg_1}(x_e, y_a)
-\land \mathrm{arg_2}(x_e, u_a) \land \mathrm{Apple}(u_a)$
-\end{tabbing}
-\end{frame}
-
-\begin{frame}[noframenumbering]
-\frametitle{Expressivity}
-How isomorphic are the representations compared to Knowledge Graph?
-
-Average Oracle $F_1$ Table.
-
-\end{frame}
-
-\begin{frame}[noframenumbering]
-\frametitle{Search Space}
-How many ways to reach an answer? 
-
-Average Oracle $F_1$ Table.
-
-\end{frame}
-
 \subsection{Graph Operations}
 \begin{frame}[noframenumbering]
 \frametitle{Graph Transformation: \contract operation}
 
 \begin{center}
-  What is the \hlight{name of the company} which Disney acquired in 2006?
+  What language do the people in Ghana speak?
 \end{center}
 
 \begin{columns}
   \begin{column}{0.35\textwidth}
    \centering
-   \includegraphics[width=\textwidth]{figures/question_unmerged_ungrounded_graph} \\
+   \includegraphics[width=\textwidth]{figures/en-language-ghana-ungrounded} \\
    \small Ungrounded graph
   \end{column}
   \begin{column}{0.35\textwidth}
     \centering
-   \includegraphics[width=\textwidth]{figures/question_merged_ungrounded_graph} \\
+   \includegraphics[width=\textwidth]{figures/language-ghana-grounded} \\
    \small Grounded graph 
   \end{column}
 \end{columns}
@@ -1955,39 +1482,6 @@ Average Oracle $F_1$ Table.
    \item $\lambda z\lspace \exists x y w \lspace \textsc{target}(x_a) \land \mathrm{do}(z_e) \land \mathrm{arg_1}(z_e, x_a) \land \mathrm{Washington\_DC}(y_a) \land
    \mathrm{\hlight{dep}}(z_e, y_a) \land \mathrm{December}(w_a) \land \mathrm{\hlight{dep}}(z_e, w_a)$
    \end{itemize}
-\end{frame}
-
-\subsection{Semantic Parsing without QA Datasets}
-\begin{frame}[noframenumbering]
-\frametitle{Experiments}
- \hlight{Target Domains:}  Business, Film, People 
-  \begin{itemize}
-    \item Largest domains of Freebase
-    \item 120m triples, 411 relations and 210 types.
-  \end{itemize}
-  
-  \vspace{1em}
-  \hlight{Training data:} 99K sentences from ClueWeb09
-\end{frame}
-
-
-\begin{frame}[noframenumbering]
-\frametitle{Experiments}
-
-  \hlight{Test data:} 
-  \begin{itemize}
-  	\item \free [Cai and Yates, 2013] 
-  	\begin{itemize}
-  	 \item Syntactically well-formed queries
-  	 \item 124 queries for our target domains
-  	\end{itemize}
-
-  	\item \webq [Berant et al., 2013] 
-  	\begin{itemize}
-	  \item Google search queries starting with \textit{wh} question words.
-	  \item 570 queries for our target domains
-	\end{itemize}
-  \end{itemize}
 \end{frame}
 
 \end{document}
