@@ -29,10 +29,11 @@
 % in the preamble
 \begin{filecontents}{jobs.dat}
 Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
-1   {\rotatebox{60}{\huge \textsc{SimpleGraph}}}   48.5 48.5
-2   {\rotatebox{60}{\huge \textsc{DepTree}}}   48.8 48.8
-3   {\rotatebox{60}{\huge \textsc{UDepLambda}}}   49.5 49.5
-4   {\rotatebox{60}{\huge \textsc{UDepLambdaSRL}}}   49.8 49.8
+1   {\rotatebox{90}{\huge \textsc{SimpleGraph}}}   15.9 15.9
+2   {\rotatebox{90}{\huge \textsc{DepTree}}}   16.0 16.0
+3   {\rotatebox{90}{\huge \textbf{\textsc{UDepLambda}}}}   17.7 17.7
+4   {\rotatebox{90}{\huge \textsc{ParaSempre}}}   12.8 12.8
+5   {\rotatebox{90}{\huge \textsc{Para4QA}}}   20.4 20.4
 \end{filecontents}
 
 \begin{document}
@@ -92,7 +93,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
     meta=HaeufigkeitRel
 ] {jobs.dat} ;
 
-\addplot[ybar, bar shift=0pt, fill=magenta,
+\addplot[ybar, bar shift=0pt, fill=red,
     discard if not={Wert}{3},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
@@ -105,8 +106,8 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
     meta=HaeufigkeitRel
 ] {jobs.dat} ;
 
-\addplot[ybar, bar shift=0pt, fill=red,
-    discard if not={Wert}{4},
+\addplot[ybar, bar shift=0pt, fill=magenta,
+    discard if not={Wert}{5},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
         font=\Huge,

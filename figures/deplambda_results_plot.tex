@@ -29,16 +29,13 @@
 % in the preamble
 \begin{filecontents}{jobs.dat}
 Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
-1   {\rotatebox{90}{\huge \textsc{Yao15}}}    44.3 44.3
-2   {\rotatebox{90}{\huge \textsc{Bast15}}}       49.4 49.4
-3   {\rotatebox{90}{\huge \textsc{Berant15}}}     49.7 49.7
-4   {\rotatebox{90}{\huge \textsc{SimpleGraph}}}   48.5 48.5
-5   {\rotatebox{90}{\huge \textsc{CCGGraph}}}   49.5 49.5
-6   {\rotatebox{90}{\huge \textsc{DepTree}}}   48.8 48.8
-7   {\rotatebox{90}{\huge \textsc{UDepLambda}}}   49.5 49.5
-8   {\rotatebox{90}{\huge \textsc{DepLambda}}}   50.3 50.3
-9   {\rotatebox{90}{\huge \textsc{Yih15}}}   52.5 52.5
-10   {\rotatebox{90}{\huge \textsc{Xu16}}}   53.3 53.3
+1   {\rotatebox{90}{\huge \textsc{SimpleGraph}}}   48.5 48.5
+2   {\rotatebox{90}{\huge \textsc{CCGGraph}}}   48.6 48.6
+3   {\rotatebox{90}{\huge \textsc{DepTree}}}   48.8 48.8
+4   {\rotatebox{90}{\huge \textsc{UDepLambda}}}   49.5 49.5
+5   {\rotatebox{90}{\huge \textsc{DepLambda}}}   50.3 50.3
+6   {\rotatebox{90}{\huge \textsc{Yih15}}}   52.5 52.5
+7   {\rotatebox{90}{\huge \textsc{Xu16}}}   53.3 53.3
 \end{filecontents}
 
 \begin{document}
@@ -46,7 +43,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
 \begin{center}
 \hspace*{-6cm}\begin{tikzpicture}
 \begin{axis}[
-    width=1.57\textwidth,
+    width=1.8\textwidth,
     bar width=30pt,
     ybar,
     xtick={1,...,11},
@@ -72,7 +69,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
 ] {jobs.dat} ;
 
 \addplot[ybar, bar shift=0pt, fill=blue,
-    discard if not={Wert}{4},
+    discard if not={Wert}{1},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
         font=\Huge,
@@ -86,7 +83,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
 
 
 \addplot[ybar, bar shift=0pt, fill=violet,
-    discard if not={Wert}{5},
+    discard if not={Wert}{2},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
         font=\Huge,
@@ -99,7 +96,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
 ] {jobs.dat} ;
 
 \addplot[ybar, bar shift=0pt, fill=magenta,
-    discard if not={Wert}{6},
+    discard if not={Wert}{3},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
         font=\Huge,
@@ -112,7 +109,7 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
 ] {jobs.dat} ;
 
 \addplot[ybar, bar shift=0pt, fill=red,
-    discard if not={Wert}{7},
+    discard if not={Wert}{4},
     nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
     every node near coord/.style={
         font=\Huge,
@@ -123,6 +120,20 @@ Wert    PP  HaeufigkeitAbs  HaeufigkeitRel
     y=HaeufigkeitAbs,
     meta=HaeufigkeitRel
 ] {jobs.dat} ;
+
+\addplot[ybar, bar shift=0pt, fill=red,
+    discard if not={Wert}{5},
+    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta},
+    every node near coord/.style={
+        font=\Huge,
+        /pgf/number format/precision=100
+    },
+    point meta=explicit] table [
+    x=Wert,
+    y=HaeufigkeitAbs,
+    meta=HaeufigkeitRel
+] {jobs.dat} ;
+
 
 \end{axis}
 \end{tikzpicture}
