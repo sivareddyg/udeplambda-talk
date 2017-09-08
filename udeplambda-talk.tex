@@ -210,6 +210,7 @@ Oscar~T\"ackstr\"om & Slav~Petrov  & Mark~Steedman & Mirella~Lapata \\
 \end{center}
 \end{frame}
 
+\ignore{
 \begin{frame}
 \frametitle{Universal Dependencies}
 %\large Homogeneous syntactic representation across languages
@@ -225,6 +226,7 @@ Oscar~T\"ackstr\"om & Slav~Petrov  & Mark~Steedman & Mirella~Lapata \\
   \vspace{-0.5em}}
 \end{center}
 \end{frame} 
+}
 
 \begin{frame}
 \frametitle{Universal Dependencies}
@@ -273,6 +275,18 @@ Language-agnostic conversion of \\Universal Dependencies to Logical Forms
 \end{frame}
 
 \begin{frame}
+\frametitle{This Talk}
+\vspace{4em}
+\only<1>{\includegraphics[scale=0.82]{figures/outline2.pdf}}
+\only<2>{\includegraphics[scale=0.82]{figures/outline3.pdf}}
+\only<3>{\includegraphics[scale=0.82]{figures/outline7.pdf}}
+\only<4>{\includegraphics[scale=0.82]{figures/outline8.pdf}}
+%\only<5>{\includegraphics[scale=0.82]{figures/outline5.pdf}}
+%\only<6>{\includegraphics[scale=0.82]{figures/outline8.pdf}}
+%\only<7>{\includegraphics[scale=0.82]{figures/outline7.pdf}}
+\end{frame}
+
+\begin{frame}
  \frametitle{This Talk: Contributions}
  \large 
 
@@ -286,7 +300,15 @@ Multilingual evaluation of logical forms on \textbf{Freebase QA}
 
 \vspace{1em}
 WebQuestions and GraphQuestions QA datasets in \textbf{German} and \textbf{Spanish}
- 
+\end{frame}
+
+\begin{frame}
+\frametitle{Part 1: Universal Semantic Parsing}
+\vspace{4em}
+\includegraphics[scale=0.82]{figures/outline7.pdf}
+%\only<5>{\includegraphics[scale=0.82]{figures/outline5.pdf}}
+%\only<6>{\includegraphics[scale=0.82]{figures/outline8.pdf}}
+%\only<7>{\includegraphics[scale=0.82]{figures/outline7.pdf}}
 \end{frame}
 
 
@@ -405,6 +427,7 @@ Logical form must be built
 \end{center}
 \end{frame}
 
+\ignore{
 \begin{frame}
 \frametitle{Compositional}
 % \framesubtitle{Binarization}
@@ -420,8 +443,9 @@ Dependency labels drive the composition
 \end{block}
 \end{center}
 \end{frame}
+}
 
-\begin{frame}[noframenumbering]
+\begin{frame}
 \frametitle{Compositional}
 % \framesubtitle{Binarization}
 \vspace{-2.5em}
@@ -565,6 +589,7 @@ Dependency labels drive the composition
 \end{block}
 \end{frame}
 
+\ignore{
 \begin{frame}
 \frametitle{Language-agnostic Conversion}
 % \framesubtitle{Substitution}
@@ -584,6 +609,7 @@ Dependency labels drive the composition
 \vspace{-0.5cm}
 \end{block}
 \end{frame}
+}
 
 \begin{frame}
 \frametitle{Language-agnostic Conversion}
@@ -602,8 +628,8 @@ Dependency labels drive the composition
 \vspace{0.8cm}
 
 \only<1>{\includegraphics[trim=7em 16em 7em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_dobj}\vspace{8em}}
-\only<2>{\includegraphics[trim=7em 12em 7em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_dobj}\vspace{4em}}
-\only<3>{\includegraphics[trim=7em 8em 7em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_dobj}}
+%\only<2>{\includegraphics[trim=7em 12em 7em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_dobj}\vspace{4em}}
+\only<2>{\includegraphics[trim=7em 8em 7em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_dobj}}
 \end{center}
 \end{frame}
 
@@ -611,20 +637,21 @@ Dependency labels drive the composition
 \frametitle{Dependencies to Logical Forms}
 \framesubtitle{Composition}
 \begin{center}
-\only<1>{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj_phrase}}
-\only<2-4>{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_nsubj}}
-\only<5->{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_nsubj_phrase}}
+%\only<1>{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_dobj_phrase}}
+\only<1-3>{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_nsubj}}
+%\only<4->{\includegraphics[trim=2em 9.4em 10em 0em,clip=true,scale=1.3]{figures/pixar_nsubj_phrase}}
 
 \vspace{0.8cm}
 
-\only<1>{\hspace{1.2em}\includegraphics[trim=10em 16em 10em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{8em}}
-\only<2>{\includegraphics[trim=3em 16em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{8em}}
-\only<3>{\includegraphics[trim=3em 12em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{4em}}
-\only<4>{\includegraphics[trim=3em 8em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}}
-\only<5>{\includegraphics[trim=3em 8em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_full}}
+%\only<1>{\hspace{1.2em}\includegraphics[trim=10em 16em 10em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{8em}}
+\only<1>{\includegraphics[trim=3em 16em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{8em}}
+%\only<3>{\includegraphics[trim=3em 12em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}\vspace{4em}}
+\only<2>{\includegraphics[trim=3em 8em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation-nsubj}}
+\only<3>{\includegraphics[trim=3em 8em 3em 0em,clip=true,scale=1.1]{figures/dependency-transitive-derivation_full}}
 \end{center}
 \end{frame}
 
+\ignore{
 \begin{frame}
 \frametitle{In a nutshell}
 \large
@@ -640,6 +667,7 @@ Each function takes two semantic \hlight{sub-expressions}
 \vspace{2em}
 Returns semantics of the \hlight{larger expression}
 \end{frame}
+}
 
 \begin{frame}
 \frametitle{Dependencies to Logical Forms}
@@ -657,7 +685,6 @@ Returns semantics of the \hlight{larger expression}
   \end{column}
  \end{columns}
  
- \pause
  \vspace{0.6cm}
  \begin{columns}
   \begin{column}{0.39\textwidth}
@@ -687,6 +714,7 @@ Returns semantics of the \hlight{larger expression}
 % \end{columns}
 \end{frame}
 
+\ignore{
 \begin{frame}
 \frametitle{Dependencies to Logical Forms}
 \vspace{-1em}
@@ -697,6 +725,7 @@ Returns semantics of the \hlight{larger expression}
 \only<2>{\vspace{2cm}$\lambda x. \exists yz \lspace \mathrm{located}(z_e) \wedge  \mathrm{Pixar}(x_a) \wedge \mathrm{CA}(y_a) \wedge$ \\ $\mathrm{\color{darkgreen}company}(x_a) \wedge \mathrm{\color{red}arg_2}(z_e, x_a) \wedge \mathrm{\color{blue} arg_{in}}(z_e, y_a)$}
 \end{center}
 \end{frame}
+}
 
 \begin{frame}
 \frametitle{UD labels are insufficient in few cases}
@@ -772,17 +801,15 @@ $\Omega $ \> = \> $\lambda x. \textsc{eq}(x, \omega)$
 
 
 \begin{frame}
-\Large
-\centering
-\vspace{1.5em}
-Evaluation of logical forms on \\
-Freebase Semantic Parsing
+\frametitle{Part 2: Question Answering}
+\vspace{6em}
+\includegraphics[scale=0.82]{figures/outline8.pdf}
 \end{frame}
 
 \section{Semantic Parsing as Graph Matching}
 \begin{frame}
-\frametitle{Freebase Semantic Parsing}
-\framesubtitle{[Berant et al., 2013, Kwiatkowski et al., 2013]}
+\frametitle{Knowledge-base Question Answering}
+\framesubtitle{[\small Zelle and Mooney 1996, Berant et al. 2013, Kwiatkowski et al. 2013]}
 \vspace{-1em}
 \begin{columns}
  \begin{column}{0.55\textwidth}
@@ -799,17 +826,17 @@ Freebase Semantic Parsing
   myArrow1/.style={->,>=stealth,shorten >=1pt,blue!20!white,above,sloped,line width=10pt},
   every node/.style={align=center}]
 \matrix{
-    \node[myboxNL] (NL) {\textbf{Question} \\ Who is the director of Titanic?}; \\ 
-    \only<2->{\node[myboxMR] (MR) [text=black!16] {
-    \textbf{Grounded Logical Form} \\ $\lambda x.\exists e.\;\mbox{film.director}(x) \wedge \mbox{film.directed\_by}(e) \wedge \mbox{arg2}(y,x) \wedge \mbox{arg1}(e,\mbox{Titanic})$ }; \\}
-    \node[myboxAns] (Ans) {\textbf{Answer} \\ \{James Cameron\}}; \\
+    \node[myboxNL] (NL) {\textbf{Question} \\ Which company acquired Pixar?}; \\ 
+    \only<2->{\node[myboxMR] (MR) [text=black!30] {
+    \textbf{Grounded Logical Form} \\ $\lambda x.\exists e.\;\mbox{organization}(x) \wedge \mbox{acquisition}(e) \wedge \mbox{acquiring\_company}(e,x) \wedge \mbox{company\_acquired}(e,\mbox{Pixar})$ }; \\}
+    \node[myboxAns] (Ans) {\textbf{Answer} \\ \{The Walt Disney Company\}}; \\
     };
 \end{tikzpicture}
 
 \only<2->{\begin{tikzpicture}[rounded corners]
 
  \node[text width=15em,fill=white!0,draw=white!0](q_A) at (-5,-5) [text=red!80]{
-\vspace{-4.2cm} \\ \hspace{2cm} Latent
+\vspace{-4.2cm} \\ \hspace{2cm} \bf Latent
  };
 \end{tikzpicture}}
 \end{figure}
@@ -818,22 +845,54 @@ Freebase Semantic Parsing
  \begin{column}{0.45\textwidth}
  \vspace{-1cm}
  \begin{figure}
-  \includegraphics[scale=0.45]{figures/titanic} 
+  \includegraphics[scale=0.65]{figures/pixar_kb} 
  \end{figure}
  \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Freebase Semantic Parsing {\small [Reddy et al. 2014, 2016]}}
-\only<1>{\includegraphics[scale=0.85]{figures/outline1.pdf}} 
-\only<2>{\includegraphics[scale=0.85]{figures/outline2.pdf}}
-\only<3>{\includegraphics[scale=0.85]{figures/outline3.pdf}}
-\only<4>{\includegraphics[scale=0.85]{figures/outline.pdf}}
+\frametitle{Freebase QA as Graph Matching {\small [Reddy et al. 2014, 2016]}}
+\large
+\begin{center}
+  \textsl{What is the name of the company that acquired Pixar?} 
+  
+  \vspace{2em}
+  
+  $\lambda x. \, \exists e_1 e_2 y. \, \mathrm{name}(x) \wedge \mathrm{name.arg_0}(e_1, x) \wedge \mathrm{name.of}(e_1, y)$ \\ $\wedge\, \mathrm{company}(y) \wedge \mathrm{acquired.arg_1}(e_2, y) \wedge \mathrm{acquired.arg_2}(e_2, Pixar)$
+\end{center}
+
+\vspace{2em}
+\pause
+\begin{columns}
+  \begin{column}{0.58\textwidth}
+   \centering
+\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch}\\ Ungrounded Graph
+   %\only<3>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch_collapsed}}
+  \end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Multilingual Freebase Semantic Parsing}
+\frametitle{Freebase QA as Graph Matching  {\small [Reddy et al. 2014, 2016]}}
+
+\begin{columns}
+  \begin{column}{0.58\textwidth}
+   \centering
+   \only<1>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch}\\ Ungrounded Graph}
+   %\only<2>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch2}\\ Ungrounded Graph}
+   \only<2>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch1}\\ Ungrounded Graph}
+   \only<3>{\includegraphics[width=\textwidth]{figures/transitive_ungrounded_mismatch_collapsed}\\ Ungrounded Graph}
+  \end{column}
+  \begin{column}{0.42\textwidth}
+    \centering
+   \vspace{-1.5em} \includegraphics[width=\textwidth]{figures/transitive_grounded} \\ \vspace{-1.5em}Freebase Graph
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Multilingual Freebase QA}
 
 \includegraphics[scale=0.58]{figures/multilingual-grounding}
 
@@ -866,11 +925,14 @@ Freebase Semantic Parsing
 
 \vspace{2em}
 BiLSTM Parser {\small [Kipperwiser and Goldberg 2016]}\\
+
+\ignore{
 \begin{itemize}
 \item English: 81.8 \\
 \item German: 74.7 \\
 \item Spanish: 82.2 \\
 \end{itemize}
+}
 \end{frame}
 
 \section{Evaluation} 
@@ -990,13 +1052,10 @@ Context-sensitive semantics of dependency labels, e.g., \textit{nsubj} is \textb
 \item John broke the window $\Large \textbf{\hlight{\cmark}}$
 \vspace{1em}
 \item The {\color{red} window} broke $\Large \textbf{\color{red} {\xmark}}$
-\begin{itemize}
-\item \large \textsl{window} is the patient (arg$_2$) although it occurs as \textsl{nsubj}
-\end{itemize}
 \end{itemize}
 
 \vspace{2em}
-\hlight{Solution:} Semantic Role labeling? 
+\hlight{Solution:} Semantic Role labeling [\small Palmer et al. 2010] 
 \end{frame}
 
 \begin{frame}
@@ -1033,6 +1092,23 @@ Demo: \hlight{\url{sivareddy.in/udeplambda.html}} \\
 
 
 \section{Additional Slides}
+
+\begin{frame}
+\frametitle{Experimental Setup}
+\large
+69 lambda calculus rules
+
+\vspace{2em}
+BiLSTM Parser {\small [Kipperwiser and Goldberg 2016]}\\
+
+\begin{itemize}
+\item English: 81.8 \\
+\item German: 74.7 \\
+\item Spanish: 82.2 \\
+\end{itemize}
+
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Quantifiers and Negation Scope}

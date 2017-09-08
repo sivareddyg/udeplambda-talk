@@ -37,17 +37,17 @@ thick,dashed,sloped,above,font=\sffamily\scshape,bend right=20},
 
   % Position the nodes using a matrix layout
   \matrix{
-    \node[entityType] (tLanguage) {name}; \& \node[mathType] (mName) {\textsc{target}}; \& \node[entityType] (tCompany) {director}; \\
+    \node[entityType] (tLanguage) {name}; \& \node[mathType] (mName) {\textsc{target}}; \& \node[entityType] (tCompany) {company}; \\
     
-    \node[entity] (eName) {$x$}; \& \node[mediator] (e1) {$e_1$}; \& \node[entity] (eCompany) {$y$}; \& \node[mediator] (e2) {$e_2$}; \& \node[entity] (ePixar) {Titanic}; \\
+    \node[entity] (eName) {$x$}; \& \node[mediator] (e1) {$e_1$}; \& \node[entity] (eCompany) {$y$}; \& \node[mediator] (e2) {$e_2$}; \& \node[entity] (ePixar) {Pixar}; \\
   };
  
   % mediator to entities
   \draw [mediatorToEntity] (e1) edge node[below] {name\\.arg0}  (eName);
   \draw [mediatorToEntity] (e1) edge node[below] {name.of} (eCompany);
   
-  \draw [mediatorToEntity] (e2) edge node[below] {director\\.arg0}  (eCompany);
-  \draw [mediatorToEntity] (e2) edge node[below] {director\\.of} (ePixar);
+  \draw [mediatorToEntity] (e2) edge node[below] {acquired\\.arg1}  (eCompany);
+  \draw [mediatorToEntity] (e2) edge node[below] {acquired\\.arg2} (ePixar);
   
   % types to entities
   \draw [typeToEntity] (tLanguage) edge node {type}  (eName);
