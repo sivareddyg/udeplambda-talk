@@ -1047,7 +1047,9 @@ es & ?`Cu\'{a}ntos sitios de despegue tiene NASA? \\
 \begin{frame}
 \frametitle{Error Analysis / Limitations}
 \large
-Context-sensitive semantics of dependency labels, e.g., \textit{nsubj} is \textbf{not} always agent (arg$_1$)
+Context-sensitive semantics of dependency labels
+% , e.g., \textit{nsubj} is \textbf{not} always agent (arg$_1$)
+\vspace{1em}
 \begin{itemize}
 \item John broke the window $\Large \textbf{\hlight{\cmark}}$
 \vspace{1em}
@@ -1092,6 +1094,17 @@ Demo: \hlight{\url{sivareddy.in/udeplambda.html}} \\
 
 
 \section{Additional Slides}
+
+\begin{frame}
+\frametitle{Dependencies to Logical Forms}
+\vspace{-1em}
+\begin{center}
+\only<1>{\vspace{-5em}\includegraphics[trim=2em 5em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud}}
+\only<2>{\vspace{2em}\includegraphics[trim=2em 2em 12em 0em,clip=true,scale=1.0]{figures/dependency-reduced-relative-ud-parg}}
+
+\only<2>{\vspace{2cm}$\lambda x. \exists yz \lspace \mathrm{located}(z_e) \wedge  \mathrm{Pixar}(x_a) \wedge \mathrm{CA}(y_a) \wedge$ \\ $\mathrm{\color{darkgreen}company}(x_a) \wedge \mathrm{\color{red}arg_2}(z_e, x_a) \wedge \mathrm{\color{blue} arg_{in}}(z_e, y_a)$}
+\end{center}
+\end{frame}
 
 \begin{frame}
 \frametitle{Experimental Setup}
